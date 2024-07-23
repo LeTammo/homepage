@@ -1,7 +1,8 @@
 let particles = [];
 let numParticles = 330;
-let maxDistance = 60;
+let maxDistance = 70;
 let speedMultiplier = 0.2;
+let useColor = false;
 
 function setup() {
     let canvas = createCanvas(windowWidth, windowHeight);
@@ -27,7 +28,16 @@ function connectParticles() {
             let d = dist(particles[i].x, particles[i].y, particles[j].x, particles[j].y);
             if (d < maxDistance) {
                 let alpha = map(d, 0, maxDistance, 255, 0);
-                stroke(255, alpha);
+                if (useColor) {
+                    let color1 = particles[i].color;
+                    let color2 = particles[j].color;
+                    let r = lerp(red(color1), red(color2), 0.5);
+                    let g = lerp(green(color1), green(color2), 0.5);
+                    let b = lerp(blue(color1), blue(color2), 0.5);
+                    stroke(r, g, b, alpha);
+                } else {
+                    stroke(255, alpha);
+                }
                 line(particles[i].x, particles[i].y, particles[j].x, particles[j].y);
             }
         }
@@ -41,6 +51,7 @@ class Particle {
         this.vx = random(-1, 1) * speedMultiplier;
         this.vy = random(-1, 1) * speedMultiplier;
         this.size = 3;
+        this.color = useColor ? color(random(255), random(255), random(255)) : color(255);
     }
 
     update() {
@@ -52,7 +63,7 @@ class Particle {
 
     display() {
         noStroke();
-        fill(255);
+        fill(this.color);
         ellipse(this.x, this.y, this.size, this.size);
     }
 }
