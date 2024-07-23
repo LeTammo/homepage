@@ -3,6 +3,7 @@ let numParticles = 330;
 let maxDistance = 70;
 let speedMultiplier = 0.2;
 let useColor = false;
+let basicColor = 100;
 
 function setup() {
     let canvas = createCanvas(windowWidth, windowHeight);
@@ -36,7 +37,7 @@ function connectParticles() {
                     let b = lerp(blue(color1), blue(color2), 0.5);
                     stroke(r, g, b, alpha);
                 } else {
-                    stroke(255, alpha);
+                    stroke(basicColor, alpha);
                 }
                 line(particles[i].x, particles[i].y, particles[j].x, particles[j].y);
             }
@@ -51,7 +52,7 @@ class Particle {
         this.vx = random(-1, 1) * speedMultiplier;
         this.vy = random(-1, 1) * speedMultiplier;
         this.size = 3;
-        this.color = useColor ? color(random(255), random(255), random(255)) : color(255);
+        this.color = useColor ? color(random(255), random(255), random(255)) : color(basicColor);
     }
 
     update() {
@@ -70,4 +71,19 @@ class Particle {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+}
+
+function toggleColor() {
+    useColor = !useColor;
+    for (let particle of particles) {
+        particle.color = useColor ? color(random(255), random(255), random(255)) : color(basicColor);
+    }
+}
+
+function toggleSpeed() {
+    speedMultiplier = speedMultiplier === 0.2 ? 0.9 : 0.2;
+    for (let particle of particles) {
+        particle.vx = random(-1, 1) * speedMultiplier;
+        particle.vy = random(-1, 1) * speedMultiplier;
+    }
 }

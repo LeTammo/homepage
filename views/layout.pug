@@ -23,6 +23,13 @@ html(lang="en")
                 script(src="/js/p5.min.js")
                 script(src="/js/sketch.js")
         footer.mt-auto
+            .container.p-4.text-white
+                .text-zinc-400.px-10
+                    button(class=" rounded-full" onclick="toggleColor()")
+                        .text-xs.bg-amber-400 ✨ Farben
+                .text-zinc-400.px-10
+                    button(class=" rounded-full" onclick="toggleSpeed()")
+                        .text-xs.bg-amber-400 🔥 Schneller
             .bg-zinc-900
                 .container.p-4.text-white.mx-auto
                     .flex
