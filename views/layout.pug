@@ -9,34 +9,34 @@ html(lang="en" class="h-full m-0 p-0")
     body.h-full.flex.flex-col.m-0.p-0.bg-gradient-to-r.from-zinc-950.to-zinc-800
         .container.p-20.mx-auto.text-zinc-400
             .flex.flex-row.flex-wrap
-                aside(class="w-full md:w-1/3 lg:w-1/6 px-2")
+                aside.pr-2.w-full(class="mdw-1/3 lg--w-1/6")
                     .sticky.top-8.p-4.bg-zinc-900.rounded-xl.w-full.c-shadow
                         ul.nav.flex.flex-col.overflow-hidden
                             li.nav-item
-                                a(class="nav-link hover:text-zinc-100 text-xl" href="/") Home
+                                a.nav-link.hover--text-zinc-100.text-xl(href="/") Home
                             li.nav-item
-                                a(class="nav-link hover:text-zinc-100 text-xl" href="/about") Über mich
+                                a.nav-link.hover--text-zinc-100.text-xl(href="/about") Über mich
                             li.nav-item
-                                a(class="nav-link hover:text-zinc-100 text-xl" href="/projects") Projekte
-                main(role="main" class="w-full bg-zinc-900 p-10 rounded-xl md:w-2/3 lg:w-5/6 c-shadow")
+                                a.nav-link.hover--text-zinc-100.text-xl(href="/projects") Projekte
+                main(role="main").w-full.bg-zinc-900.p-10.rounded-xl.c-shadow(class="md--w-2/3 lg--w-5/6")
                         block content
                 script(src="/js/p5.min.js")
                 script(src="/js/sketch.js")
         footer.mt-auto
             .container.p-4.text-white
                 .text-zinc-400.px-10
-                    button(class=" rounded-full" onclick="toggleColor()")
+                    button.rounded-full(onclick="toggleColor()")
                         .text-xs ✨ Farben
                 .text-zinc-400.px-10
-                    button(class=" rounded-full" onclick="toggleSpeed()")
+                    button.rounded-full(onclick="toggleSpeed()")
                         .text-xs 🔥 Schneller
             .bg-zinc-900
                 .container.p-4.text-white.mx-auto
                     .flex
                         .flex-grow.flex.flex-col.text-xs
-                            a(href="#") Das ist ein Test
+                            a(href="#") Hier steht noch nix
                         .flex-grow.flex.flex-col.text-xs
-                            a(href="#") Das geht nicht
+                            a(href="#") Das geht auch noch nicht
                         .text-right.text-xs
                             a(href="https://github.com/LeTammo/" target="_blank")
                                 span.text-zinc-600 &copy; 2024 - Felix Jonas Wiegleb
