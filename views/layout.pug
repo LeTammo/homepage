@@ -1,5 +1,5 @@
 doctype html
-html(lang="en" class="h-full m-0 p-0")
+html.h-full.m-0.p-0(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
@@ -9,7 +9,7 @@ html(lang="en" class="h-full m-0 p-0")
     body.h-full.flex.flex-col.m-0.p-0.bg-gradient-to-r.from-zinc-950.to-zinc-800
         .container.p-20.mx-auto.text-zinc-400
             .flex.flex-row.flex-wrap
-                aside.pr-2.w-full(class="mdw-1/3 lg--w-1/6")
+                aside.pr-2.w-full.mdw-1-3.lg--w-1-6
                     .sticky.top-8.p-4.bg-zinc-900.rounded-xl.w-full.c-shadow
                         ul.nav.flex.flex-col.overflow-hidden
                             li.nav-item
@@ -20,7 +20,7 @@ html(lang="en" class="h-full m-0 p-0")
                                 a.nav-link.hover--text-zinc-100.text-xl(href="/projects") Projekte
                             li.nav-item
                                 a.nav-link.hover--text-zinc-100.text-xl(href="https://blog.mathia.xyz" target="_blank") Blog
-                main(role="main").w-full.bg-zinc-900.p-10.rounded-xl.c-shadow(class="md--w-2/3 lg--w-5/6")
+                main.w-full.bg-zinc-900.p-10.rounded-xl.c-shadow.md--w-2-3.lg--w-5-6(role="main")
                         block content
                 script(src="/js/p5.min.js")
                 script(src="/js/sketch.js")
