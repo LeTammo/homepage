@@ -27,18 +27,17 @@ html(lang="en" class="h-full m-0 p-0")
         footer.mt-auto
             .container.p-4.text-white
                 .text-zinc-400.px-10
-                    button.rounded-full(onclick="toggleColor()")
-                        .text-xs ✨ Farben
                 .text-zinc-400.px-10
-                    button.rounded-full(onclick="toggleSpeed()")
-                        .text-xs 🔥 Schneller
             .bg-zinc-900
                 .container.p-4.text-white.mx-auto
                     .flex
-                        .flex-grow.flex.flex-col.text-xs
-                            a(href="#") Hier steht noch nix
-                        .flex-grow.flex.flex-col.text-xs
-                            a(href="#") Das geht auch noch nicht
+                        .flex-grow.text-xs
+                            a(href="https://github.com/LeTammo/homepage/blob/main/public/js/sketch.js" target="_blank")
+                                span.text-zinc-400 🔗 Animation made with p5.js
+                            button.pl-5(onclick="toggleColor()")
+                                .text-xs ✨ Farben
+                            button.pl-5(onclick="toggleSpeed()")
+                                .text-xs 🔥 Beschleunigen
                         .text-right.text-xs
                             a(href="https://github.com/LeTammo/" target="_blank")
-                                span.text-zinc-600 &copy; 2024 - Felix Jonas Wiegleb
+                                span.text-zinc-400 &copy; 2024 - Felix Jonas Wiegleb
