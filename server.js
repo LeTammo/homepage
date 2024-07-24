@@ -10,15 +10,15 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.render('home', { title: 'Home' });
+    res.render('home', { title: 'Home', activePage: 'home' });
 });
 
 app.get('/about', (req, res) => {
-    res.render('about', { title: 'About Me' });
+    res.render('about', { title: 'About Me', activePage: 'about' });
 });
 
 app.get('/projects', (req, res) => {
-    res.render('projects', { title: 'Projects' });
+    res.render('projects', { title: 'Projects', activePage: 'projects' });
 });
 
 app.listen(PORT, () => {
