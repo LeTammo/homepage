@@ -1,10 +1,14 @@
 .sticky.top-8.p-4.bg-zinc-900.rounded-xl.w-full.c-shadow
     ul.nav.flex.flex-col.overflow-hidden
         li.nav-item
-            a.nav-link.hover--text-zinc-100.text-xl(href="/" class=activePage === 'home' ? 'text-zinc-100' : '') Home
+            a(href="/" class=activePage === 'home' ? 'text-zinc-100' : '').nav-link.hover--text-zinc-100
+                .text-xl Home
         li.nav-item
-            a.nav-link.hover--text-zinc-100.text-xl(href="/about" class=activePage === 'about' ? 'text-zinc-100' : '') Über mich
+            a(href="/about" class=activePage === 'about' ? 'text-zinc-100' : '').nav-link.hover--text-zinc-100.text-xl
+                .text-xl Über mich
         li.nav-item
-            a.nav-link.hover--text-zinc-100.text-xl(href="/projects" class=activePage === 'projects' ? 'text-zinc-100' : '') Projekte
+            a(href="/projects" class=activePage === 'projects' ? 'text-zinc-100' : '').nav-link.hover--text-zinc-100.text-xl
+                .text-xl Projekte
         li.nav-item
-            a.nav-link.hover--text-zinc-100.text-xl(href="https://blog.mathia.xyz" target="_blank") Blog
+            a(href="https://blog.mathia.xyz" target="_blank").nav-link.hover--text-zinc-100.text-xl
+                .text-xl Blog
