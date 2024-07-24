@@ -753,6 +753,16 @@ video {
   color: rgb(161 161 170 / var(--tw-text-opacity));
 }
 
+.text-zinc-600 {
+  --tw-text-opacity: 1;
+  color: rgb(82 82 91 / var(--tw-text-opacity));
+}
+
+.text-zinc-500 {
+  --tw-text-opacity: 1;
+  color: rgb(113 113 122 / var(--tw-text-opacity));
+}
+
 .hover--text-zinc-100:hover {
   --tw-text-opacity: 1;
   color: rgb(244 244 245 / var(--tw-text-opacity));
