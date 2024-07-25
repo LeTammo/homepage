@@ -3,5 +3,11 @@
 }
 
 .h-screen {
-    height: 90vh;
+    height: initial;
+}
+
+@media (min-width: 768px) {
+    .h-screen {
+        height: 90vh;
+    }
 }

@@ -1,7 +1,7 @@
-.sticky.top-8.p-6.bg-zinc-900.rounded-xl.w-full.border.border-zinc-800.h-screen
-    ul.nav.flex.flex-col.overflow-hidden
+.sticky.md--top-8.p-2.md--p-6.bg-zinc-900.rounded-xl.w-full.border.border-zinc-800.h-screen
+    ul.nav.flex.md--flex-col.overflow-hidden.justify-between
         each item in navItems
-            li.nav-item.mb-3
+            li.nav-item.md--mb-3
                 a(
                     href=item.href
                     target=item.external ? "_blank" : "_self"
@@ -9,4 +9,4 @@
                 ).nav-link.hover--text-zinc-100.text-xl.flex.align-center
                     if item.external
                         span.text-sm.my-auto 🔗
-                    .text-2xl= item.label
+                    .text-sm.md--text-2xl= item.label
