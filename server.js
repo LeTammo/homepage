@@ -23,7 +23,7 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/projects', (req, res) => {
-    res.render('projects', { ...globals, ...{ activePage: 'projects' } });
+    res.render('projects/projects', { ...globals, ...{ activePage: 'projects' } });
 });
 
 app.listen(PORT, () => {
