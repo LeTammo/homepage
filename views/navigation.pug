@@ -1,14 +1,12 @@
-.sticky.top-8.p-4.bg-zinc-900.rounded-xl.w-full.c-shadow
+.sticky.top-8.p-6.bg-zinc-900.rounded-xl.w-full.border.border-zinc-800
     ul.nav.flex.flex-col.overflow-hidden
-        li.nav-item
-            a(href="/" class=activePage === 'home' ? 'text-zinc-100' : '').nav-link.hover--text-zinc-100
-                .text-xl Home
-        li.nav-item
-            a(href="/about" class=activePage === 'about' ? 'text-zinc-100' : '').nav-link.hover--text-zinc-100.text-xl
-                .text-xl Über mich
-        li.nav-item
-            a(href="/projects" class=activePage === 'projects' ? 'text-zinc-100' : '').nav-link.hover--text-zinc-100.text-xl
-                .text-xl Projekte
-        li.nav-item
-            a(href="https://blog.mathia.xyz" target="_blank").nav-link.hover--text-zinc-100.text-xl
-                .text-xl Blog
+        each item in navItems
+            li.nav-item.mb-3
+                a(
+                    href=item.href
+                    target=item.external ? "_blank" : "_self"
+                    class=activePage === item.key ? 'text-green-600 font-bold' : ''
+                ).nav-link.hover--text-zinc-100.text-xl.flex.align-center
+                    if item.external
+                        span.text-sm.my-auto 🔗
+                    .text-2xl= item.label
