@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-    res.render('about', { ...globals, ...{ activePage: 'about' } });
+    res.render('about/about', { ...globals, ...{ activePage: 'about' } });
 });
 
 app.get('/projects', (req, res) => {

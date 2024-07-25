@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+    .flex.flex-row.justify-between.divide-x.divide-zinc-800
+        .w-2-3
+            a(href="https://amronas.one/home" target="_blank")
+                .text-2xl.font-semibold.textun Persönliche Webseite
+            p Wir befinden uns gerade hier. Informationen über meine Person und mein Portfolio.
+        .w-1-3.pl-2.flex.flex-col.divide-y.divide-zinc-800
+            include vitae
