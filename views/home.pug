@@ -1,10 +1,127 @@
 extends layout
 
 block content
-    .text-center.text-2xl
-        p.pb-2.italic Willkommen!
-        p.pb-4 Ich bin Felix Jonas Wiegleb - Webentwickler und Wissenschafts-Nerd.
-        .mx-auto.rounded-full.border-2.border-zinc-600.w-32.h-32
-            img.rounded-full.border-4.border-zinc-900.mt-2(src="images/me.jpg" alt="logo")
-        p.pt-2 Hier stelle ich mich vor, gebe Einblicke in meine Projekte und lebe mich ein µ kreativ aus.
-        p.pt-2.italic Viel Spaß beim Stöbern!
+    //- Hero
+    .flex.flex-col.lg--flex-row.items-center.gap-12.mb-16
+        .flex-1.space-y-6
+            .space-y-4
+                h1.text-5xl.md--text-6xl.font-bold.text-zinc-300.leading-tight
+                    | Felix Jonas Wiegleb
+                p.text-xl.md--text-2xl.text-green-600.font-bold
+                    | Software Developer & Math Enthusiast
+                p.text-lg.text-zinc-400.leading-relaxed.max-w-2xl
+                    | I'm a passionate software developer focused on turning complex problems into simple, component-based solutions.
+                    br
+                    | My strength lies in communication and collaboration, ensuring that ideas are clearly conveyed and understood by each stakeholder.
+
+            .flex.gap-4.pt-4
+                a(href="/projects").inline-flex.items-center.px-6.py-3.bg-green-700.hover--bg-green-600.text-white.font-medium.rounded-lg.transition-colors
+                    span View Projects
+                    svg(xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2")
+                        line(x1="5" y1="12" x2="19" y2="12")
+                        polyline(points="12 5 19 12 12 19")
+
+                a(href="/about").inline-flex.items-center.px-6.py-3.border.border-zinc-600.hover--border-zinc-500.text-zinc-300.hover--text-white.font-medium.rounded-lg.transition-colors
+                    span About Me
+
+        .flex-shrink-0
+            a(href="/about")
+                .relative.group
+                    .absolute.-inset-1.bg-green-600.rounded-full.opacity-0.blur.group-hover--opacity-50.transition
+                    .relative.w-48.h-48.md--w-64.md--h-64.rounded-full.border-4.border-zinc-800.overflow-hidden
+                        img(src="images/me.jpg" alt="Profile" class="w-full h-full object-cover")
+
+    //- Skills
+    .space-y-8
+        .space-y-3
+            h2.text-3xl.font-bold.text-zinc-300 Skills & Technologies
+            .h-1.w-20.bg-green-600.rounded
+
+        .grid.grid-cols-2.md--grid-cols-3.lg--grid-cols-4.gap-4
+            .group.p-4.bg-zinc-800.hover--bg-zinc-700.border.border-zinc-700.hover--border-zinc-600.rounded-lg.transition-all.hover--shadow-lg
+                .flex.items-center.gap-3
+                    .w-12.h-12.bg-gradient-to-br.from-blue-500.to-blue-600.rounded-lg.flex.items-center.justify-center.text-white.font-bold.text-xl
+                        | JS
+                    div
+                        .font-semibold.text-white JavaScript
+                        .text-sm.text-zinc-400 ES6+, TypeScript
+
+            .group.p-4.bg-zinc-800.hover--bg-zinc-700.border.border-zinc-700.hover--border-zinc-600.rounded-lg.transition-all.hover--shadow-lg
+                .flex.items-center.gap-3
+                    .w-12.h-12.bg-gradient-to-br.from-cyan-500.to-blue-500.rounded-lg.flex.items-center.justify-center.text-white.font-bold.text-xl
+                        | P
+                    div
+                        .font-semibold.text-white PHP
+                        .text-sm.text-zinc-400 5.4, 7.4, 8.5, Symfony
+
+            .group.p-4.bg-zinc-800.hover--bg-zinc-700.border.border-zinc-700.hover--border-zinc-600.rounded-lg.transition-all.hover--shadow-lg
+                .flex.items-center.gap-3
+                    .w-12.h-12.bg-gradient-to-br.from-cyan-400.to-cyan-600.rounded-lg.flex.items-center.justify-center.text-white.font-bold.text-xl
+                        | PY
+                    div
+                        .font-semibold.text-white Python
+                        .text-sm.text-zinc-400 Django, Flask
+
+            .group.p-4.bg-zinc-800.hover--bg-zinc-700.border.border-zinc-700.hover--border-zinc-600.rounded-lg.transition-all.hover--shadow-lg
+                .flex.items-center.gap-3
+                    .w-12.h-12.bg-gradient-to-br.from-emerald-500.to-green-600.rounded-lg.flex.items-center.justify-center.text-white.font-bold.text-xl
+                        | J
+                    div
+                        .font-semibold.text-white Java
+                        .text-sm.text-zinc-400 Object-Oriented
+
+            .group.p-4.bg-zinc-800.hover--bg-zinc-700.border.border-zinc-700.hover--border-zinc-600.rounded-lg.transition-all.hover--shadow-lg
+                .flex.items-center.gap-3
+                    .w-12.h-12.bg-gradient-to-br.from-violet-500.to-purple-600.rounded-lg.flex.items-center.justify-center.text-white.font-bold.text-xl
+                        | R
+                    div
+                        .font-semibold.text-white React
+                        .text-sm.text-zinc-400 Component-Based
+
+            .group.p-4.bg-zinc-800.hover--bg-zinc-700.border.border-zinc-700.hover--border-zinc-600.rounded-lg.transition-all.hover--shadow-lg
+                .flex.items-center.gap-3
+                    .w-12.h-12.bg-gradient-to-br.from-sky-400.to-blue-500.rounded-lg.flex.items-center.justify-center.text-white.font-bold.text-xl
+                        | F
+                    div
+                        .font-semibold.text-white HTML & CSS
+                        .text-sm.text-zinc-400 Tailwind, Bootstrap
+
+            .group.p-4.bg-zinc-800.hover--bg-zinc-700.border.border-zinc-700.hover--border-zinc-600.rounded-lg.transition-all.hover--shadow-lg
+                .flex.items-center.gap-3
+                    .w-12.h-12.bg-gradient-to-br.from-orange-500.to-red-600.rounded-lg.flex.items-center.justify-center.text-white.font-bold.text-xl
+                        | G
+                    div
+                        .font-semibold.text-white Git
+                        .text-sm.text-zinc-400 CI/CD, GitHub, GitLab
+
+            .group.p-4.bg-zinc-800.hover--bg-zinc-700.border.border-zinc-700.hover--border-zinc-600.rounded-lg.transition-all.hover--shadow-lg
+                .flex.items-center.gap-3
+                    .w-12.h-12.bg-gradient-to-br.from-slate-500.to-slate-600.rounded-lg.flex.items-center.justify-center.text-white.font-bold.text-xl
+                        | DB
+                    div
+                        .font-semibold.text-white Database
+                        .text-sm.text-zinc-400 MySQL, PostgreSQL
+
+            .group.p-4.bg-zinc-800.hover--bg-zinc-700.border.border-zinc-700.hover--border-zinc-600.rounded-lg.transition-all.hover--shadow-lg
+                .flex.items-center.gap-3
+                    .w-12.h-12.bg-gradient-to-br.from-slate-500.to-slate-600.rounded-lg.flex.items-center.justify-center.text-white.font-bold.text-xl
+                        | OF
+                    div
+                        .font-semibold.text-white Office
+                        .text-sm.text-zinc-400 Word, Excel, PP
+
+            .group.p-4.bg-zinc-800.hover--bg-zinc-700.border.border-zinc-700.hover--border-zinc-600.rounded-lg.transition-all.hover--shadow-lg
+                .flex.items-center.gap-3
+                    .w-12.h-12.bg-gradient-to-br.from-slate-500.to-slate-600.rounded-lg.flex.items-center.justify-center.text-white.font-bold.text-xl
+                        | OS
+                    div
+                        .font-semibold.text-white Operating System
+                        .text-sm.text-zinc-400 Linux, Windows, MacOS
+
+            .group.p-4.bg-zinc-800.hover--bg-zinc-700.border.border-zinc-700.hover--border-zinc-600.rounded-lg.transition-all.hover--shadow-lg
+                .flex.items-center.gap-3
+                    .w-12.h-12.bg-gradient-to-br.from-slate-500.to-slate-600.rounded-lg.flex.items-center.justify-center.text-white.font-bold.text-xl
+                        | DC
+                    div
+                        .font-semibold.text-white Docker
+                        .text-sm.text-zinc-400 Containerization
