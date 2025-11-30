@@ -9,6 +9,8 @@ function setup() {
     let canvas = createCanvas(windowWidth, windowHeight);
     canvas.position(0, 0);
     canvas.style('z-index', '-1');
+    canvas.style('position', 'fixed');
+    canvas.attribute('data-protected', 'true');
     for (let i = 0; i < numParticles; i++) {
         particles.push(new Particle());
     }
