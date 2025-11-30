@@ -851,6 +851,10 @@ video {
   overflow: hidden;
 }
 
+.overscroll-none {
+  overscroll-behavior: none;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
