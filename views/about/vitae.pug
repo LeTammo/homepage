@@ -1,38 +1,75 @@
-div
-    p.text-lg.uppercase Berufliche Erfahrung
-        .pl-4
-            .py-4
-                p.italic.font-light 2023 - heute
-                p.font-bold Fullstack PHP-Webentwickler
-                p.font-light Databay AG
-            .py-4
-                p.italic.font-light 2018 - 2020
-                p.font-bold Leiter des Ganztagsangebots<br>„Mathefördern und -fordern“
-                p.font-light Erich-Zeigner-Grundschule Leipzig
-            .py-4
-                p.italic.font-light 2018 - 2020
-                p.font-bold Promoter für Fahrgastaktionen
-                p.font-light Abellio Rail GmbH
-            .py-4
-                p.italic.font-light 2016 - 2017
-                p.font-bold Studentische Hilfskraft<br>im Pilotprojekt E-Learning
-                p.font-light HTWK Leipzig
-div.mt-4.pt-6
-    p.text-lg.uppercase Ausbildung
-        .pl-4
-            .py-4
-                p.italic.font-light 2020 - 2024
-                p.font-bold Studium Angewandte Mathematik und Informatik (B.Sc.)
-                p.font-light FH Aachen
-            .py-4
-                p.italic.font-light 2020 - 2023
-                p.font-bold Ausbildung zum mathematisch-technischen Softwareentwickler
-                p.font-light Databay AG
-            .py-4
-                p.italic.font-light 2014 - 2020
-                p.font-bold Studium Angewandte Mathematik (B.Sc.)
-                p.font-light HTWK Leipzig
-            .py-4
-                p.italic.font-light 2012 - 2014
-                p.font-bold Fachhochschule Technik
-                p.font-light Berufliches Schulzentrum 7 Leipzig
+//- Experience Section
+.bg-zinc-800.rounded-xl.p-6.border.border-zinc-700.space-y-6
+    h3.text-xl.font-bold.text-white.mb-4.flex.items-center
+        svg(xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 text-green-600")
+            rect(width="18" height="18" x="3" y="4" rx="2" ry="2")
+            line(x1="16" x2="16" y1="2" y2="6")
+            line(x1="8" x2="8" y1="2" y2="6")
+            line(x1="3" x2="21" y1="10" y2="10")
+        | Berufliche Erfahrung
+
+    .space-y-4.relative.pl-6.border-l-2.border-zinc-700
+        .relative
+            .absolute.-left-8.mt-1.w-4.h-4.bg-green-600.rounded-full.border-2.border-zinc-900
+            .space-y-1
+                p.text-xs.text-green-500.font-semibold 2023 - heute
+                p.font-bold.text-white Fullstack PHP-Webentwickler
+                p.text-sm.text-zinc-400 Databay AG
+
+        .relative
+            .absolute.-left-8.mt-1.w-4.h-4.bg-zinc-600.rounded-full.border-2.border-zinc-900
+            .space-y-1
+                p.text-xs.text-zinc-500.font-semibold 2018 - 2020
+                p.font-bold.text-white Leiter des Ganztagsangebots „Mathefördern und -fordern"
+                p.text-sm.text-zinc-400 Erich-Zeigner-Grundschule Leipzig
+
+        .relative
+            .absolute.-left-8.mt-1.w-4.h-4.bg-zinc-600.rounded-full.border-2.border-zinc-900
+            .space-y-1
+                p.text-xs.text-zinc-500.font-semibold 2018 - 2020
+                p.font-bold.text-white Promoter für Fahrgastaktionen
+                p.text-sm.text-zinc-400 Abellio Rail GmbH
+
+        .relative
+            .absolute.-left-8.mt-1.w-4.h-4.bg-zinc-600.rounded-full.border-2.border-zinc-900
+            .space-y-1
+                p.text-xs.text-zinc-500.font-semibold 2016 - 2017
+                p.font-bold.text-white Studentische Hilfskraft im Pilotprojekt E-Learning
+                p.text-sm.text-zinc-400 HTWK Leipzig
+
+//- Education Section
+.bg-zinc-800.rounded-xl.p-6.border.border-zinc-700.space-y-6
+    h3.text-xl.font-bold.text-white.mb-4.flex.items-center
+        svg(xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 text-green-600")
+            path(d="M22 10v6M2 10l10-5 10 5-10 5z")
+            path(d="M6 12v5c3 3 9 3 12 0v-5")
+        | Ausbildung
+
+    .space-y-4.relative.pl-6.border-l-2.border-zinc-700
+        .relative
+            .absolute.-left-8.mt-1.w-4.h-4.bg-green-600.rounded-full.border-2.border-zinc-900
+            .space-y-1
+                p.text-xs.text-green-500.font-semibold 2020 - 2024
+                p.font-bold.text-white Studium Angewandte Mathematik und Informatik (B.Sc.)
+                p.text-sm.text-zinc-400 FH Aachen
+
+        .relative
+            .absolute.-left-8.mt-1.w-4.h-4.bg-zinc-600.rounded-full.border-2.border-zinc-900
+            .space-y-1
+                p.text-xs.text-zinc-500.font-semibold 2020 - 2023
+                p.font-bold.text-white Ausbildung zum mathematisch-technischen Softwareentwickler
+                p.text-sm.text-zinc-400 Databay AG
+
+        .relative
+            .absolute.-left-8.mt-1.w-4.h-4.bg-zinc-600.rounded-full.border-2.border-zinc-900
+            .space-y-1
+                p.text-xs.text-zinc-500.font-semibold 2014 - 2020
+                p.font-bold.text-white Studium Angewandte Mathematik (B.Sc.)
+                p.text-sm.text-zinc-400 HTWK Leipzig
+
+        .relative
+            .absolute.-left-8.mt-1.w-4.h-4.bg-zinc-600.rounded-full.border-2.border-zinc-900
+            .space-y-1
+                p.text-xs.text-zinc-500.font-semibold 2012 - 2014
+                p.font-bold.text-white Fachhochschule Technik
+                p.text-sm.text-zinc-400 Berufliches Schulzentrum 7 Leipzig
