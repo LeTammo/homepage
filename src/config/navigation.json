@@ -1,6 +1,6 @@
 [
   { "href": "/", "label": "Home", "key": "home" },
-  { "href": "/about", "label": "Über mich", "key": "about" },
-  { "href": "/projects", "label": "Projekte", "key": "projects" },
+  { "href": "/about", "label": "About me", "key": "about" },
+  { "href": "/projects", "label": "Projects", "key": "projects" },
   { "href": "https://blog.mathia.xyz", "label": "Blog", "key": "blog", "external": true }
 ]
