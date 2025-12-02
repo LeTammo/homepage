@@ -1,18 +1,19 @@
 let particles = [];
-let numParticles = 250;
-let maxDistance = 60;
-let speedMultiplier = 0.9;
+let numParticles = 360;
+let maxDistance = 70;
+let speedMultiplier = 0.2;
 let useColor = false;
 let basicColor = 100;
 
 let gridSize;
 let grid = {};
-let lineBuffer = []; // Reusable buffer for line data
+let lineBuffer = [];
 
 function setup() {
-    frameRate(15);
+    frameRate(30);
+    pixelDensity(1);
 
-    let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
+    let canvas = createCanvas(windowWidth, windowHeight, P2D);
     canvas.position(0, 0);
     canvas.style('z-index', '-1');
     canvas.style('position', 'fixed');
@@ -28,8 +29,6 @@ function setup() {
 function draw() {
     clear();
 
-    translate(-width/2, -height/2);
-
     grid = {};
     for (let particle of particles) {
         particle.update();
@@ -44,17 +43,35 @@ function draw() {
     connectParticlesBatched();
 
     noStroke();
-    for (let particle of particles) {
-        fill(particle.color);
-        circle(particle.x, particle.y, particle.size);
+    if (!useColor) {
+        fill(basicColor);
+        for (let particle of particles) {
+            if (particle.x >= -10 && particle.x <= width + 10 &&
+                particle.y >= -10 && particle.y <= height + 10) {
+                circle(particle.x, particle.y, particle.size);
+            }
+        }
+    } else {
+        for (let particle of particles) {
+            if (particle.x >= -10 && particle.x <= width + 10 &&
+                particle.y >= -10 && particle.y <= height + 10) {
+                fill(particle.color);
+                circle(particle.x, particle.y, particle.size);
+            }
+        }
     }
 }
 
 function connectParticlesBatched() {
-    lineBuffer.length = 0; // Clear buffer
+    lineBuffer.length = 0;
     let checked = new Set();
 
     for (let particle of particles) {
+        if (particle.x < -maxDistance || particle.x > width + maxDistance ||
+            particle.y < -maxDistance || particle.y > height + maxDistance) {
+            continue;
+        }
+
         let gridX = floor(particle.x / gridSize);
         let gridY = floor(particle.y / gridSize);
 
@@ -98,7 +115,7 @@ function connectParticlesBatched() {
                                 lineBuffer.push({
                                     x1: particle.x, y1: particle.y,
                                     x2: other.x, y2: other.y,
-                                    r: basicColor, g: basicColor, b: basicColor, a: alpha
+                                    a: alpha
                                 });
                             }
                         }
@@ -109,9 +126,17 @@ function connectParticlesBatched() {
     }
 
     if (lineBuffer.length > 0) {
-        for (let lineData of lineBuffer) {
-            stroke(lineData.r, lineData.g, lineData.b, lineData.a);
-            line(lineData.x1, lineData.y1, lineData.x2, lineData.y2);
+        if (!useColor) {
+            stroke(basicColor, 0);
+            for (let lineData of lineBuffer) {
+                stroke(basicColor, lineData.a);
+                line(lineData.x1, lineData.y1, lineData.x2, lineData.y2);
+            }
+        } else {
+            for (let lineData of lineBuffer) {
+                stroke(lineData.r, lineData.g, lineData.b, lineData.a);
+                line(lineData.x1, lineData.y1, lineData.x2, lineData.y2);
+            }
         }
     }
 }
