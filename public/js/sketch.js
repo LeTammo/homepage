@@ -9,6 +9,24 @@ let gridSize;
 let grid = {};
 let lineBuffer = [];
 
+const MIN_SCREEN = 320;
+const MAX_SCREEN = 1920;
+const MIN_PARTICLES = 100;
+const MAX_PARTICLES = 360;
+const MIN_MAXDIST = 40;
+const MAX_MAXDIST = 70;
+
+function computeScaledValues() {
+    let w = constrain(windowWidth, MIN_SCREEN, MAX_SCREEN);
+    let t = (w - MIN_SCREEN) / (MAX_SCREEN - MIN_SCREEN);
+    t = constrain(t, 0, 1);
+
+    let scaledNum = floor(lerp(MIN_PARTICLES, MAX_PARTICLES, t));
+    let scaledMaxDist = lerp(MIN_MAXDIST, MAX_MAXDIST, t);
+
+    return { scaledNum, scaledMaxDist };
+}
+
 function setup() {
     frameRate(30);
     pixelDensity(1);
@@ -19,6 +37,9 @@ function setup() {
     canvas.style('position', 'fixed');
     canvas.attribute('data-protected', 'true');
 
+    const { scaledNum, scaledMaxDist } = computeScaledValues();
+    numParticles = scaledNum;
+    maxDistance = scaledMaxDist;
     gridSize = maxDistance;
 
     for (let i = 0; i < numParticles; i++) {
@@ -164,6 +185,20 @@ Particle.nextId = 0;
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+
+    const { scaledNum, scaledMaxDist } = computeScaledValues();
+
+    maxDistance = scaledMaxDist;
+    gridSize = maxDistance;
+
+    if (scaledNum > particles.length) {
+        for (let i = particles.length; i < scaledNum; i++) {
+            particles.push(new Particle());
+        }
+    } else if (scaledNum < particles.length) {
+        particles.length = scaledNum;
+    }
+    numParticles = scaledNum;
 }
 
 function toggleColor() {
