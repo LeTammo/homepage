@@ -7,22 +7,26 @@ block content
             .space-y-4
                 h1.text-5xl.md--text-6xl.font-bold.text-zinc-300.leading-tight
                     | Felix Jonas Wiegleb
-                p.text-xl.md--text-2xl.text-green-600.font-bold
-                    | Software Developer & Math Enthusiast
-                p.text-lg.text-zinc-400.leading-relaxed.max-w-2xl
-                    | I'm a passionate software developer focused on turning complex problems into simple, component-based solutions.
+                p.text-xl.md--text-2xl.text-green-600.font-bold.inline-block
+                    | Software developer, math enthusiast and hobby astronomer
+                p.text-lg.text-zinc-400.leading-relaxed.max-w-2xl.inline-block
+                    | Hi, I'm Jonas, a passionate science and technology geek.
+                    | I love learning new things about the world around us
+                    | and applying what I learn to efficiently solve problems.
+                    |
                     br
-                    | I put focus on clear communication, making sure ideas and requirements are understood by everyone involved.
+                    | I love sharing my knowledge and prioritize clear communication,
+                    | ensuring that ideas and requirements are understood by everyone involved.
 
             .flex.gap-4.pt-4
-                a(href="/projects").inline-flex.items-center.px-6.py-3.bg-green-700.hover--bg-green-600.text-white.font-medium.rounded-lg.transition-colors
-                    span View Projects
+                a(href="/about").inline-flex.items-center.px-6.py-3.bg-green-700.hover--bg-green-600.text-white.font-medium.rounded-lg.transition-colors
+                    span About Me
                     svg(xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2")
                         line(x1="5" y1="12" x2="19" y2="12")
                         polyline(points="12 5 19 12 12 19")
 
-                a(href="/about").inline-flex.items-center.px-6.py-3.border.border-zinc-600.hover--border-zinc-500.text-zinc-300.hover--text-white.font-medium.rounded-lg.transition-colors
-                    span About Me
+                a(href="/projects").inline-flex.items-center.px-6.py-3.border.border-zinc-600.hover--border-zinc-500.text-zinc-300.hover--text-white.font-medium.rounded-lg.transition-colors
+                    span View Projects
 
         .flex-shrink-0
             a(href="/about")
