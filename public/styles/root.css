@@ -6,7 +6,7 @@
     height: initial;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1280px) {
     .h-screen {
         height: 90vh;
     }
