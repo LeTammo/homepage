@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
@@ -26,6 +26,6 @@ app.get('/projects', (req, res) => {
     res.render('projects/projects', { ...globals, ...{ activePage: 'projects' } });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running on http://0.0.0.0:${PORT}`);
 });
