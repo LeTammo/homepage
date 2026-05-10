@@ -681,6 +681,18 @@ video {
   margin-top: auto;
 }
 
+.mr-8 {
+  margin-right: 2rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mr-10 {
+  margin-right: 2.5rem;
+}
+
 .block {
   display: block;
 }
@@ -1200,6 +1212,10 @@ video {
 
 .leading-tight {
   line-height: 1.25;
+}
+
+.leading-7 {
+  line-height: 1.75rem;
 }
 
 .text-green-500 {
