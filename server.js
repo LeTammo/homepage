@@ -15,7 +15,7 @@ const globals = {
 }
 
 app.get('/', (req, res) => {
-    res.render('home', { ...globals, ...{ activePage: 'home' } });
+    res.render('home/home', { ...globals, ...{ activePage: 'home' } });
 });
 
 app.get('/about', (req, res) => {
