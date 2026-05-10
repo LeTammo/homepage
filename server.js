@@ -1,8 +1,10 @@
 const express = require('express');
 const path = require('path');
+require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
+const HOST = process.env.HOST || '127.0.0.1';
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
@@ -23,6 +25,6 @@ app.get('/projects', (req, res) => {
     res.render('projects/projects', { ...globals, ...{ activePage: 'projects' } });
 });
 
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server is running on http://0.0.0.0:${PORT}`);
+app.listen(PORT, HOST, () => {
+    console.log(`Server is running on http://${HOST}:${PORT}`);
 });
