@@ -1,9 +1,9 @@
 .bg-zinc-900.border-t.border-zinc-800
     .container.px-6.py-3.mx-auto.flex.items-center.justify-between
         //- Left: copyright + impressum
-        .flex.items-center.gap-3.text-xs.text-zinc-500
-            a(href="https://github.com/LeTammo/" target="_blank").hover--text-zinc-300.transition-colors= t.footer.copyright
-            span.text-zinc-700 ·
+        .flex.items-center.gap-3.text-sm.text-zinc-500
+            a(href="https://github.com/LeTammo/" target="_blank").hover--text-zinc-300.transition-colors © #{new Date().getFullYear()} - Felix Jonas Wiegleb
+            span.text-zinc-700 •
             a(href="/impressum").hover--text-zinc-300.transition-colors= t.footer.impressum
 
         //- Center: p5.js animation controls (hover to reveal popup)
@@ -11,9 +11,9 @@
             button.footer-anim-btn(title="p5.js animation") ✦ #{t.footer.animation} ✦
             .footer-anim-popup
                 a(href="https://github.com/LeTammo/homepage/blob/main/public/js/sketch.js" target="_blank").footer-anim-btn 🔗 p5.js
-                span.footer-anim-sep ·
+                span.footer-anim-sep •
                 button.footer-anim-btn(onclick="toggleColor()") ✨ #{t.footer.addColor}
-                span.footer-anim-sep ·
+                span.footer-anim-sep •
                 button.footer-anim-btn(onclick="toggleSpeed()") 🔥 #{t.footer.accelerate}
 
         //- Right: language toggle — shows flag of the OTHER language
