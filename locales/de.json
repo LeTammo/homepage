@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über mich",
+    "projects": "Projekte",
+    "blog": "Blog"
+  },
+  "hero": {
+    "tagline": "Softwareentwickler, Mathematik-Enthusiast und Hobbyastronom",
+    "intro": "Hallo, ich bin Jonas, mit einer Leidenschaft für Wissenschaft und Technologien. Ich liebe es, Neues über die Welt um uns herum zu lernen und das Gelernte anzuwenden, um Probleme effizienter zu lösen.",
+    "communication": "Ich teile mein Wissen gerne und lege großen Wert auf klare Kommunikation, damit Ideen und Anforderungen von allen Beteiligten verstanden werden.",
+    "btnAbout": "Über mich",
+    "btnProjects": "Projekte ansehen"
+  },
+  "skills": {
+    "title": "Fähigkeiten & Technologien"
+  },
+  "about": {
+    "title": "Über mich",
+    "subtitle": "Softwareentwickler & Angewandter Mathematiker",
+    "location": "Leipzig, Deutschland",
+    "btnProjects": "Meine Projekte",
+    "bio1": "Ich arbeite derzeit als Webentwickler bei der Databay AG, wo ich 2023 meine Ausbildung zum \"Mathematisch-Technischen Softwareentwickler\" abgeschlossen habe. Gleichzeitig habe ich 2024 meinen Bachelor of Science in \"Angewandter Mathematik und Informatik\" an der FH Aachen im Rahmen eines dualen Studiums erfolgreich abgeschlossen.",
+    "bio2": "In diesen Jahren sammelte ich umfangreiche Erfahrung in der PHP-Entwicklung. Zunächst arbeitete ich mit React und Symfony, wechselte jedoch recht schnell ins ILIAS-Team und trage seitdem bei dieser Open-Source-Lernmanagement Software meinen Teil bei.",
+    "bio3": "In meiner Freizeit habe ich meine Entwicklerfähigkeiten durch verschiedene Hobbyprojekte weiterentwickelt. Wie jeder Entwickler habe ich Dutzende unfertige Prototypen (verschiedene To-do-Listen, Blogs und Ordner namens 'projekt_v2_FINAL'). Aus all meinen Hobbyprojekten stechen jedoch vier heraus, die ich für präsentierenswert halte.",
+    "work": "Berufserfahrung",
+    "workPresent": "heute",
+    "workPHP": "Fullstack PHP-Entwickler",
+    "workFoerdern": "Koordination GTA \"Mathefördern und -fordern\"",
+    "workPromoter": "Promoter für Passagier-Aktionen",
+    "workSHK": "Studentische Hilfskraft im Pilotprojekt \"E-Learning\"",
+    "education": "Ausbildung",
+    "educationBachelor": "Angewandter Mathematik und Informatik (B.Sc.)",
+    "educationMATSE": "Mathematisch-Technische Softwareentwicklung",
+    "educationHTWK": "Angewandte Mathematik (kein Abschluss)",
+    "educationSchool": "Fachoberschule Technik"
+  },
+  "projects": {
+    "title": "Projekte",
+    "subtitle": "Eine Sammlung meiner persönlichen Projekte und woran ich gerade arbeite.",
+    "homepage": "Die aktuelle Seite. Informationen über mich und meine Projekte.",
+    "polepick": "Sag das Ergebnis des nächsten Formel-1-Rennens voraus und messe dich mit anderen.",
+    "woodcutters": "Ein Simulationsspiel über Abholzung zur politischen Bildung junger Menschen.",
+    "tournament": "Bevorstehende Esports-Turniere zusammenfassen und präsentieren.",
+    "amronas": "Filmlisten verwalten und teilen, Wordle gegeneinander spielen, ein \"Deutsche Bahn\"-Reise-Bingo, usw."
+  },
+  "footer": {
+    "animation": "Animation",
+    "animationSource": "Animation erstellt mit p5.js",
+    "addColor": "Farbe hinzufügen",
+    "accelerate": "Beschleunigen",
+    "copyright": "© 2025 - Felix Jonas Wiegleb",
+    "impressum": "Impressum"
+  },
+  "impressum": {
+    "title": "Impressum",
+    "name": "Felix Jonas Wiegleb",
+    "addressLine1": "Haaler Straße 129",
+    "addressLine2": "52146 Würselen",
+    "addressLine3": "Deutschland",
+    "contactTitle": "Kontakt",
+    "emailLabel": "E-Mail",
+    "email": "fe-wiegleb@t-online.de",
+    "Github": "Github",
+    "backHome": "← Zurück zur Startseite"
+  }
+}

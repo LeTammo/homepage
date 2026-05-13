@@ -1,12 +1,24 @@
-.bg-zinc-900
-    .container.p-4.mx-auto.flex.text-xs
-        .flex-grow
-            a(href="https://github.com/LeTammo/homepage/blob/main/public/js/sketch.js" target="_blank")
-                span.text-zinc-500 🔗 Animation made with p5.js
-            button(onclick="toggleColor()").pl-5
-                spam ✨ Add color
-            button(onclick="toggleSpeed()").pl-5
-                span 🔥 Accelerate
-        .text-right
-            a(href="https://github.com/LeTammo/" target="_blank")
-                span.text-zinc-500 &copy; 2025 - Felix Jonas Wiegleb
+.bg-zinc-900.border-t.border-zinc-800
+    .container.px-6.py-3.mx-auto.flex.items-center.justify-between
+        //- Left: copyright + impressum
+        .flex.items-center.gap-3.text-xs.text-zinc-500
+            a(href="https://github.com/LeTammo/" target="_blank").hover--text-zinc-300.transition-colors= t.footer.copyright
+            span.text-zinc-700 ·
+            a(href="/impressum").hover--text-zinc-300.transition-colors= t.footer.impressum
+
+        //- Center: p5.js animation controls (hover to reveal popup)
+        .footer-anim-group
+            button.footer-anim-btn(title="p5.js animation") ✦ #{t.footer.animation} ✦
+            .footer-anim-popup
+                a(href="https://github.com/LeTammo/homepage/blob/main/public/js/sketch.js" target="_blank").footer-anim-btn 🔗 p5.js
+                span.footer-anim-sep ·
+                button.footer-anim-btn(onclick="toggleColor()") ✨ #{t.footer.addColor}
+                span.footer-anim-sep ·
+                button.footer-anim-btn(onclick="toggleSpeed()") 🔥 #{t.footer.accelerate}
+
+        //- Right: language toggle — shows flag of the OTHER language
+        - const targetLang = lang === 'en' ? 'de' : 'en'
+        - const langFlag   = lang === 'en' ? '/images/de.svg' : '/images/uk.svg'
+        - const langTitle  = lang === 'en' ? 'Auf Deutsch wechseln' : 'Switch to English'
+        button.lang-toggle.flex.items-center(onclick=`setLang('${targetLang}')` title=langTitle)
+            img(src=langFlag alt=langTitle class="w-6 h-auto rounded-sm opacity-60 hover--opacity-100 transition-opacity drop-shadow-sm")

@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About me",
+    "projects": "Projects",
+    "blog": "Blog"
+  },
+  "hero": {
+    "tagline": "Software developer, math enthusiast and hobby astronomer",
+    "intro": "Hi, I'm Jonas, a passionate science and technology geek. I love learning new things about the world around us and applying what I learn to efficiently solve problems.",
+    "communication": "I love sharing my knowledge and prioritize clear communication, ensuring that ideas and requirements are understood by everyone involved.",
+    "btnAbout": "About Me",
+    "btnProjects": "View Projects"
+  },
+  "skills": {
+    "title": "Skills & Technologies"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Software Developer & Applied Mathematician",
+    "location": "Leipzig, Germany",
+    "btnProjects": "My Projects",
+    "bio1": "I currently work as a web developer at Databay AG, where I completed my apprenticeship as a \"Mathematical-Technical Software Developer\" in 2023. Simultaneously, I successfully completed my Bachelor of Science in \"Applied Mathematics and Computer Science\" at FH Aachen University of Applied Sciences in 2024 as part of a dual study program.",
+    "bio2": "During these years, I gained extensive experience in PHP development. Initially, I worked with React and Symfony, but relatively quickly switched to the seminar management team and contributed to the company's in-house software.",
+    "bio3": "In my free time, I further developed my dev skills by working on various hobby projects. Like any developer, I have dozens of unfinished prototypes (various to-do lists, blogs and folders named 'project_v2_FINAL'). However, out of all my hobby projects, four stand out that I consider worth presenting.",
+    "work": "Work Experience",
+    "workPresent": "present",
+    "workPHP": "Fullstack PHP Developer",
+    "workFoerdern": "Coordination of \"Mathefördern und -fordern\"",
+    "workPromoter": "Promoter for passenger campaigns",
+    "workSHK": "Student assistant in a pilot project for E-Learning",
+    "education": "Education",
+    "educationBachelor": "Applied Mathematics and Computer Science (B.Sc.)",
+    "educationMATSE": "Mathematical-Technical Software Developer",
+    "educationHTWK": "Applied Mathematics (no degree)",
+    "educationSchool": "Technical College"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A collection of my personal projects and what I'm working on.",
+    "homepage": "The site you are currently on. Information about me and my projects.",
+    "polepick": "Predict the next Formula 1 race outcome and compete with others.",
+    "woodcutters": "A simulation game about deforestation for the political education of young people.",
+    "tournament": "Summarize and present upcoming esports tournaments.",
+    "amronas": "Manage and share movie lists, play Wordle against each other, a \"Deutsche Bahn\" travel bingo, etc."
+  },
+  "footer": {
+    "animation": "Animation",
+    "animationSource": "Animation made with p5.js",
+    "addColor": "Add color",
+    "accelerate": "Accelerate",
+    "copyright": "© 2025 - Felix Jonas Wiegleb",
+    "impressum": "Impressum"
+  },
+  "impressum": {
+    "title": "Impressum",
+    "name": "Felix Jonas Wiegleb",
+    "addressLine1": "Haaler Straße 129",
+    "addressLine2": "52146 Würselen",
+    "addressLine3": "Germany",
+    "contactTitle": "Contact",
+    "emailLabel": "E-Mail",
+    "email": "fe-wiegleb@t-online.de",
+    "Github": "Github",
+    "backHome": "← Back to Home"
+  }
+}

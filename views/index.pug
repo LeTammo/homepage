@@ -1,5 +1,5 @@
 doctype html
-html(lang="en").h-full.m-0.p-0.overscroll-none
+html(lang=lang).h-full.m-0.p-0.overscroll-none
     head
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
@@ -12,10 +12,11 @@ html(lang="en").h-full.m-0.p-0.overscroll-none
                 aside.pb-4.xl--pb-0.xl--pr-2.w-48.xl--max-w-48.xl--min-w-48.w-full
                     .sticky.xl--top-8.p-2.xl--p-6.bg-zinc-900.rounded-xl.w-full.border.border-zinc-800.h-screen
                         include navigation
-                main(role="main").bg-zinc-900.p-10.rounded-xl.border.border-zinc-800.w-auto
+                main(role="main").bg-zinc-900.p-10.rounded-xl.border.border-zinc-800.w-full
                     block content
         footer.fixed.bottom-0.w-full.shadow-top
             include footer
         script(src="/js/p5.min.js")
         script(src="/js/sketch.js")
         script(src="/js/navigation.js")
+        script(src="/js/lang.js")
