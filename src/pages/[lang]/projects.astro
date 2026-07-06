@@ -1,0 +1,88 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import en from '../../../locales/en.json';
+import de from '../../../locales/de.json';
+
+export function getStaticPaths() {
+    return [
+        {params: {lang: 'en'}},
+        {params: {lang: 'de'}},
+    ];
+}
+
+const {lang} = Astro.params;
+const locales = {en, de};
+const t = locales[lang] || en;
+
+const projects = [
+    {
+        title: 'Personal Homepage',
+        image: '/images/youarehere32.png',
+        icon: '/images/youarehere32.ico',
+        tags: ['Astro', 'Tailwind CSS', 'p5.js'],
+        description: t.projects.homepage,
+        github: 'https://github.com/LeTammo/homepage',
+    },
+    {
+        title: 'ILIAS - Open Source LMS',
+        image: '/images/ilias2.png',
+        icon: '/images/ilias.svg',
+        tags: ['PHP', 'MySQL', 'JavaScript', 'Maven'],
+        description: t.projects.ilias,
+        demo: 'https://www.ilias.de/',
+        github: 'https://github.com/ILIAS-eLearning/ILIAS/issues?q=author%3ALeTammo',
+    },
+    {
+        title: 'PolePick',
+        image: '/images/polepick.png',
+        icon: '/images/pole.png',
+        tags: ['Node', 'Express', 'Handlebars', 'Tailwind CSS'],
+        description: t.projects.polepick,
+        demo: 'https://pole.mathia.xyz/',
+        github: 'https://github.com/LeTammo/polepick',
+    },
+    {
+        title: 'Woodcutters',
+        image: '/images/woodcutters.png',
+        icon: '/images/woodcutters.ico',
+        tags: ['React', 'Node', 'Sockets', 'SQLite', 'Bootstrap'],
+        description: t.projects.woodcutters,
+        demo: 'https://woodcutters.mathia.xyz/',
+        github: 'https://github.com/LeTammo/woodcutters',
+    },
+    {
+        title: 'Tournament Tracker',
+        image: '/images/esports.png',
+        icon: '/images/esports.ico',
+        tags: ['Node', 'Express', 'EJS', 'SQLite', 'Cheerio'],
+        description: t.projects.tournament,
+        demo: 'https://esports.mathia.xyz/',
+        github: 'https://github.com/LeTammo/Esports-Tournament-Tracker',
+    },
+    {
+        title: 'Amronas',
+        image: '/images/amronas.png',
+        icon: '/images/amronas.svg',
+        tags: ['Symfony', 'MySQL', 'Twig', 'Docker'],
+        description: t.projects.amronas,
+        demo: 'https://movie.amronas.one/',
+        github: 'https://github.com/LeTammo/amronas',
+    },
+];
+---
+<Layout title={`${t.projects.title} | mathia.xyz`} activePage="projects" lang={lang}>
+    <!-- Header -->
+    <div class="mb-10">
+        <h1 class="text-3xl md:text-4xl font-bold text-zinc-200 mb-4">{t.projects.title}</h1>
+        <div class="h-1 w-16 bg-green-500 rounded mb-4"></div>
+        <p class="hidden text-zinc-500 text-base">{t.projects.subtitle}</p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+        {projects.map((project, i) => (
+                <ProjectCard delay={i * 90} {...project}/>
+        ))}
+    </div>
+</Layout>

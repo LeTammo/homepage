@@ -1,0 +1,99 @@
+---
+const {lang, t} = Astro.props;
+const L = (v) => (typeof v === 'string' ? v : v[lang] || v.en);
+
+const categories = [
+    {
+        title: {de: 'Softwareentwicklung (Backend)', en: 'Software Development (Backend)'},
+        skills: [
+            {abbr: 'PHP', name: 'PHP', detail: '7.4 – 8.x · Symfony', gradient: 'from-cyan-500 to-blue-500'},
+            {abbr: 'J', name: 'Java', detail: 'Spring Boot', gradient: 'from-emerald-500 to-green-600'},
+            {abbr: 'PY', name: 'Python', detail: 'Flask', gradient: 'from-cyan-400 to-cyan-600'},
+            {abbr: 'N', name: 'Node.js', detail: 'Express, REST APIs', gradient: 'from-green-600 to-emerald-700'},
+            {abbr: 'DB', name: {de: 'Datenbanken', en: 'Databases'}, detail: 'MySQL, MariaDB, SQLite', gradient: 'from-indigo-600 to-purple-600'},
+            {abbr: 'API', name: {de: 'Architektur', en: 'Architecture'}, detail: 'REST APIs, OOP', gradient: 'from-slate-500 to-slate-600'},
+        ],
+    },
+    {
+        title: {de: 'Arbeitsmethodik & GenAI', en: 'GenAI & Methodology'},
+        skills: [
+            {
+                abbr: 'PM', gradient: 'from-green-600 to-emerald-700',
+                name: {de: 'Projektmanagement', en: 'Project Management'},
+                detail: {de: 'Kommunikation', en: 'Communication'}
+            },
+            {
+                abbr: 'AG', gradient: 'from-teal-500 to-cyan-600',
+                name: {de: 'Agile Methoden', en: 'Agile Methods'},
+                detail: {de: 'Moderation', en: 'Moderation'}
+            },
+            {
+                abbr: 'M', gradient: 'from-indigo-500 to-blue-600',
+                name: {de: 'Mathematik', en: 'Mathematics'},
+                detail: {de: 'Optimierung', en: 'Optimization'}
+            },
+            {
+                abbr: 'AI', gradient: 'from-pink-500 to-rose-500', name: 'LLM APIs',
+                detail: {de: 'Claude, GPT-Modelle', en: 'Claude, GPT models'}
+            },
+            {abbr: 'PE', gradient: 'from-amber-500 to-orange-500', name: 'Prompt Engineering', detail: 'LLM Optimization'},
+            {abbr: 'LLM', gradient: 'from-violet-600 to-fuchsia-600', name: 'On-Premise AI', detail: 'Local LLMs'},
+
+        ],
+    },
+    {
+        title: {de: 'Softwareentwicklung (Frontend)', en: 'Software Development (Frontend)'},
+        skills: [
+            {abbr: 'JS', gradient: 'from-blue-500 to-blue-600', name: 'JavaScript', detail: 'TypeScript'},
+            {abbr: 'CSS', gradient: 'from-sky-400 to-blue-500', name: 'HTML & CSS', detail: 'Tailwind CSS'},
+            {abbr: 'R', gradient: 'from-violet-500 to-purple-600', name: 'React.js', detail: 'Component-Based'},
+            {abbr: '{ }', gradient: 'from-slate-500 to-slate-600', name: 'Templating', detail: 'Twig, Pug, Handlebars'},
+        ],
+    },
+    {
+        title: {de: 'DevOps, Hosting & Systeme', en: 'DevOps, Hosting & Systems'},
+        skills: [
+            {abbr: 'DC', gradient: 'from-blue-600 to-sky-500', name: 'Docker', detail: 'Containerization'},
+            {abbr: 'NX', gradient: 'from-emerald-500 to-teal-500', name: 'NGINX & DNS', detail: 'Self-Hosting'},
+            {abbr: 'G', gradient: 'from-orange-500 to-red-600', name: 'Git', detail: 'CI/CD, GitHub'},
+            {
+                abbr: 'OS', gradient: 'from-slate-500 to-slate-600',
+                name: {de: 'Betriebssysteme', en: 'Operating Systems'},
+                detail: 'Linux, Windows, macOS'
+            },
+        ],
+    },
+];
+---
+<div class="space-y-8 pt-8">
+    <div class="space-y-3 text-center">
+        <h2 class="text-3xl font-bold text-zinc-300">{t.skills.title}</h2>
+        <div class="h-0.5 w-28 bg-green-500 rounded mx-auto"></div>
+    </div>
+
+    <div class="space-y-10 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8">
+        {categories.map((category, i) => (
+            <div class="animate-fade-up" style={`animation-delay: ${i * 90}ms`}>
+                <h3 class="text-xl font-semibold text-zinc-400 tracking-widest flex items-baseline gap-2 mb-4 pb-2 border-b border-zinc-800">
+                    <span class="text-zinc-600">{String(i + 1).padStart(2, '0')}</span>
+                    {L(category.title)}
+                </h3>
+                <div class="grid grid-cols-2 gap-4">
+                    {category.skills.map((skill) => (
+                        <div class="group p-2 md:p-3 bg-zinc-800 hover:bg-zinc-700 rounded-lg transition-all hover:shadow-lg">
+                            <div class="flex items-center gap-3 h-full">
+                                <div class={`w-8 h-8 xl:w-10 xl:h-10 bg-linear-to-br ${skill.gradient} rounded-lg flex items-center justify-center text-white font-bold text-sm shrink-0`}>
+                                    {skill.abbr}
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="font-semibold text-zinc-200 text-sm xl:text-base">{L(skill.name)}</div>
+                                    {skill.detail && <div class="text-xs text-zinc-400">{L(skill.detail)}</div>}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        ))}
+    </div>
+</div>

@@ -7,33 +7,59 @@
   },
   "hero": {
     "tagline": "Software developer, math enthusiast and hobby astronomer",
-    "intro": "Hi, I'm Jonas, a passionate science and technology geek. I love learning new things about the world around us and applying what I learn to efficiently solve problems.",
-    "communication": "I love sharing my knowledge and prioritize clear communication, ensuring that ideas and requirements are understood by everyone involved.",
+    "intro": "I'm a passionate science and technology geek, I love to learning new skills and apply them efficiently to solve problems. Focus on clean code, sustainable documentation, and clear, solution-oriented communication.",
     "btnAbout": "About Me",
-    "btnProjects": "View Projects"
+    "btnProjects": "View Projects",
+    "location": "Leipzig, Germany",
+    "role": "Fullstack Developer"
   },
   "skills": {
     "title": "Skills & Technologies"
   },
   "about": {
     "title": "About Me",
-    "subtitle": "Software Developer & Applied Mathematician",
+    "subtitle": "Software Development & Applied Mathematics",
     "location": "Leipzig, Germany",
     "btnProjects": "My Projects",
     "bio1": "I currently work as a web developer at Databay AG, where I completed my apprenticeship as a \"Mathematical-Technical Software Developer\" in 2023. Simultaneously, I successfully completed my Bachelor of Science in \"Applied Mathematics and Computer Science\" at FH Aachen University of Applied Sciences in 2024 as part of a dual study program.",
-    "bio2": "During these years, I gained extensive experience in PHP development. Initially, I worked with React and Symfony, but relatively quickly switched to the seminar management team and contributed to the company's in-house software.",
+    "bio2": "During these years, I gained extensive experience in PHP development. Initially, I worked with React and Symfony, but then moved to the ILIAS team, where I've been contributing to the open-source learning management software ever since.",
     "bio3": "In my free time, I further developed my dev skills by working on various hobby projects. Like any developer, I have dozens of unfinished prototypes (various to-do lists, blogs and folders named 'project_v2_FINAL'). However, out of all my hobby projects, four stand out that I consider worth presenting.",
+    "downloadCV": "Download CV",
+    "cvNote": "PDF · German",
     "work": "Work Experience",
-    "workPresent": "present",
-    "workPHP": "Fullstack PHP Developer",
-    "workFoerdern": "Coordination of \"Mathefördern und -fordern\"",
-    "workPromoter": "Promoter for passenger campaigns",
-    "workSHK": "Student assistant in a pilot project for E-Learning",
+    "workPresent": "since",
+    "workPHP_Ilias": "Fullstack PHP Developer",
+    "workPHP_Ilias_1": "Requirements Analysis & Conceptual Design",
+    "workPHP_Ilias_2": "Quality Assurance, Code Reviews",
+    "workPHP_Ilias_3": "IT Security & Technical Communication",
+    "workPHP_Seminar": "Fullstack PHP Developer",
+    "workPHP_Seminar_1": "Release Management",
+    "workPHP_Seminar_2": "Support & Incident Management",
+    "workPHP_Seminar_3": "Project Planning & Migration",
+    "workPHP_Seminar_4": "Standardization of Software Architectures",
+    "workPHP_Seminar_5": "Team Communication & Facilitation",
+    "workMATSE": "Apprentice",
+    "workMATSE_1": "Software maintenance",
+    "workMATSE_2": "Customer communication & support",
+    "workSHK": "Student Assistant",
+    "workSHK_1": "Pilot Project \"E-Learning in Higher Education\"",
+    "workSHK_2": "Development and administration of the first digital module examination",
+    "workEzgs": "Coordination of After-School Programs",
+    "workEzgs_1": "Organization and implementation of \"Mathefördern und -fordern\"",
     "education": "Education",
     "educationBachelor": "Applied Mathematics and Computer Science (B.Sc.)",
+    "educationBachelor_1": "Focused on Algorithms, Web Engineering, and Component-Based Software Dev",
     "educationMATSE": "Mathematical-Technical Software Developer",
-    "educationHTWK": "Applied Mathematics (no degree)",
-    "educationSchool": "Technical College"
+    "educationHTWK": "Applied Mathematics",
+    "noDegree": "no degree",
+    "educationHTWK_1": "Numerical Analysis, Operations Research, Optimization, and Finance Math",
+    "educationSchool": "Technical College",
+    "softSkillsTitle": "Soft Skills",
+    "soft1": "Interdisciplinary Collaboration",
+    "soft2": "Client & Stakeholder Communication",
+    "soft3": "Agile Mindset (Scrum & Kanban)",
+    "soft4": "Solution-Oriented",
+    "soft5": "Quality Consciousness"
   },
   "projects": {
     "title": "Projects",
@@ -42,7 +68,8 @@
     "polepick": "Predict the next Formula 1 race outcome and compete with others.",
     "woodcutters": "A simulation game about deforestation for the political education of young people.",
     "tournament": "Summarize and present upcoming esports tournaments.",
-    "amronas": "Manage and share movie lists, play Wordle against each other, a \"Deutsche Bahn\" travel bingo, etc."
+    "amronas": "Manage and share movie lists, play Wordle against each other, a \"Deutsche Bahn\" travel bingo, etc.",
+    "ilias": "Collaboration on the ILIAS software, especially in the modernization of legacy code."
   },
   "footer": {
     "animation": "Animation",
@@ -53,6 +80,7 @@
   },
   "impressum": {
     "title": "Impressum",
+    "ownerTitle": "Personal Information",
     "name": "Felix Jonas Wiegleb",
     "addressLine1": "Haaler Straße 129",
     "addressLine2": "52146 Würselen",
@@ -61,6 +89,7 @@
     "emailLabel": "E-Mail",
     "email": "fe-wiegleb@t-online.de",
     "Github": "Github",
-    "backHome": "← Back to Home"
+    "LinkedIn": "LinkedIn",
+    "backHome": "Back to Home"
   }
 }

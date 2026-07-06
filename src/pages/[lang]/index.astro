@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/home/Hero.astro';
+import Skills from '../../components/home/Skills.astro';
+import en from '../../../locales/en.json';
+import de from '../../../locales/de.json';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const locales = { en, de };
+const t = locales[lang] || en;
+---
+<Layout title="mathia.xyz" activePage="home" lang={lang}>
+    <div class="mb-16">
+        <Hero lang={lang} t={t} />
+    </div>
+    <div class="space-y-12">
+        <Skills lang={lang} t={t} />
+    </div>
+</Layout>
