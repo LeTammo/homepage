@@ -1,0 +1,203 @@
+---
+import Work from '../about/Work.astro';
+import Education from '../about/Education.astro';
+
+const {lang, t} = Astro.props;
+const L = (v) => (typeof v === 'string' ? v : v[lang] || v.en);
+
+const softSkills = [t.about.soft1, t.about.soft2, t.about.soft3, t.about.soft4, t.about.soft5];
+
+const categories = [
+    {
+        title: {de: 'Softwareentwicklung (Backend)', en: 'Software Development (Backend)'},
+        skills: [
+            {abbr: 'PHP', name: 'PHP', detail: '7.4 – 8.x · Symfony', gradient: 'from-cyan-500 to-blue-500'},
+            {abbr: 'J', name: 'Java', detail: 'Spring Boot', gradient: 'from-emerald-500 to-green-600'},
+            {abbr: 'PY', name: 'Python', detail: 'Flask', gradient: 'from-cyan-400 to-cyan-600'},
+            {abbr: 'N', name: 'Node.js', detail: 'Express, REST APIs', gradient: 'from-green-600 to-emerald-700'},
+            {abbr: 'DB', name: {de: 'Datenbanken', en: 'Databases'}, detail: 'MySQL, MariaDB, SQLite', gradient: 'from-indigo-600 to-purple-600'},
+            {abbr: 'API', name: {de: 'Architektur', en: 'Architecture'}, detail: 'REST APIs, OOP', gradient: 'from-slate-500 to-slate-600'},
+        ],
+    },
+    {
+        title: {de: 'Arbeitsmethodik & GenAI', en: 'GenAI & Methodology'},
+        skills: [
+            {
+                abbr: 'PM', gradient: 'from-green-600 to-emerald-700',
+                name: {de: 'Projektmanagement', en: 'Project Management'},
+                detail: {de: 'Kommunikation', en: 'Communication'}
+            },
+            {
+                abbr: 'AG', gradient: 'from-teal-500 to-cyan-600',
+                name: {de: 'Agile Methoden', en: 'Agile Methods'},
+                detail: {de: 'Moderation', en: 'Moderation'}
+            },
+            {
+                abbr: 'M', gradient: 'from-indigo-500 to-blue-600',
+                name: {de: 'Mathematik', en: 'Mathematics'},
+                detail: {de: 'Optimierung', en: 'Optimization'}
+            },
+            {
+                abbr: 'AI', gradient: 'from-pink-500 to-rose-500', name: 'LLM APIs',
+                detail: {de: 'Claude, GPT-Modelle', en: 'Claude, GPT models'}
+            },
+            {abbr: 'PE', gradient: 'from-amber-500 to-orange-500', name: 'Prompt Engineering', detail: 'LLM Optimization'},
+            {abbr: 'LLM', gradient: 'from-violet-600 to-fuchsia-600', name: 'On-Premise AI', detail: 'Local LLMs'},
+        ],
+    },
+    {
+        title: {de: 'Softwareentwicklung (Frontend)', en: 'Software Development (Frontend)'},
+        skills: [
+            {abbr: 'JS', gradient: 'from-blue-500 to-blue-600', name: 'JavaScript', detail: 'TypeScript'},
+            {abbr: 'CSS', gradient: 'from-sky-400 to-blue-500', name: 'HTML & CSS', detail: 'Tailwind CSS'},
+            {abbr: 'R', gradient: 'from-violet-500 to-purple-600', name: 'React.js', detail: 'Component-Based'},
+            {abbr: '{ }', gradient: 'from-slate-500 to-slate-600', name: 'Templating', detail: 'Twig, Pug, Handlebars'},
+        ],
+    },
+    {
+        title: {de: 'DevOps, Hosting & Systeme', en: 'DevOps, Hosting & Systems'},
+        skills: [
+            {abbr: 'DC', gradient: 'from-blue-600 to-sky-500', name: 'Docker', detail: 'Containerization'},
+            {abbr: 'NX', gradient: 'from-emerald-500 to-teal-500', name: 'NGINX & DNS', detail: 'Self-Hosting'},
+            {abbr: 'G', gradient: 'from-orange-500 to-red-600', name: 'Git', detail: 'CI/CD, GitHub'},
+            {
+                abbr: 'OS', gradient: 'from-slate-500 to-slate-600',
+                name: {de: 'Betriebssysteme', en: 'Operating Systems'},
+                detail: 'Linux, Windows, macOS'
+            },
+        ],
+    },
+];
+---
+<div data-skills-exp>
+    <!-- Subtle underline tab switcher -->
+    <div class="flex gap-6 mb-8 justify-center border-b border-zinc-800 mx-[30%] md:mx-[40%]" role="tablist">
+        <button
+            type="button"
+            data-tab-btn="skills"
+            role="tab"
+            aria-selected="true"
+            class="tab-btn pb-2 text-lg font-semibold text-zinc-200 border-b-2 border-green-500 -mb-px transition-all duration-200"
+        >
+            {t.skillsExp.tabSkills}
+        </button>
+        <button
+            type="button"
+            data-tab-btn="experience"
+            role="tab"
+            aria-selected="false"
+            class="tab-btn pb-2 text-lg font-semibold text-zinc-500 border-b-2 border-transparent -mb-px hover:text-zinc-300 transition-all duration-200"
+        >
+            {t.skillsExp.tabExperience}
+        </button>
+    </div>
+
+    <!-- Skills view -->
+    <div data-tab-panel="skills" class="space-y-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-10">
+            {categories.map((category, i) => (
+                <div>
+                    <h3 class="text-base font-semibold text-zinc-400 tracking-widest flex items-baseline gap-2 mb-4 pb-2 lg:border-b lg:border-zinc-800">
+                        <span class="text-zinc-600">{String(i + 1).padStart(2, '0')}</span>
+                        {L(category.title)}
+                    </h3>
+                    <div class="grid grid-cols-1 xs:grid-cols-2 gap-2 md:gap-3">
+                        {category.skills.map((skill) => (
+                            <div class="group p-2 md:p-3 bg-zinc-800 hover:bg-zinc-700 rounded-lg transition-all hover:shadow-lg">
+                                <div class="flex items-center gap-3 h-full">
+                                    <div class={`w-8 h-8 xl:w-10 xl:h-10 bg-linear-to-br ${skill.gradient} rounded-lg flex items-center justify-center text-white font-bold text-sm shrink-0`}>
+                                        {skill.abbr}
+                                    </div>
+                                    <div class="min-w-0">
+                                        <div class="font-semibold text-zinc-200 text-xs xl:text-base">{L(skill.name)}</div>
+                                        {skill.detail && <div class="text-xxs text-zinc-400">{L(skill.detail)}</div>}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </div>
+
+        <!-- Soft skills below skills grid, no title -->
+        <div class="flex flex-col justify-center sm:flex-row sm:flex-wrap lg:px-[10%] xl:px-0 gap-2 pt-2">
+            {softSkills.map((item) => (
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-zinc-700/50 text-xs text-zinc-400 w-full sm:w-auto min-w-0">
+                    <svg class="w-3 h-3 text-green-500 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span class="truncate sm:whitespace-normal">{item}</span>
+                </span>
+            ))}
+        </div>
+    </div>
+
+    <!-- Experience view: Education (left) + Work (right) -->
+    <div data-tab-panel="experience" hidden class="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-10">
+        <div>
+            <Education t={t} />
+        </div>
+        <div>
+            <Work t={t} />
+        </div>
+    </div>
+</div>
+
+<style>
+    [data-tab-panel] {
+        animation: skills-exp-in 0.3s ease-out;
+    }
+
+    @keyframes skills-exp-in {
+        from { opacity: 0; transform: translateY(8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        [data-tab-panel] { animation: none; }
+    }
+</style>
+
+<script>
+    function initSkillsExperience() {
+        document.querySelectorAll('[data-skills-exp]').forEach((root) => {
+            if (root.dataset.bound === 'true') return;
+            root.dataset.bound = 'true';
+
+            const buttons = root.querySelectorAll('[data-tab-btn]');
+            const panels  = root.querySelectorAll('[data-tab-panel]');
+
+            const activate = (name) => {
+                buttons.forEach((btn) => {
+                    const active = btn.dataset.tabBtn === name;
+                    btn.setAttribute('aria-selected', active ? 'true' : 'false');
+                    btn.classList.toggle('text-zinc-200',   active);
+                    btn.classList.toggle('border-green-500', active);
+                    btn.classList.toggle('text-zinc-500',   !active);
+                    btn.classList.toggle('border-transparent', !active);
+                    btn.classList.toggle('hover:text-zinc-300', !active);
+                });
+
+                panels.forEach((panel) => {
+                    const show = panel.dataset.tabPanel === name;
+                    if (show) {
+                        panel.hidden = false;
+                        panel.style.animation = 'none';
+                        void panel.offsetWidth;
+                        panel.style.animation = '';
+                    } else {
+                        panel.hidden = true;
+                    }
+                });
+            };
+
+            buttons.forEach((btn) => {
+                btn.addEventListener('click', () => activate(btn.dataset.tabBtn));
+            });
+        });
+    }
+
+    initSkillsExperience();
+    document.addEventListener('astro:page-load', initSkillsExperience);
+</script>

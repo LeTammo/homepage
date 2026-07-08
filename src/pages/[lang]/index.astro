@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/home/Hero.astro';
-import Skills from '../../components/home/Skills.astro';
+import SkillsExperience from '../../components/home/SkillsExperience.astro';
 import en from '../../../locales/en.json';
 import de from '../../../locales/de.json';
 
@@ -16,11 +16,11 @@ const { lang } = Astro.params;
 const locales = { en, de };
 const t = locales[lang] || en;
 ---
-<Layout title="mathia.xyz" activePage="home" lang={lang}>
-    <div class="mb-16">
+<Layout title={`${t.about.title} | mathia.xyz`} activePage="home" lang={lang}>
+    <div>
         <Hero lang={lang} t={t} />
     </div>
-    <div class="space-y-12">
-        <Skills lang={lang} t={t} />
+    <div class="mt-16 pt-16 border-t border-zinc-800">
+        <SkillsExperience lang={lang} t={t} />
     </div>
 </Layout>

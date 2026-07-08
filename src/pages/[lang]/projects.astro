@@ -74,9 +74,13 @@ const projects = [
 <Layout title={`${t.projects.title} | mathia.xyz`} activePage="projects" lang={lang}>
     <!-- Header -->
     <div class="mb-10">
-        <h1 class="text-3xl md:text-4xl font-bold text-zinc-200 mb-4">{t.projects.title}</h1>
-        <div class="h-1 w-16 bg-green-500 rounded mb-4"></div>
-        <p class="hidden text-zinc-500 text-base">{t.projects.subtitle}</p>
+        <div class="flex items-center gap-4 mb-4">
+            <a href={`/${lang}`} class="block shrink-0 rounded-full border border-zinc-800 overflow-hidden w-14 h-14 md:w-16 md:h-16" transition:name="profile-image" aria-label={t.about.title}>
+                <img src="/images/me.jpg" alt="Profile" class="w-full h-full object-cover" />
+            </a>
+            <h1 class="text-3xl md:text-4xl font-bold text-zinc-200">{t.projects.title}</h1>
+        </div>
+        <p class=" text-zinc-500 text-base">{t.projects.subtitle}</p>
     </div>
 
     <!-- Projects Grid -->

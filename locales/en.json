@@ -9,17 +9,19 @@
     "tagline": "Software developer, math enthusiast and hobby astronomer",
     "intro": "I'm a passionate science and technology geek, I love to learning new skills and apply them efficiently to solve problems. Focus on clean code, sustainable documentation, and clear, solution-oriented communication.",
     "btnAbout": "About Me",
-    "btnProjects": "View Projects",
-    "location": "Leipzig, Germany",
+    "btnProjects": "Projects",
+    "location": "Leipzig",
     "role": "Fullstack Developer"
   },
-  "skills": {
-    "title": "Skills & Technologies"
+  "skillsExp": {
+    "title": "Skills & Experience",
+    "tabSkills": "Skills",
+    "tabExperience": "Work Experience"
   },
   "about": {
     "title": "About Me",
     "subtitle": "Software Development & Applied Mathematics",
-    "location": "Leipzig, Germany",
+    "location": "Leipzig",
     "btnProjects": "My Projects",
     "bio1": "I currently work as a web developer at Databay AG, where I completed my apprenticeship as a \"Mathematical-Technical Software Developer\" in 2023. Simultaneously, I successfully completed my Bachelor of Science in \"Applied Mathematics and Computer Science\" at FH Aachen University of Applied Sciences in 2024 as part of a dual study program.",
     "bio2": "During these years, I gained extensive experience in PHP development. Initially, I worked with React and Symfony, but then moved to the ILIAS team, where I've been contributing to the open-source learning management software ever since.",

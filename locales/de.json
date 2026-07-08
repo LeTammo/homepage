@@ -9,17 +9,19 @@
     "tagline": "Softwareentwickler, Mathematik-Enthusiast und Hobbyastronom",
     "intro": "Ich habe eine Leidenschaft für neue Technologien und Wissenschaften und versuche mir immer wieder neue Fähigkeiten anzueignen. Ich lege Fokus auf Clean Code, nachhaltige Dokumentation und eine klare und lösungsorientierte Kommunikation.",
     "btnAbout": "Über mich",
-    "btnProjects": "Projekte ansehen",
-    "location": "Leipzig, Deutschland",
+    "btnProjects": "Projekte",
+    "location": "Leipzig",
     "role": "Fullstack-Entwickler"
   },
-  "skills": {
-    "title": "Skills & Technologien"
+  "skillsExp": {
+    "title": "Skills & Erfahrung",
+    "tabSkills": "Skills",
+    "tabExperience": "Berufserfahrung"
   },
   "about": {
     "title": "Über mich",
     "subtitle": "Softwareentwicklung & Angewandte Mathematik",
-    "location": "Leipzig, Deutschland",
+    "location": "Leipzig",
     "btnProjects": "Meine Projekte",
     "bio1": "Ich arbeite derzeit als Webentwickler bei der Databay AG, wo ich 2023 meine Ausbildung zum \"Mathematisch-Technischen Softwareentwickler\" abgeschlossen habe. Gleichzeitig habe ich 2024 meinen Bachelor of Science in \"Angewandter Mathematik und Informatik\" an der FH Aachen im Rahmen eines dualen Studiums erfolgreich abgeschlossen.",
     "bio2": "In diesen Jahren sammelte ich umfangreiche Erfahrung in der PHP-Entwicklung. Zunächst arbeitete ich mit React und Symfony, wechselte jedoch recht schnell ins ILIAS-Team und trage seitdem bei dieser Open-Source-Lernmanagement Software meinen Teil bei.",

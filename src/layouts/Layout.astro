@@ -23,14 +23,14 @@ const t = locales[lang] || en;
     </head>
     <body class="h-full flex flex-col m-0 p-0 bg-linear-to-r from-zinc-950 to-zinc-800 text-zinc-400 overscroll-none">
         <div id="p5-bg" transition:persist="p5-bg"></div>
-        <div class="container grow mx-auto p-10 xl:p-20">
+        <div class="md:container grow md:mx-auto sm:p-6 md:p-10 xl:p-20">
             <div class="flex flex-col">
-                <aside class="pb-4 w-full">
-                    <div class="sticky xl:top-8 p-2 xl:p-3 bg-zinc-900 rounded-xl w-full border border-zinc-800">
+                <aside class="pb-3 sm:pb-4 w-full sm:px-0">
+                    <div class="sticky xl:top-8 p-2 xl:p-3 bg-zinc-900 sm:rounded-xl w-full border-b sm:border border-zinc-800">
                         <Navigation activePage={activePage} lang={lang} t={t} />
                     </div>
                 </aside>
-                <main role="main" class="bg-zinc-900 p-10 rounded-xl border border-zinc-800 w-full">
+                <main role="main" class="bg-zinc-900 p-5 sm:p-8 md:p-10 sm:rounded-xl border-0 sm:border border-zinc-800 w-full">
                     <slot />
                 </main>
             </div>

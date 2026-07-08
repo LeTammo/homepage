@@ -1,11 +1,4 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Bio from '../../components/about/Bio.astro';
-import Work from '../../components/about/Work.astro';
-import Education from '../../components/about/Education.astro';
-import en from '../../../locales/en.json';
-import de from '../../../locales/de.json';
-
 export function getStaticPaths() {
   return [
     { params: { lang: 'en' } },
@@ -14,37 +7,18 @@ export function getStaticPaths() {
 }
 
 const { lang } = Astro.params;
-const locales = { en, de };
-const t = locales[lang] || en;
 ---
-<Layout title={`${t.about.title} | mathia.xyz`} activePage="about" lang={lang}>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-10">
-        <!-- Left Sidebar: Profile Details Card (4 cols) -->
-        <div>
-            <div class="bg-zinc-900 rounded-xl p-6 animate-fade-up">
-                <Bio t={t} />
-            </div>
-            <div class="border-t border-zinc-800 mx-[15%] my-4"></div>
-            <div class="col-span-2 bg-zinc-900 rounded-xl p-6 animate-fade-up" style="animation-delay: 270ms">
-                <Education t={t} />
-            </div>
-        </div>
-                
-        <!-- Right Main Content: Bio story, Timelines (8 cols) -->
-        <div class="space-y-8">
-            <div class="hidden bg-zinc-900 rounded-xl p-6 md:p-8 space-y-6 animate-fade-up" style="animation-delay: 90ms">
-                <h2 class="text-2xl font-bold text-zinc-200">{t.about.title}</h2>
-                <div class="h-1 w-12 bg-green-500 rounded"></div>
-                <div class="text-zinc-400 text-base leading-relaxed space-y-4">
-                    <p>{t.about.bio1}</p>
-                    <p>{t.about.bio2}</p>
-                    <p>{t.about.bio3}</p>
-                </div>
-            </div>
-                    
-            <div class="bg-zinc-900 rounded-xl p-6 animate-fade-up" style="animation-delay: 180ms">
-                <Work t={t} />
-            </div>
-        </div>
-    </div>
-</Layout>
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <title>mathia.xyz</title>
+    <meta http-equiv="refresh" content={`0;url=/${lang}/`} />
+    <script is:inline define:vars={{ lang }}>
+      window.location.replace('/' + lang + '/');
+    </script>
+  </head>
+  <body style="background: #09090b; color: #a1a1aa; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
+    <p>Redirecting / Weiterleitung...</p>
+  </body>
+</html>
