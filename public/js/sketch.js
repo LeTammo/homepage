@@ -1,253 +1,224 @@
-let p5Instance;
+let canvas, ctx;
+let animationFrame = null;
+let particles = [];
+let grid = {};
+let gridSize;
+let maxDistance = 70;
+let speedMultiplier = 0.2;
+let useColor = false;
+let basicColor = 100;
+let accelerated = false;
+let lastFrameTime = 0;
+let nextParticleId = 0;
+let initialized = false;
 
-function initSketch() {
-    if (p5Instance) {
-        p5Instance.remove();
+const MIN_SCREEN = 320;
+const MAX_SCREEN = 1920;
+const MIN_PARTICLES = 100;
+const MAX_PARTICLES = 360;
+const MIN_MAXDIST = 40;
+const MAX_MAXDIST = 70;
+const FRAME_INTERVAL = 1000 / 30;
+const isTouch = window.matchMedia('(pointer: coarse)').matches;
+const TOUCH_PARTICLE_FACTOR = 0.5;
+
+function clamp(value, min, max) {
+    return Math.max(min, Math.min(max, value));
+}
+
+function lerp(a, b, t) {
+    return a + (b - a) * t;
+}
+
+function computeScaledValues() {
+    const w = clamp(window.innerWidth, MIN_SCREEN, MAX_SCREEN);
+    const t = clamp((w - MIN_SCREEN) / (MAX_SCREEN - MIN_SCREEN), 0, 1);
+    let scaledNum = Math.floor(lerp(MIN_PARTICLES, MAX_PARTICLES, t));
+    if (isTouch) scaledNum = Math.round(scaledNum * TOUCH_PARTICLE_FACTOR);
+    const scaledMaxDist = lerp(MIN_MAXDIST, MAX_MAXDIST, t);
+    return { scaledNum, scaledMaxDist };
+}
+
+class Particle {
+    constructor(id) {
+        this.id = id;
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() * 2 - 1) * speedMultiplier;
+        this.vy = (Math.random() * 2 - 1) * speedMultiplier;
+        this.size = 3;
+        this.applyColor();
     }
 
-    const sketch = (p) => {
-        let particles = [];
-        let numParticles = 360;
-        let maxDistance = 70;
-        let speedMultiplier = 0.2;
-        let useColor = false;
-        let basicColor = 100;
+    applyColor() {
+        if (useColor) {
+            this.r = Math.random() * 255 | 0;
+            this.g = Math.random() * 255 | 0;
+            this.b = Math.random() * 255 | 0;
+        } else {
+            this.r = this.g = this.b = basicColor;
+        }
+    }
 
-        let gridSize;
-        let grid = {};
-        let lineBuffer = [];
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+    }
+}
 
-        const MIN_SCREEN = 320;
-        const MAX_SCREEN = 1920;
-        const MIN_PARTICLES = 100;
-        const MAX_PARTICLES = 360;
-        const MIN_MAXDIST = 40;
-        const MAX_MAXDIST = 70;
+function connectParticles() {
+    const checked = new Set();
+    const maxDistSq = maxDistance * maxDistance;
 
-        function computeScaledValues() {
-            let w = p.constrain(p.windowWidth, MIN_SCREEN, MAX_SCREEN);
-            let t = (w - MIN_SCREEN) / (MAX_SCREEN - MIN_SCREEN);
-            t = p.constrain(t, 0, 1);
-
-            let scaledNum = p.floor(p.lerp(MIN_PARTICLES, MAX_PARTICLES, t));
-            let scaledMaxDist = p.lerp(MIN_MAXDIST, MAX_MAXDIST, t);
-
-            return { scaledNum, scaledMaxDist };
+    for (const particle of particles) {
+        if (particle.x < -maxDistance || particle.x > canvas.width + maxDistance ||
+            particle.y < -maxDistance || particle.y > canvas.height + maxDistance) {
+            continue;
         }
 
-        p.setup = () => {
-            p.frameRate(30);
-            p.pixelDensity(1);
+        const gx = Math.floor(particle.x / gridSize);
+        const gy = Math.floor(particle.y / gridSize);
 
-            let canvas = p.createCanvas(p.windowWidth, p.windowHeight, p.P2D);
-            canvas.position(0, 0);
-            canvas.style('z-index', '-1');
-            canvas.style('position', 'fixed');
-            canvas.attribute('data-protected', 'true');
+        for (let dx = -1; dx <= 1; dx++) {
+            for (let dy = -1; dy <= 1; dy++) {
+                const neighbors = grid[`${gx + dx},${gy + dy}`];
+                if (!neighbors) continue;
 
-            const { scaledNum, scaledMaxDist } = computeScaledValues();
-            numParticles = scaledNum;
-            maxDistance = scaledMaxDist;
-            gridSize = maxDistance;
+                for (const other of neighbors) {
+                    if (particle === other) continue;
 
-            for (let i = 0; i < numParticles; i++) {
-                particles.push(new Particle(p, speedMultiplier, useColor, basicColor));
-            }
-        };
+                    const pairKey = particle.id < other.id
+                        ? `${particle.id}-${other.id}`
+                        : `${other.id}-${particle.id}`;
+                    if (checked.has(pairKey)) continue;
+                    checked.add(pairKey);
 
-        p.draw = () => {
-            p.clear();
+                    const ddx = particle.x - other.x;
+                    const ddy = particle.y - other.y;
+                    const dSq = ddx * ddx + ddy * ddy;
+                    if (dSq >= maxDistSq) continue;
 
-            grid = {};
-            for (let particle of particles) {
-                particle.update(p);
+                    const alpha = clamp(1 - Math.sqrt(dSq) / maxDistance, 0, 1);
+                    const r = (particle.r + other.r) / 2;
+                    const g = (particle.g + other.g) / 2;
+                    const b = (particle.b + other.b) / 2;
 
-                let gridX = p.floor(particle.x / gridSize);
-                let gridY = p.floor(particle.y / gridSize);
-                let key = `${gridX},${gridY}`;
-                if (!grid[key]) grid[key] = [];
-                grid[key].push(particle);
-            }
-
-            connectParticlesBatched(p, particles, grid, gridSize, maxDistance, useColor, basicColor, lineBuffer);
-
-            p.noStroke();
-            if (!useColor) {
-                p.fill(basicColor);
-                for (let particle of particles) {
-                    if (particle.x >= -10 && particle.x <= p.width + 10 &&
-                        particle.y >= -10 && particle.y <= p.height + 10) {
-                        p.circle(particle.x, particle.y, particle.size);
-                    }
-                }
-            } else {
-                for (let particle of particles) {
-                    if (particle.x >= -10 && particle.x <= p.width + 10 &&
-                        particle.y >= -10 && particle.y <= p.height + 10) {
-                        p.fill(particle.color);
-                        p.circle(particle.x, particle.y, particle.size);
-                    }
+                    ctx.strokeStyle = `rgba(${r},${g},${b},${alpha})`;
+                    ctx.beginPath();
+                    ctx.moveTo(particle.x, particle.y);
+                    ctx.lineTo(other.x, other.y);
+                    ctx.stroke();
                 }
             }
-        };
+        }
+    }
+}
 
-        p.toggleColor = () => {
-            useColor = !useColor;
-            for (let particle of particles) {
-                particle.color = useColor
-                    ? p.color(p.random(255), p.random(255), p.random(255))
-                    : p.color(basicColor);
-            }
-        };
+function draw(timestamp) {
+    animationFrame = requestAnimationFrame(draw);
+    if (timestamp - lastFrameTime < FRAME_INTERVAL) return;
+    lastFrameTime = timestamp;
 
-        let accelerated = false;
-        p.toggleSpeed = () => {
-            const factor = accelerated ? 1 / 5 : 5;
-            accelerated = !accelerated;
-            speedMultiplier *= factor;
-            for (let particle of particles) {
-                particle.vx *= factor;
-                particle.vy *= factor;
-            }
-        };
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        p.windowResized = () => {
-            p.resizeCanvas(p.windowWidth, p.windowHeight);
+    grid = {};
+    for (const particle of particles) {
+        particle.update();
+        const key = `${Math.floor(particle.x / gridSize)},${Math.floor(particle.y / gridSize)}`;
+        (grid[key] || (grid[key] = [])).push(particle);
+    }
 
-            const { scaledNum, scaledMaxDist } = computeScaledValues();
+    connectParticles();
 
-            maxDistance = scaledMaxDist;
-            gridSize = maxDistance;
+    for (const particle of particles) {
+        if (particle.x >= -10 && particle.x <= canvas.width + 10 &&
+            particle.y >= -10 && particle.y <= canvas.height + 10) {
+            ctx.fillStyle = `rgb(${particle.r},${particle.g},${particle.b})`;
+            ctx.beginPath();
+            ctx.arc(particle.x, particle.y, particle.size / 2, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+}
 
-            if (scaledNum > particles.length) {
-                for (let i = particles.length; i < scaledNum; i++) {
-                    particles.push(new Particle(p, speedMultiplier, useColor, basicColor));
-                }
-            } else if (scaledNum < particles.length) {
-                particles.length = scaledNum;
-            }
-            numParticles = scaledNum;
-        };
-    };
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-    p5Instance = new p5(sketch, document.getElementById('p5-bg'));
+    const { scaledNum, scaledMaxDist } = computeScaledValues();
+    maxDistance = scaledMaxDist;
+    gridSize = maxDistance;
+
+    if (scaledNum > particles.length) {
+        for (let i = particles.length; i < scaledNum; i++) {
+            particles.push(new Particle(nextParticleId++));
+        }
+    } else if (scaledNum < particles.length) {
+        particles.length = scaledNum;
+    }
+}
+
+function initSketch() {
+    const container = document.getElementById('p5-bg');
+    if (!container) return;
+
+    canvas = document.createElement('canvas');
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.zIndex = '-1';
+    canvas.setAttribute('data-protected', 'true');
+    container.appendChild(canvas);
+
+    ctx = canvas.getContext('2d');
+    resizeCanvas();
+
+    window.addEventListener('resize', resizeCanvas);
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            if (animationFrame) cancelAnimationFrame(animationFrame);
+            animationFrame = null;
+        } else if (!animationFrame) {
+            lastFrameTime = 0;
+            animationFrame = requestAnimationFrame(draw);
+        }
+    });
+
+    if (!document.hidden) {
+        animationFrame = requestAnimationFrame(draw);
+    }
+
+    initialized = true;
 }
 
 function ensureSketch() {
-    if (typeof p5 !== 'undefined' && !p5Instance && document.getElementById('p5-bg')) {
+    if (!initialized && document.getElementById('p5-bg')) {
         initSketch();
     }
 }
 
+// used by the toggleColor button at the footer of the page
 function toggleColor() {
-    if (p5Instance) p5Instance.toggleColor();
+    useColor = !useColor;
+    for (const particle of particles) particle.applyColor();
 }
 
+// used by the toggleSpeed button at the footer of the page
 function toggleSpeed() {
-    if (p5Instance) p5Instance.toggleSpeed();
+    const factor = accelerated ? 1 / 5 : 5;
+    accelerated = !accelerated;
+    speedMultiplier *= factor;
+    for (const particle of particles) {
+        particle.vx *= factor;
+        particle.vy *= factor;
+    }
 }
 
 if (document.readyState === 'complete' || document.readyState === 'interactive') {
     ensureSketch();
-}
-
-function connectParticlesBatched(p, particles, grid, gridSize, maxDistance, useColor, basicColor, lineBuffer) {
-    lineBuffer.length = 0;
-    let checked = new Set();
-
-    for (let particle of particles) {
-        if (particle.x < -maxDistance || particle.x > p.width + maxDistance ||
-            particle.y < -maxDistance || particle.y > p.height + maxDistance) {
-            continue;
-        }
-
-        let gridX = p.floor(particle.x / gridSize);
-        let gridY = p.floor(particle.y / gridSize);
-
-        for (let dx = -1; dx <= 1; dx++) {
-            for (let dy = -1; dy <= 1; dy++) {
-                let key = `${gridX + dx},${gridY + dy}`;
-                let neighbors = grid[key];
-
-                if (neighbors) {
-                    for (let other of neighbors) {
-                        if (particle === other) continue;
-
-                        let pairKey = particle.id < other.id ?
-                            `${particle.id}-${other.id}` :
-                            `${other.id}-${particle.id}`;
-
-                        if (checked.has(pairKey)) continue;
-                        checked.add(pairKey);
-
-                        let dx = particle.x - other.x;
-                        let dy = particle.y - other.y;
-                        let dSq = dx * dx + dy * dy;
-                        let maxDistSq = maxDistance * maxDistance;
-
-                        if (dSq < maxDistSq) {
-                            let d = p.sqrt(dSq);
-                            let alpha = p.map(d, 0, maxDistance, 255, 0);
-
-                            if (useColor) {
-                                let color1 = particle.color;
-                                let color2 = other.color;
-                                let r = p.lerp(p.red(color1), p.red(color2), 0.5);
-                                let g = p.lerp(p.green(color1), p.green(color2), 0.5);
-                                let b = p.lerp(p.blue(color1), p.blue(color2), 0.5);
-                                lineBuffer.push({
-                                    x1: particle.x, y1: particle.y,
-                                    x2: other.x, y2: other.y,
-                                    r: r, g: g, b: b, a: alpha
-                                });
-                            } else {
-                                lineBuffer.push({
-                                    x1: particle.x, y1: particle.y,
-                                    x2: other.x, y2: other.y,
-                                    a: alpha
-                                });
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    if (lineBuffer.length > 0) {
-        if (!useColor) {
-            p.stroke(basicColor, 0);
-            for (let lineData of lineBuffer) {
-                p.stroke(basicColor, lineData.a);
-                p.line(lineData.x1, lineData.y1, lineData.x2, lineData.y2);
-            }
-        } else {
-            for (let lineData of lineBuffer) {
-                p.stroke(lineData.r, lineData.g, lineData.b, lineData.a);
-                p.line(lineData.x1, lineData.y1, lineData.x2, lineData.y2);
-            }
-        }
-    }
-}
-
-class Particle {
-    static nextId = 0;
-    constructor(p, speedMultiplier, useColor, basicColor) {
-        this.id = Particle.nextId++;
-        this.x = p.random(p.width || window.innerWidth);
-        this.y = p.random(p.height || window.innerHeight);
-        this.vx = p.random(-1, 1) * speedMultiplier;
-        this.vy = p.random(-1, 1) * speedMultiplier;
-        this.size = 3;
-        this.color = useColor ? p.color(p.random(255), p.random(255), p.random(255)) : p.color(basicColor);
-    }
-
-    update(p) {
-        this.x += this.vx;
-        this.y += this.vy;
-        if (this.x < 0 || this.x > p.width) this.vx *= -1;
-        if (this.y < 0 || this.y > p.height) this.vy *= -1;
-    }
 }
 
 document.addEventListener('astro:page-load', ensureSketch);

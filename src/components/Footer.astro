@@ -15,7 +15,7 @@ const currentYear = new Date().getFullYear();
 ---
 <div class="bg-zinc-900 border-t border-zinc-800">
     <div class="container px-4 sm:px-6 py-3 mx-auto flex items-center justify-between gap-2">
-        <!-- Left: copyright + impressum -->
+        <!-- copyright + impressum -->
         <div class="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-zinc-500 min-w-0">
             <span class="shrink-0">© {currentYear}</span>
             <span class="text-zinc-700 hidden sm:inline">•</span>
@@ -24,12 +24,12 @@ const currentYear = new Date().getFullYear();
             </a>
         </div>
 
-        <!-- Center: p5.js animation controls — hidden on mobile -->
+        <!-- canvas animation controls -->
         <div class="footer-anim-group hidden sm:flex">
-            <button class="footer-anim-btn" title="p5.js animation">✦ {t.footer.animation} ✦</button>
+            <button class="footer-anim-btn" title="canvas animation">✦ {t.footer.animation} ✦</button>
             <div class="footer-anim-popup">
                 <a href="https://github.com/LeTammo/homepage/blob/main/public/js/sketch.js" target="_blank" class="footer-anim-btn">
-                    🔗 p5.js
+                    🔗 source
                 </a>
                 <span class="footer-anim-sep">•</span>
                 <button class="footer-anim-btn" onclick="toggleColor()">✨ {t.footer.addColor}</button>
@@ -38,7 +38,7 @@ const currentYear = new Date().getFullYear();
             </div>
         </div>
 
-        <!-- Right: language toggle -->
+        <!-- language toggle -->
         <div class="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm shrink-0">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-500 hidden sm:block">
                 <circle cx="12" cy="12" r="10"></circle>

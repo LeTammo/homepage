@@ -18,8 +18,7 @@ const t = locales[lang] || en;
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <title>{title}</title>
         <ClientRouter />
-        <script is:inline src="/js/p5.min.js"></script>
-        <script is:inline src="/js/sketch.js"></script>
+        <script is:inline src="/js/sketch.js" defer></script>
     </head>
     <body class="h-full flex flex-col m-0 p-0 bg-linear-to-r from-zinc-950 to-zinc-800 text-zinc-400 overscroll-none">
         <div id="p5-bg" transition:persist="p5-bg"></div>
