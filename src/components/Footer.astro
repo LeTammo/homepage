@@ -15,7 +15,7 @@ const currentYear = new Date().getFullYear();
 ---
 <div class="bg-zinc-900 border-t border-zinc-800">
     <div class="container px-4 sm:px-6 py-3 mx-auto flex items-center justify-between gap-2">
-        <div class="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-zinc-500 min-w-0">
+        <div class="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-zinc-400/70 min-w-0">
             <span class="shrink-0">© {currentYear}</span>
             <span class="text-zinc-700 hidden sm:inline">•</span>
             <a href={`/${lang}/impressum`} class="hover:text-zinc-300 transition-colors shrink-0">
@@ -42,9 +42,9 @@ const currentYear = new Date().getFullYear();
                 <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
                 <path d="M2 12h20"></path>
             </svg>
-            <a href={getLangPath('de')} class={`${lang === 'de' ? 'text-green-500 font-bold' : 'text-zinc-500 hover:text-zinc-300'} transition-colors focus:outline-none`}>DE</a>
+            <a href={getLangPath('de')} hreflang="de" aria-label="Deutsch" aria-current={lang === 'de' ? 'page' : undefined} class={`${lang === 'de' ? 'text-green-500 font-bold' : 'text-zinc-500 hover:text-zinc-300'} transition-colors focus:outline-none`}>DE</a>
             <span class="text-zinc-700 select-none">/</span>
-            <a href={getLangPath('en')} class={`${lang === 'en' ? 'text-green-500 font-bold' : 'text-zinc-500 hover:text-zinc-300'} transition-colors focus:outline-none`}>EN</a>
+            <a href={getLangPath('en')} hreflang="en" aria-label="English" aria-current={lang === 'en' ? 'page' : undefined} class={`${lang === 'en' ? 'text-green-500 font-bold' : 'text-zinc-500 hover:text-zinc-300'} transition-colors focus:outline-none`}>EN</a>
         </div>
     </div>
 </div>

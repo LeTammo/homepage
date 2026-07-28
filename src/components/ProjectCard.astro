@@ -53,13 +53,13 @@ const primary = demo || github;
     </div>
 
     <div class="flex items-center gap-2">
-        <h3 class="text-base font-semibold text-zinc-200 group-hover:text-green-400 transition-colors">{title}</h3>
+        <h3 class="text-lg font-semibold text-zinc-300 group-hover:text-green-400 transition-colors">{title}</h3>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-400 opacity-0 -translate-x-1 group-hover:opacity-90 group-hover:translate-x-0 transition-all duration-200">
             <path d="M5 12h14m0 0l-6-6m6 6l-6 6"></path>
         </svg>
     </div>
 
-    <p class="text-sm text-zinc-500 leading-relaxed mt-2 grow">{description}</p>
+    <p class="text-sm text-zinc-400/70 leading-relaxed mt-2 grow">{description}</p>
 
-    <p class="text-sm text-green-400/50 mt-4">{tags.join(' · ')}</p>
+    <p class="text-sm text-green-400/80 mt-4">{tags.join(' · ')}</p>
 </div>

@@ -37,7 +37,7 @@ const personSchema = {
 ---
 
 <!doctype html>
-<html lang={lang} class="h-full m-0 p-0 overscroll-none">
+<html lang={lang} class="h-full m-0 p-0">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -79,12 +79,12 @@ const personSchema = {
         <ClientRouter />
         <script is:inline src="/js/sketch.js" defer></script>
     </head>
-    <body class="h-full flex flex-col m-0 p-0 bg-linear-to-r from-zinc-950 to-zinc-800 text-zinc-400 overscroll-none">
+    <body class="h-full flex flex-col m-0 p-0 bg-linear-to-r from-zinc-950 to-zinc-800 text-zinc-400">
         <div id="p5-bg" transition:persist="p5-bg"></div>
-        <div class="md:container grow md:mx-auto sm:p-6 md:p-10 xl:p-20">
+        <div class="md:container grow md:mx-auto pb-[calc(4rem+env(safe-area-inset-bottom))] sm:p-6 md:p-10 xl:p-20">
             <div class="flex flex-col">
-                <aside class="pb-3 sm:pb-4 w-full sm:px-0">
-                    <div class="sticky xl:top-8 p-2 xl:p-3 bg-zinc-900 sm:rounded-xl w-full border-b sm:border border-zinc-800">
+                <aside class="sticky xl:-top-1 z-10 pb-3 sm:pb-4 w-full sm:px-0">
+                    <div class="p-2 xl:p-3 bg-zinc-900 sm:rounded-xl w-full border-b sm:border border-zinc-800 shadow-bottom">
                         <Navigation activePage={activePage} lang={lang} t={t} />
                     </div>
                 </aside>

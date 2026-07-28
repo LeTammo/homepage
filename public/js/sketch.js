@@ -163,6 +163,7 @@ function resizeCanvas() {
 function initSketch() {
     const container = document.getElementById('p5-bg');
     if (!container) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     canvas = document.createElement('canvas');
     canvas.style.position = 'fixed';
