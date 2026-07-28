@@ -11,7 +11,7 @@ const categories = [
     {
         title: {de: 'Softwareentwicklung (Backend)', en: 'Software Development (Backend)'},
         skills: [
-            {abbr: 'PHP', name: 'PHP', detail: '7.4 – 8.x · Symfony', gradient: 'from-cyan-500 to-blue-500'},
+            {abbr: 'PHP', name: 'PHP', detail: '7.4 - 8.x · Symfony', gradient: 'from-cyan-500 to-blue-500'},
             {abbr: 'J', name: 'Java', detail: 'Spring Boot', gradient: 'from-emerald-500 to-green-600'},
             {abbr: 'PY', name: 'Python', detail: 'Flask', gradient: 'from-cyan-400 to-cyan-600'},
             {abbr: 'N', name: 'Node.js', detail: 'Express, REST APIs', gradient: 'from-green-600 to-emerald-700'},
@@ -20,7 +20,7 @@ const categories = [
         ],
     },
     {
-        title: {de: 'Arbeitsmethodik & GenAI', en: 'GenAI & Methodology'},
+        title: {de: 'Arbeitsmethodik & KI', en: 'Work methodology & AI'},
         skills: [
             {
                 abbr: 'PM', gradient: 'from-green-600 to-emerald-700',
@@ -70,7 +70,6 @@ const categories = [
 ];
 ---
 <div data-skills-exp>
-    <!-- Subtle underline tab switcher -->
     <div class="flex gap-6 mb-8 justify-center border-b border-zinc-800 mx-[30%] md:mx-[40%]" role="tablist">
         <button
             type="button"
@@ -92,7 +91,6 @@ const categories = [
         </button>
     </div>
 
-    <!-- Skills view -->
     <div data-tab-panel="skills" class="space-y-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-10">
             {categories.map((category, i) => (
@@ -120,7 +118,6 @@ const categories = [
             ))}
         </div>
 
-        <!-- Soft skills below skills grid, no title -->
         <div class="flex flex-col justify-center sm:flex-row sm:flex-wrap lg:px-[10%] xl:px-0 gap-2 pt-2">
             {softSkills.map((item) => (
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-zinc-700/50 text-xs text-zinc-400 w-full sm:w-auto min-w-0">
@@ -133,7 +130,6 @@ const categories = [
         </div>
     </div>
 
-    <!-- Experience view: Education (left) + Work (right) -->
     <div data-tab-panel="experience" hidden class="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-10">
         <div>
             <Education t={t} />

@@ -1,33 +1,26 @@
 {
   "nav": {
-    "home": "Startseite",
     "about": "Über mich",
-    "projects": "Projekte",
-    "blog": "Blog"
+    "projects": "Projekte"
   },
   "hero": {
     "tagline": "Softwareentwickler, Mathematik-Enthusiast und Hobbyastronom",
-    "intro": "Ich habe eine Leidenschaft für neue Technologien und Wissenschaften und versuche mir immer wieder neue Fähigkeiten anzueignen. Ich lege Fokus auf Clean Code, nachhaltige Dokumentation und eine klare und lösungsorientierte Kommunikation.",
-    "btnAbout": "Über mich",
+    "intro": "Ich habe eine Leidenschaft für neue Technologien und Wissenschaften und möchte Tools erstellen, die einen echten Nutzen haben. Ich lege Fokus auf Clean Code, nachhaltige Dokumentation und eine klare und lösungsorientierte Kommunikation.",
     "btnProjects": "Projekte",
     "location": "Leipzig",
-    "role": "Fullstack-Entwickler"
+    "role": "Fullstack-Entwicklung",
+    "personality": "Fachübergreifende Kommunikation"
   },
   "skillsExp": {
-    "title": "Skills & Erfahrung",
     "tabSkills": "Skills",
     "tabExperience": "Berufserfahrung"
   },
   "about": {
     "title": "Über mich",
-    "subtitle": "Softwareentwicklung & Angewandte Mathematik",
-    "location": "Leipzig",
-    "btnProjects": "Meine Projekte",
     "bio1": "Ich arbeite derzeit als Webentwickler bei der Databay AG, wo ich 2023 meine Ausbildung zum \"Mathematisch-Technischen Softwareentwickler\" abgeschlossen habe. Gleichzeitig habe ich 2024 meinen Bachelor of Science in \"Angewandter Mathematik und Informatik\" an der FH Aachen im Rahmen eines dualen Studiums erfolgreich abgeschlossen.",
     "bio2": "In diesen Jahren sammelte ich umfangreiche Erfahrung in der PHP-Entwicklung. Zunächst arbeitete ich mit React und Symfony, wechselte jedoch recht schnell ins ILIAS-Team und trage seitdem bei dieser Open-Source-Lernmanagement Software meinen Teil bei.",
     "bio3": "In meiner Freizeit habe ich meine Entwicklerfähigkeiten durch verschiedene Hobbyprojekte weiterentwickelt. Wie jeder Entwickler habe ich Dutzende unfertige Prototypen (verschiedene To-do-Listen, Blogs und Ordner namens 'projekt_v2_FINAL'). Aus all meinen Hobbyprojekten stechen jedoch vier heraus, die ich für präsentierenswert halte.",
     "downloadCV": "Lebenslauf",
-    "cvNote": "PDF · Deutsch",
     "work": "Berufserfahrung",
     "workPresent": "seit",
     "workPHP_Ilias": "Fullstack PHP-Entwickler",
@@ -56,7 +49,6 @@
     "noDegree": "Kein Abschluss",
     "educationHTWK_1": "Schwerpunkte: Numerik, Operations Research, Optimierung und Finanzmathematik",
     "educationSchool": "Fachoberschule Technik",
-    "softSkillsTitle": "Soft Skills",
     "soft4": "Interdisziplinäre Kollaboration",
     "soft3": "Kunden- & Stakeholder-Kommunikation",
     "soft5": "Agiles Mindset",
@@ -67,16 +59,15 @@
     "title": "Projekte",
     "subtitle": "Eine Sammlung meiner Projekte aus der Vergangenheit und woran ich gerade arbeite.",
     "homepage": "Die aktuelle Seite. Informationen über mich und meine Projekte.",
-    "polepick": "Sag das Ergebnis des nächsten Formel-1-Rennens voraus und messe dich mit anderen.",
-    "woodcutters": "Ein Simulationsspiel über Abholzung zur politischen Bildung junger Menschen.",
-    "tournament": "Bevorstehende Esports-Turniere zusammenfassen und präsentieren.",
+    "polepick": "Hier können Gruppen gemeinsam gegeneinander das nächste Formel-1-Rennen vorhersagen.",
+    "woodcutters": "Ein Simulationsspiel über Waldrodungen (Angebot & Nachfrage) zur politischen Bildung junger Menschen.",
+    "tournament": "Fasst mithilfe einer Wiki-Schnittstelle bevorstehende Esports-Turniere übersichtlich zusammen.",
     "amronas": "Filmlisten verwalten und teilen, Wordle gegeneinander spielen, ein \"Deutsche Bahn\"-Reise-Bingo, usw.",
-    "ilias": "Mitarbeit an der ILIAS-Software, insbesondere bei der Modernisierung von Legacy-Code.",
-    "partie": "Modularer Baukasten für Brett- und Kartenspiele."
+    "ilias": "Mitarbeit an der ILIAS-Software, insbesondere bei der Modernisierung von Legacy-Code und Schnittstellen.",
+    "partie": "Eine Plattform für Brett- und Kartenspiele mit modularer Architektur zur einfachen Erweiterbarkeit."
   },
   "footer": {
     "animation": "Animation",
-    "animationSource": "Animation erstellt mit p5.js",
     "addColor": "Farbe hinzufügen",
     "accelerate": "Beschleunigen",
     "impressum": "Impressum"
@@ -89,8 +80,6 @@
     "addressLine2": "52146 Würselen",
     "addressLine3": "Deutschland",
     "contactTitle": "Kontakt",
-    "emailLabel": "E-Mail",
-    "email": "fe-wiegleb@t-online.de",
     "Github": "Github",
     "LinkedIn": "LinkedIn",
     "backHome": "Zurück zur Startseite"
