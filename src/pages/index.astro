@@ -1,5 +1,6 @@
 ---
 ---
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,8 +8,18 @@
     <title>mathia.xyz</title>
     <meta http-equiv="refresh" content="0;url=/en/" />
     <script is:inline>
-      var userLang = navigator.language || navigator.userLanguage || 'en';
-      var targetLang = userLang.toLowerCase().indexOf('de') === 0 ? 'de' : 'en';
+      function readCookie(name) {
+        let m = document.cookie.match(new RegExp('(?:^|;\\s*)' + name + '=([^;]*)'));
+        return m ? decodeURIComponent(m[1]) : null;
+      }
+      let stored = readCookie('preferredLang');
+      let targetLang;
+      if (stored === 'de' || stored === 'en') {
+        targetLang = stored;
+      } else {
+        let userLang = navigator.language || navigator.userLanguage || 'en';
+        targetLang = userLang.toLowerCase().indexOf('de') === 0 ? 'de' : 'en';
+      }
       window.location.replace('/' + targetLang + '/');
     </script>
   </head>

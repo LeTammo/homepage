@@ -6,17 +6,76 @@ import en from '../../locales/en.json';
 import de from '../../locales/de.json';
 import '../styles/tailwind.css';
 
-const { title, activePage, lang } = Astro.props;
+const { title, description, activePage, lang, trackLang = true } = Astro.props;
 const locales = { en, de };
 const t = locales[lang] || en;
+
+const path = Astro.url.pathname;
+const altPath = (targetLang) => path.replace(/^\/(en|de)(?=\/|$)/, `/${targetLang}`);
+const canonicalURL = new URL(path, Astro.site);
+const ogImageURL = new URL('/og-image.jpg', Astro.site);
+const ogLocale = lang === 'de' ? 'de_DE' : 'en_US';
+const ogLocaleAlternate = lang === 'de' ? 'en_US' : 'de_DE';
+
+const personSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Felix Jonas Wiegleb',
+    jobTitle: 'Fullstack Software Developer',
+    url: 'https://mathia.xyz',
+    image: ogImageURL.toString(),
+    address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Leipzig',
+        addressCountry: 'DE',
+    },
+    sameAs: [
+        'https://github.com/LeTammo/',
+        'https://www.linkedin.com/in/jwiegleb',
+    ],
+};
 ---
+
 <!doctype html>
 <html lang={lang} class="h-full m-0 p-0 overscroll-none">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#09090b" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <title>{title}</title>
+        {description && <meta name="description" content={description} />}
+
+        <link rel="canonical" href={canonicalURL} />
+        <link rel="alternate" hreflang="en" href={new URL(altPath('en'), Astro.site)} />
+        <link rel="alternate" hreflang="de" href={new URL(altPath('de'), Astro.site)} />
+        <link rel="alternate" hreflang="x-default" href={new URL(altPath('en'), Astro.site)} />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="mathia.xyz" />
+        <meta property="og:title" content={title} />
+        {description && <meta property="og:description" content={description} />}
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:image" content={ogImageURL} />
+        <meta property="og:locale" content={ogLocale} />
+        <meta property="og:locale:alternate" content={ogLocaleAlternate} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        {description && <meta name="twitter:description" content={description} />}
+        <meta name="twitter:image" content={ogImageURL} />
+
+        <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+        {trackLang && (
+            <script is:inline define:vars={{ lang }}>
+                try {
+                    document.cookie = 'preferredLang=' + lang + ';path=/;max-age=31536000;samesite=lax';
+                } catch (e) {}
+            </script>
+        )}
+
         <ClientRouter />
         <script is:inline src="/js/sketch.js" defer></script>
     </head>

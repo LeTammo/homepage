@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mathia.xyz/sitemap-index.xml

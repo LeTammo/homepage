@@ -14,14 +14,14 @@ const { lang } = Astro.params;
 const locales = { en, de };
 const t = locales[lang] || en;
 ---
-<Layout title={`${t.impressum.title} | mathia.xyz`} activePage="impressum" lang={lang}>
+
+<Layout title={t.meta.titleImpressum} description={t.meta.descriptionImpressum} activePage="impressum" lang={lang}>
     <div class="mb-10">
         <h1 class="text-3xl md:text-4xl font-bold text-zinc-200 mb-4">{t.impressum.title}</h1>
         <div class="h-1 w-16 bg-green-500 rounded"></div>
     </div>
 
     <div class="max-w-2xl space-y-5">
-        <!-- My information -->
         <section class="bg-zinc-900/60 border border-zinc-800 shadow-md shadow-zinc-800/50 rounded-xl p-6 animate-fade-up">
             <h2 class="flex items-center gap-2 text-sm font-semibold text-zinc-500 uppercase tracking-widest mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500 shrink-0">
@@ -40,7 +40,6 @@ const t = locales[lang] || en;
             </div>
         </section>
 
-        <!-- Contact -->
         <section class="bg-zinc-900/60 border border-zinc-800 shadow-md shadow-zinc-800/50 rounded-xl p-6 animate-fade-up" style="animation-delay: 90ms">
             <h2 class="flex items-center gap-2 text-sm font-semibold text-zinc-500 uppercase tracking-widest mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500 shrink-0">
@@ -55,7 +54,6 @@ const t = locales[lang] || en;
         </section>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- Github -->
             <section class="bg-zinc-900/60 border border-zinc-800 shadow-md shadow-zinc-800/50 rounded-xl p-6 animate-fade-up" style="animation-delay: 180ms">
                 <h2 class="flex items-center gap-2 text-sm font-semibold text-zinc-500 uppercase tracking-widest mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500 shrink-0">
@@ -67,7 +65,6 @@ const t = locales[lang] || en;
                 <a href="https://github.com/LeTammo/" target="_blank" class="text-zinc-400 hover:text-green-400 transition-colors w-fit">@LeTammo</a>
             </section>
 
-            <!-- LinkedIn -->
             <section class="bg-zinc-900/60 border border-zinc-800 shadow-md shadow-zinc-800/50 rounded-xl p-6 animate-fade-up" style="animation-delay: 180ms">
                 <h2 class="flex items-center gap-2 text-sm font-semibold text-zinc-500 uppercase tracking-widest mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500 shrink-0">

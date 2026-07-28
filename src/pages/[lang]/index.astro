@@ -16,7 +16,8 @@ const { lang } = Astro.params;
 const locales = { en, de };
 const t = locales[lang] || en;
 ---
-<Layout title={`${t.about.title} | mathia.xyz`} activePage="home" lang={lang}>
+
+<Layout title={t.meta.titleHome} description={t.meta.descriptionHome} activePage="home" lang={lang}>
     <div>
         <Hero lang={lang} t={t} />
     </div>

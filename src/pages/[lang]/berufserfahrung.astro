@@ -19,7 +19,8 @@ const {lang} = Astro.params;
 const locales = {en, de};
 const t = locales[lang] || en;
 ---
-<Layout title={`${t.about.work} | mathia.xyz`} activePage="berufserfahrung" lang={lang}>
+
+<Layout title={t.meta.titleExperience} description={t.meta.descriptionExperience} activePage="berufserfahrung" lang={lang}>
     <div class="mb-10">
         <div class="flex items-center gap-4 mb-4">
             <a href={`/${lang}`} class="block shrink-0 rounded-full border border-zinc-800 overflow-hidden w-14 h-14 md:w-16 md:h-16" transition:name="profile-image" aria-label={t.about.title}>

@@ -15,6 +15,20 @@
   "skillsExp": {
     "tabSkills": "Skills"
   },
+  "meta": {
+    "titleHome": "Felix Jonas Wiegleb — Softwareentwickler",
+    "descriptionHome": "Portfolio von Felix Jonas Wiegleb, Fullstack-Softwareentwickler, Mathematik-Enthusiast und Hobbyastronom.",
+    "titleProjects": "Projekte — Felix Jonas Wiegleb",
+    "descriptionProjects": "Eine Sammlung von Softwareprojekten von Felix Jonas Wiegleb, darunter Webanwendungen und Open-Source-Beiträge zu ILIAS.",
+    "titleExperience": "Berufserfahrung — Felix Jonas Wiegleb",
+    "descriptionExperience": "Berufserfahrung, Ausbildung und Kenntnisse von Felix Jonas Wiegleb, Fullstack-Softwareentwickler.",
+    "titleImpressum": "Impressum — Felix Jonas Wiegleb",
+    "descriptionImpressum": "Impressum und Kontaktdaten von mathia.xyz, der persönlichen Website von Felix Jonas Wiegleb."
+  },
+  "errors": {
+    "title404": "Seite nicht gefunden",
+    "description404": "Die gesuchte Seite existiert nicht oder wurde verschoben."
+  },
   "about": {
     "title": "Über mich",
     "bio1": "Ich arbeite derzeit als Webentwickler bei der Databay AG, wo ich 2023 meine Ausbildung zum \"Mathematisch-Technischen Softwareentwickler\" abgeschlossen habe. Gleichzeitig habe ich 2024 meinen Bachelor of Science in \"Angewandter Mathematik und Informatik\" an der FH Aachen im Rahmen eines dualen Studiums erfolgreich abgeschlossen.",
@@ -80,11 +94,11 @@
     "noDegree": "Kein Abschluss",
     "educationHTWK_1": "Schwerpunkte: Numerik, Operations Research, Optimierung und Finanzmathematik",
     "educationSchool": "Fachoberschule Technik",
-    "soft4": "Interdisziplinäre Kollaboration",
-    "soft3": "Kunden- & Stakeholder-Kommunikation",
-    "soft5": "Agiles Mindset",
-    "soft1": "Lösungsorientierung",
-    "soft2": "Qualitätsbewusstsein"
+    "soft1": "Interdisziplinäre Kollaboration",
+    "soft2": "Kunden- & Stakeholder-Kommunikation",
+    "soft3": "Agiles Mindset (Scrum & Kanban)",
+    "soft4": "Lösungsorientierung",
+    "soft5": "Qualitätsbewusstsein"
   },
   "projects": {
     "title": "Projekte",
@@ -107,11 +121,11 @@
     "title": "Impressum",
     "ownerTitle": "Persönliche Angaben",
     "name": "Felix Jonas Wiegleb",
-    "addressLine1": "Haaler Straße 129",
-    "addressLine2": "52146 Würselen",
+    "addressLine1": "Ehrensteinstraße",
+    "addressLine2": "04105 Leipzig",
     "addressLine3": "Deutschland",
     "contactTitle": "Kontakt",
-    "Github": "Github",
+    "Github": "GitHub",
     "LinkedIn": "LinkedIn",
     "backHome": "Zurück zur Startseite"
   }

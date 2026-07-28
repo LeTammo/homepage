@@ -15,6 +15,20 @@
   "skillsExp": {
     "tabSkills": "Skills"
   },
+  "meta": {
+    "titleHome": "Felix Jonas Wiegleb — Software Developer",
+    "descriptionHome": "Portfolio of Felix Jonas Wiegleb, a fullstack software developer, math enthusiast and hobby astronomer.",
+    "titleProjects": "Projects — Felix Jonas Wiegleb",
+    "descriptionProjects": "A collection of software projects by Felix Jonas Wiegleb, including web apps and open-source contributions to ILIAS.",
+    "titleExperience": "Work Experience — Felix Jonas Wiegleb",
+    "descriptionExperience": "Work experience, education and skills of Felix Jonas Wiegleb, a fullstack software developer.",
+    "titleImpressum": "Impressum — Felix Jonas Wiegleb",
+    "descriptionImpressum": "Legal notice and contact details for mathia.xyz, the personal website of Felix Jonas Wiegleb."
+  },
+  "errors": {
+    "title404": "Page not found",
+    "description404": "The page you are looking for does not exist or has been moved."
+  },
   "about": {
     "title": "About Me",
     "bio1": "I currently work as a web developer at Databay AG, where I completed my apprenticeship as a \"Mathematical-Technical Software Developer\" in 2023. Simultaneously, I successfully completed my Bachelor of Science in \"Applied Mathematics and Computer Science\" at FH Aachen University of Applied Sciences in 2024 as part of a dual study program.",
@@ -107,11 +121,11 @@
     "title": "Impressum",
     "ownerTitle": "Personal Information",
     "name": "Felix Jonas Wiegleb",
-    "addressLine1": "Haaler Straße 129",
-    "addressLine2": "52146 Würselen",
+    "addressLine1": "Ehrensteinstraße",
+    "addressLine2": "04105 Leipzig",
     "addressLine3": "Germany",
     "contactTitle": "Contact",
-    "Github": "Github",
+    "Github": "GitHub",
     "LinkedIn": "LinkedIn",
     "backHome": "Back to Home"
   }
