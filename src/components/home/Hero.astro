@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import meImg from '../../images/me.jpg';
+
 const { lang, t } = Astro.props;
 ---
 <div class="flex flex-col lg:grid lg:grid-cols-12 gap-8 xl:gap-12 items-center w-full">
@@ -7,7 +10,7 @@ const { lang, t } = Astro.props;
         <a href={`/${lang}/projects`} class="block relative group w-40 sm:w-56 lg:w-full lg:max-w-88.5">
             <div class="absolute -inset-1 bg-linear-to-r from-green-500 to-emerald-600 rounded-2xl opacity-10 blur-md group-hover:opacity-45 transition duration-500"></div>
             <div class="relative aspect-square rounded-2xl border border-zinc-800 overflow-hidden bg-zinc-950 transition-all duration-300 transform group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:border-green-500/50 group-hover:shadow-green-950/20" transition:name="profile-image">
-                <img src="/images/me.jpg" alt="Profile" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500" />
+                <Image src={meImg} alt="Profile" width={354} densities={[1, 2]} loading="eager" fetchpriority="high" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500" />
             </div>
         </a>
     </div>

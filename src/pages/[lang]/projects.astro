@@ -1,8 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
+import { Image } from 'astro:assets';
 import en from '../../../locales/en.json';
 import de from '../../../locales/de.json';
+import meImg from '../../images/me.jpg';
+import mathiaIcon from '../../images/youarehere32.ico?url';
+import mathiaImg from '../../images/youarehere32.png';
+import iliasIcon from '../../images/ilias.svg?url';
+import iliasImg from '../../images/ilias2.png';
+import polepickIcon from '../../images/pole.png?url';
+import polepickImg from '../../images/polepick.png';
+import woodcuttersIcon from '../../images/woodcutters.ico?url';
+import woodcuttersImg from '../../images/woodcutters.png';
+import esportsIcon from '../../images/esports.ico?url';
+import esportsImg from '../../images/esports.png';
+import amronasIcon from '../../images/amronas.svg?url';
+import amronasImg from '../../images/amronas.png';
+import partieIcon from '../../images/partie.svg?url';
+import partieImg from '../../images/partie.png';
 
 export function getStaticPaths() {
     return [
@@ -18,16 +34,16 @@ const t = locales[lang] || en;
 const projects = [
     {
         title: 'Personal Homepage',
-        image: '/images/youarehere32.png',
-        icon: '/images/youarehere32.ico',
-        tags: ['Astro', 'Tailwind CSS', 'p5.js'],
+        image: mathiaImg,
+        icon: mathiaIcon,
+        tags: ['Astro', 'Tailwind CSS', 'Canvas'],
         description: t.projects.homepage,
         github: 'https://github.com/LeTammo/homepage',
     },
     {
         title: 'ILIAS - Open Source LMS',
-        image: '/images/ilias2.png',
-        icon: '/images/ilias.svg',
+        image: iliasImg,
+        icon: iliasIcon,
         tags: ['PHP', 'MySQL', 'JavaScript', 'Maven'],
         description: t.projects.ilias,
         demo: 'https://www.ilias.de/',
@@ -35,8 +51,8 @@ const projects = [
     },
     {
         title: 'PolePick',
-        image: '/images/polepick.png',
-        icon: '/images/pole.png',
+        image: polepickImg,
+        icon: polepickIcon,
         tags: ['Node', 'Express', 'Handlebars', 'Tailwind CSS'],
         description: t.projects.polepick,
         demo: 'https://pole.mathia.xyz/',
@@ -44,8 +60,8 @@ const projects = [
     },
     {
         title: 'Woodcutters',
-        image: '/images/woodcutters.png',
-        icon: '/images/woodcutters.ico',
+        image: woodcuttersImg,
+        icon: woodcuttersIcon,
         tags: ['React', 'Node', 'Sockets', 'SQLite', 'Bootstrap'],
         description: t.projects.woodcutters,
         demo: 'https://woodcutters.mathia.xyz/',
@@ -53,8 +69,8 @@ const projects = [
     },
     {
         title: 'Tournament Tracker',
-        image: '/images/esports.png',
-        icon: '/images/esports.ico',
+        image: esportsImg,
+        icon: esportsIcon,
         tags: ['Node', 'Express', 'EJS', 'SQLite', 'Cheerio'],
         description: t.projects.tournament,
         demo: 'https://esports.mathia.xyz/',
@@ -62,8 +78,8 @@ const projects = [
     },
     {
         title: 'Amronas',
-        image: '/images/amronas.png',
-        icon: '/images/amronas.svg',
+        image: amronasImg,
+        icon: amronasIcon,
         tags: ['Symfony', 'MySQL', 'Twig', 'Docker'],
         description: t.projects.amronas,
         demo: 'https://movie.amronas.one/',
@@ -71,8 +87,8 @@ const projects = [
     },
     {
         title: 'Partie',
-        image: '/images/partie.png',
-        icon: '/images/partie.svg',
+        image: partieImg,
+        icon: partieIcon,
         tags: ['Symfony', 'PHP', 'Mercure', 'Tailwind CSS'],
         description: t.projects.partie,
         demo: 'https://partie.mathia.xyz/',
@@ -85,7 +101,7 @@ const projects = [
     <div class="mb-10">
         <div class="flex items-center gap-4 mb-4">
             <a href={`/${lang}`} class="block shrink-0 rounded-full border border-zinc-800 overflow-hidden w-14 h-14 md:w-16 md:h-16" transition:name="profile-image" aria-label={t.about.title}>
-                <img src="/images/me.jpg" alt="Profile" class="w-full h-full object-cover" />
+                <Image src={meImg} alt="Profile" width={128} loading="eager" class="w-full h-full object-cover" />
             </a>
             <h1 class="text-3xl md:text-4xl font-bold text-zinc-200">{t.projects.title}</h1>
         </div>

@@ -1,10 +1,10 @@
 ---
+import { Image } from 'astro:assets';
+
 const { title, icon, image, tags, description, github, demo, delay = 0 } = Astro.props;
 const primary = demo || github;
 ---
-<!-- "isolate" scopes the -z-10 screenshot between the card background and its content -->
 <div class="relative isolate overflow-hidden group p-5 border border-zinc-800 bg-zinc-900/60 hover:bg-zinc-800/50 hover:border-green-500/30 rounded-md transition-all duration-300 animate-fade-up flex flex-col" style={`animation-delay: ${delay}ms`}>
-    <!-- Stretched primary link: covers the whole card, secondary links sit above it -->
     <a href={primary} target="_blank" class="absolute inset-0" aria-label={title}></a>
 
     <div class="absolute inset-x-0 top-0 h-28 -z-9 bg-linear-to-r to-zinc-900 mr-[24%]"></div>
@@ -13,14 +13,14 @@ const primary = demo || github;
 
     {image && (
         <div class="absolute inset-x-0 top-0 h-28 -z-10 pointer-events-none select-none duration-300 mask-[linear-gradient(to_bottom,black,transparent)]">
-            <img src={image} alt="" class="w-full h-full object-cover object-top" />
+            <Image src={image} alt="" width={640} loading="lazy" class="w-full h-full object-cover object-top" />
         </div>
     )}
 
     <div class="flex items-start justify-between mb-4">
         {icon && (
             <div class="w-10 h-10 rounded-lg flex items-center justify-center">
-                <img src={icon} alt="" class="w-full h-full object-cover object-top rounded-lg bg-zinc-850 shadow-md shadow-zinc-850" />
+                <img src={icon} alt="" width="40" height="40" loading="lazy" class="w-full h-full object-cover object-top rounded-lg bg-zinc-850 shadow-md shadow-zinc-850" />
             </div>
         )}
         <div class="relative z-10 flex gap-1">
