@@ -1,20 +1,4 @@
 {
-  "nav": {
-    "about": "Über mich",
-    "projects": "Projekte",
-    "experience": "Berufserfahrung"
-  },
-  "hero": {
-    "tagline": "Softwareentwickler, Mathematik-Enthusiast und Hobbyastronom",
-    "intro": "Ich habe eine Leidenschaft für neue Technologien und Wissenschaften und möchte Tools erstellen, die einen echten Nutzen haben. Ich lege Fokus auf Clean Code, nachhaltige Dokumentation und eine klare und lösungsorientierte Kommunikation.",
-    "btnProjects": "Projekte",
-    "location": "Leipzig",
-    "role": "Fullstack-Entwicklung",
-    "personality": "Fachübergreifende Kommunikation"
-  },
-  "skillsExp": {
-    "tabSkills": "Skills"
-  },
   "meta": {
     "titleHome": "Felix Jonas Wiegleb — Softwareentwickler",
     "descriptionHome": "Portfolio von Felix Jonas Wiegleb, Fullstack-Softwareentwickler, Mathematik-Enthusiast und Hobbyastronom.",
@@ -25,9 +9,61 @@
     "titleImpressum": "Impressum — Felix Jonas Wiegleb",
     "descriptionImpressum": "Impressum und Kontaktdaten von mathia.xyz, der persönlichen Website von Felix Jonas Wiegleb."
   },
-  "errors": {
-    "title404": "Seite nicht gefunden",
-    "description404": "Die gesuchte Seite existiert nicht oder wurde verschoben."
+  "nav": {
+    "about": "Über mich",
+    "projects": "Projekte",
+    "experience": "Berufserfahrung"
+  },
+  "footer": {
+    "impressum": "Impressum",
+    "animation": "Animation",
+    "addColor": "Farbe hinzufügen",
+    "accelerate": "Beschleunigen"
+  },
+  "hero": {
+    "tagline": "Softwareentwickler, Mathematik-Enthusiast und Hobbyastronom",
+    "location": "Leipzig",
+    "role": "Fullstack-Entwicklung",
+    "personality": "Fachübergreifende Kommunikation",
+    "intro": "Ich habe eine Leidenschaft für neue Technologien und Wissenschaften und möchte Tools erstellen, die einen echten Nutzen haben. Ich lege Fokus auf Clean Code, nachhaltige Dokumentation und eine klare und lösungsorientierte Kommunikation.",
+    "btnProjects": "Projekte"
+  },
+  "skills": {
+    "categoryBackend": "Softwareentwicklung (Backend)",
+    "categoryWorkAI": "Arbeitsmethodik & KI",
+    "categoryFrontend": "Softwareentwicklung (Frontend)",
+    "categoryDevOps": "DevOps, Hosting & Systeme",
+    "php": { "abbr": "PHP", "name": "PHP", "detail": "7.4 - 8.x · Symfony" },
+    "java": { "abbr": "J", "name": "Java", "detail": "Spring Boot" },
+    "python": { "abbr": "PY", "name": "Python", "detail": "Flask" },
+    "node": { "abbr": "N", "name": "Node.js", "detail": "Express, REST APIs" },
+    "databases": { "abbr": "DB", "name": "Datenbanken", "detail": "MySQL, MariaDB, SQLite" },
+    "architecture": { "abbr": "API", "name": "Architektur", "detail": "REST APIs, OOP" },
+    "projectManagement": { "abbr": "PM", "name": "Projektmanagement", "detail": "Kommunikation" },
+    "agileMethods": { "abbr": "AG", "name": "Agile Methoden", "detail": "Moderation" },
+    "mathematics": { "abbr": "M", "name": "Mathematik", "detail": "Optimierung" },
+    "llmApis": { "abbr": "AI", "name": "LLM APIs", "detail": "Claude, GPT-Modelle" },
+    "promptEngineering": { "abbr": "PE", "name": "Prompt Engineering", "detail": "LLM Optimization" },
+    "onPremiseAI": { "abbr": "LLM", "name": "On-Premise AI", "detail": "Local LLMs" },
+    "javascript": { "abbr": "JS", "name": "JavaScript", "detail": "TypeScript" },
+    "htmlCss": { "abbr": "CSS", "name": "HTML & CSS", "detail": "Custom CSS" },
+    "react": { "abbr": "R", "name": "React.js", "detail": "Component-Based" },
+    "templating": { "abbr": "{ }", "name": "Templating", "detail": "Twig, Pug, Handlebars" },
+    "docker": { "abbr": "DC", "name": "Docker", "detail": "Containerization" },
+    "nginx": { "abbr": "NX", "name": "NGINX & DNS", "detail": "Self-Hosting" },
+    "git": { "abbr": "G", "name": "Git", "detail": "CI/CD, GitHub" },
+    "operatingSystems": { "abbr": "OS", "name": "Betriebssysteme", "detail": "Linux, Windows, macOS" }
+  },
+  "projects": {
+    "title": "Projekte",
+    "subtitle": "Eine Sammlung meiner Projekte aus der Vergangenheit und woran ich gerade arbeite.",
+    "homepage": "Die aktuelle Seite. Informationen über mich und meine Projekte.",
+    "ilias": "Mitarbeit an der ILIAS-Software, insbesondere bei der Modernisierung von Legacy-Code und Schnittstellen.",
+    "partie": "Eine Plattform für Brett- und Kartenspiele mit modularer Architektur zur einfachen Erweiterbarkeit.",
+    "polepick": "Hier können Gruppen gemeinsam gegeneinander das nächste Formel-1-Rennen vorhersagen.",
+    "woodcutters": "Ein Simulationsspiel über Waldrodungen (Angebot & Nachfrage) zur politischen Bildung junger Menschen.",
+    "tournament": "Fasst mithilfe einer Wiki-Schnittstelle bevorstehende Esports-Turniere übersichtlich zusammen.",
+    "amronas": "Filmlisten verwalten und teilen, Wordle gegeneinander spielen, ein \"Deutsche Bahn\"-Reise-Bingo, usw."
   },
   "about": {
     "title": "Über mich",
@@ -83,34 +119,19 @@
     "workSHK_1": "Erstellung vollautomatisierter E-Learning-Aufgaben",
     "workSHK_2": "Integration von E-Learning-Software in den Vorlesungsalltag",
     "workSHK_3": "Erstellung und Durchführung der ersten digitalen Modulprüfung",
+
     "education": "Ausbildung",
     "educationBachelor": "Angewandte Mathematik und Informatik (B.Sc.)",
     "educationMATSE": "Mathematisch-Technische Softwareentwicklung",
     "educationHTWK": "Angewandte Mathematik",
     "noDegree": "Kein Abschluss",
     "educationSchool": "Fachoberschule Technik",
+
     "soft1": "Interdisziplinäre Kollaboration",
     "soft2": "Stakeholder-Kommunikation",
     "soft3": "Agiles Mindset",
     "soft4": "Lösungsorientierung",
     "soft5": "Qualitätsbewusstsein"
-  },
-  "projects": {
-    "title": "Projekte",
-    "subtitle": "Eine Sammlung meiner Projekte aus der Vergangenheit und woran ich gerade arbeite.",
-    "homepage": "Die aktuelle Seite. Informationen über mich und meine Projekte.",
-    "polepick": "Hier können Gruppen gemeinsam gegeneinander das nächste Formel-1-Rennen vorhersagen.",
-    "woodcutters": "Ein Simulationsspiel über Waldrodungen (Angebot & Nachfrage) zur politischen Bildung junger Menschen.",
-    "tournament": "Fasst mithilfe einer Wiki-Schnittstelle bevorstehende Esports-Turniere übersichtlich zusammen.",
-    "amronas": "Filmlisten verwalten und teilen, Wordle gegeneinander spielen, ein \"Deutsche Bahn\"-Reise-Bingo, usw.",
-    "ilias": "Mitarbeit an der ILIAS-Software, insbesondere bei der Modernisierung von Legacy-Code und Schnittstellen.",
-    "partie": "Eine Plattform für Brett- und Kartenspiele mit modularer Architektur zur einfachen Erweiterbarkeit."
-  },
-  "footer": {
-    "animation": "Animation",
-    "addColor": "Farbe hinzufügen",
-    "accelerate": "Beschleunigen",
-    "impressum": "Impressum"
   },
   "impressum": {
     "title": "Impressum",
@@ -123,5 +144,9 @@
     "Github": "GitHub",
     "LinkedIn": "LinkedIn",
     "backHome": "Zurück zur Startseite"
+  },
+  "errors": {
+    "title404": "Seite nicht gefunden",
+    "description404": "Die gesuchte Seite existiert nicht oder wurde verschoben."
   }
 }

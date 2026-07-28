@@ -1,70 +1,9 @@
 ---
-const {lang, t} = Astro.props;
-const L = (v) => (typeof v === 'string' ? v : v[lang] || v.en);
+import { categories } from '../../data/skills.js';
+
+const {t} = Astro.props;
 
 const softSkills = [t.about.soft1, t.about.soft2, t.about.soft3, t.about.soft4, t.about.soft5];
-
-const categories = [
-    {
-        title: {de: 'Softwareentwicklung (Backend)', en: 'Software Development (Backend)'},
-        skills: [
-            {abbr: 'PHP', name: 'PHP', detail: '7.4 - 8.x · Symfony', from: '#06b6d4', to: '#3b82f6'},
-            {abbr: 'J', name: 'Java', detail: 'Spring Boot', from: '#10b981', to: '#16a34a'},
-            {abbr: 'PY', name: 'Python', detail: 'Flask', from: '#22d3ee', to: '#0891b2'},
-            {abbr: 'N', name: 'Node.js', detail: 'Express, REST APIs', from: '#16a34a', to: '#047857'},
-            {abbr: 'DB', name: {de: 'Datenbanken', en: 'Databases'}, detail: 'MySQL, MariaDB, SQLite', from: '#4f46e5', to: '#9333ea'},
-            {abbr: 'API', name: {de: 'Architektur', en: 'Architecture'}, detail: 'REST APIs, OOP', from: '#64748b', to: '#475569'},
-        ],
-    },
-    {
-        title: {de: 'Arbeitsmethodik & KI', en: 'Work methodology & AI'},
-        skills: [
-            {
-                abbr: 'PM', from: '#16a34a', to: '#047857',
-                name: {de: 'Projektmanagement', en: 'Project Management'},
-                detail: {de: 'Kommunikation', en: 'Communication'}
-            },
-            {
-                abbr: 'AG', from: '#14b8a6', to: '#0891b2',
-                name: {de: 'Agile Methoden', en: 'Agile Methods'},
-                detail: {de: 'Moderation', en: 'Moderation'}
-            },
-            {
-                abbr: 'M', from: '#6366f1', to: '#2563eb',
-                name: {de: 'Mathematik', en: 'Mathematics'},
-                detail: {de: 'Optimierung', en: 'Optimization'}
-            },
-            {
-                abbr: 'AI', from: '#ec4899', to: '#f43f5e', name: 'LLM APIs',
-                detail: {de: 'Claude, GPT-Modelle', en: 'Claude, GPT models'}
-            },
-            {abbr: 'PE', from: '#f59e0b', to: '#f97316', name: 'Prompt Engineering', detail: 'LLM Optimization'},
-            {abbr: 'LLM', from: '#7c3aed', to: '#c026d3', name: 'On-Premise AI', detail: 'Local LLMs'},
-        ],
-    },
-    {
-        title: {de: 'Softwareentwicklung (Frontend)', en: 'Software Development (Frontend)'},
-        skills: [
-            {abbr: 'JS', from: '#3b82f6', to: '#2563eb', name: 'JavaScript', detail: 'TypeScript'},
-            {abbr: 'CSS', from: '#38bdf8', to: '#3b82f6', name: 'HTML & CSS', detail: 'Custom CSS'},
-            {abbr: 'R', from: '#8b5cf6', to: '#9333ea', name: 'React.js', detail: 'Component-Based'},
-            {abbr: '{ }', from: '#64748b', to: '#475569', name: 'Templating', detail: 'Twig, Pug, Handlebars'},
-        ],
-    },
-    {
-        title: {de: 'DevOps, Hosting & Systeme', en: 'DevOps, Hosting & Systems'},
-        skills: [
-            {abbr: 'DC', from: '#2563eb', to: '#0ea5e9', name: 'Docker', detail: 'Containerization'},
-            {abbr: 'NX', from: '#10b981', to: '#14b8a6', name: 'NGINX & DNS', detail: 'Self-Hosting'},
-            {abbr: 'G', from: '#f97316', to: '#dc2626', name: 'Git', detail: 'CI/CD, GitHub'},
-            {
-                abbr: 'OS', from: '#64748b', to: '#475569',
-                name: {de: 'Betriebssysteme', en: 'Operating Systems'},
-                detail: 'Linux, Windows, macOS'
-            },
-        ],
-    },
-];
 ---
 <div class="skills">
     <div class="skills__soft animate-fade-up">
@@ -82,22 +21,25 @@ const categories = [
             <div class="animate-fade-up" style={`animation-delay: ${90 + i * 90}ms`}>
                 <h3 class="category-title">
                     <span class="category-title__index">{String(i + 1).padStart(2, '0')}</span>
-                    {L(category.title)}
+                    {t.skills[category.transKey]}
                 </h3>
                 <div class="category-grid">
-                    {category.skills.map((skill) => (
-                        <div class="skill-card">
-                            <div class="skill-card__inner">
-                                <div class="skill-card__badge" style={`background: linear-gradient(to bottom right, ${skill.from}, ${skill.to})`}>
-                                    {skill.abbr}
-                                </div>
-                                <div class="skill-card__text">
-                                    <div class="skill-card__name">{L(skill.name)}</div>
-                                    {skill.detail && <div class="skill-card__detail">{L(skill.detail)}</div>}
+                    {category.skills.map((skill) => {
+                        const skillText = t.skills[skill.transKey];
+                        return (
+                            <div class="skill-card">
+                                <div class="skill-card__inner">
+                                    <div class="skill-card__badge" style={`background: linear-gradient(to bottom right, ${skill.from}, ${skill.to})`}>
+                                        {skillText.abbr}
+                                    </div>
+                                    <div class="skill-card__text">
+                                        <div class="skill-card__name">{skillText.name}</div>
+                                        <div class="skill-card__detail">{skillText.detail}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         ))}

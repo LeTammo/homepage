@@ -1,20 +1,4 @@
 {
-  "nav": {
-    "about": "About me",
-    "projects": "Projects",
-    "experience": "Work Experience"
-  },
-  "hero": {
-    "tagline": "Software developer, math enthusiast and hobby astronomer",
-    "intro": "I am passionate about new technologies and science, and I want to create tools that deliver real value. I focus on clean code, sustainable documentation, and clear, solution-oriented communication.",
-    "btnProjects": "Projects",
-    "location": "Leipzig",
-    "role": "Fullstack Development",
-    "personality": "Interdisciplinary Communication"
-  },
-  "skillsExp": {
-    "tabSkills": "Skills"
-  },
   "meta": {
     "titleHome": "Felix Jonas Wiegleb — Software Developer",
     "descriptionHome": "Portfolio of Felix Jonas Wiegleb, a fullstack software developer, math enthusiast and hobby astronomer.",
@@ -25,9 +9,61 @@
     "titleImpressum": "Impressum — Felix Jonas Wiegleb",
     "descriptionImpressum": "Legal notice and contact details for mathia.xyz, the personal website of Felix Jonas Wiegleb."
   },
-  "errors": {
-    "title404": "Page not found",
-    "description404": "The page you are looking for does not exist or has been moved."
+  "nav": {
+    "about": "About me",
+    "projects": "Projects",
+    "experience": "Work Experience"
+  },
+  "footer": {
+    "impressum": "Impressum",
+    "animation": "Animation",
+    "addColor": "Add color",
+    "accelerate": "Accelerate"
+  },
+  "hero": {
+    "tagline": "Software developer, math enthusiast and hobby astronomer",
+    "location": "Leipzig",
+    "role": "Fullstack Development",
+    "personality": "Interdisciplinary Communication",
+    "intro": "I am passionate about new technologies and science, and I want to create tools that deliver real value. I focus on clean code, sustainable documentation, and clear, solution-oriented communication.",
+    "btnProjects": "Projects"
+  },
+  "skills": {
+    "categoryBackend": "Software Development (Backend)",
+    "categoryWorkAI": "Work methodology & AI",
+    "categoryFrontend": "Software Development (Frontend)",
+    "categoryDevOps": "DevOps, Hosting & Systems",
+    "php": { "abbr": "PHP", "name": "PHP", "detail": "7.4 - 8.x · Symfony" },
+    "java": { "abbr": "J", "name": "Java", "detail": "Spring Boot" },
+    "python": { "abbr": "PY", "name": "Python", "detail": "Flask" },
+    "node": { "abbr": "N", "name": "Node.js", "detail": "Express, REST APIs" },
+    "databases": { "abbr": "DB", "name": "Databases", "detail": "MySQL, MariaDB, SQLite" },
+    "architecture": { "abbr": "API", "name": "Architecture", "detail": "REST APIs, OOP" },
+    "projectManagement": { "abbr": "PM", "name": "Project Management", "detail": "Communication" },
+    "agileMethods": { "abbr": "AG", "name": "Agile Methods", "detail": "Moderation" },
+    "mathematics": { "abbr": "M", "name": "Mathematics", "detail": "Optimization" },
+    "llmApis": { "abbr": "AI", "name": "LLM APIs", "detail": "Claude, GPT models" },
+    "promptEngineering": { "abbr": "PE", "name": "Prompt Engineering", "detail": "LLM Optimization" },
+    "onPremiseAI": { "abbr": "LLM", "name": "On-Premise AI", "detail": "Local LLMs" },
+    "javascript": { "abbr": "JS", "name": "JavaScript", "detail": "TypeScript" },
+    "htmlCss": { "abbr": "CSS", "name": "HTML & CSS", "detail": "Custom CSS" },
+    "react": { "abbr": "R", "name": "React.js", "detail": "Component-Based" },
+    "templating": { "abbr": "{ }", "name": "Templating", "detail": "Twig, Pug, Handlebars" },
+    "docker": { "abbr": "DC", "name": "Docker", "detail": "Containerization" },
+    "nginx": { "abbr": "NX", "name": "NGINX & DNS", "detail": "Self-Hosting" },
+    "git": { "abbr": "G", "name": "Git", "detail": "CI/CD, GitHub" },
+    "operatingSystems": { "abbr": "OS", "name": "Operating Systems", "detail": "Linux, Windows, macOS" }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A collection of my past projects and what I am currently working on.",
+    "homepage": "The current site you are on. Information about me and my projects.",
+    "ilias": "Contribution to the ILIAS software, focusing on modernizing legacy code and interfaces.",
+    "partie": "A platform for board and card games featuring a modular architecture for easy extensibility.",
+    "polepick": "A platform where groups can compete to predict the outcome of upcoming Formula 1 races.",
+    "woodcutters": "A simulation game about deforestation (supply and demand) designed for civic education among young people.",
+    "tournament": "Provides a clear overview of upcoming esports tournaments using a wiki interface.",
+    "amronas": "Manage and share movie lists, play head-to-head Wordle, 'Deutsche Bahn' travel bingo, etc."
   },
   "about": {
     "title": "About Me",
@@ -83,34 +119,19 @@
     "workSHK_1": "Created fully automated e-learning exercises",
     "workSHK_2": "Integrated e-learning software into everyday lectures",
     "workSHK_3": "Developed and administered the first digital module examination",
+
     "education": "Education",
     "educationBachelor": "Applied Mathematics and Computer Science (B.Sc.)",
     "educationMATSE": "Mathematical-Technical Software Developer",
     "educationHTWK": "Applied Mathematics",
     "noDegree": "no degree",
     "educationSchool": "Technical College",
+
     "soft1": "Interdisciplinary Collaboration",
     "soft2": "Stakeholder Communication",
     "soft3": "Agile Mindset",
     "soft4": "Solution-Oriented",
     "soft5": "Quality Consciousness"
-  },
-  "projects": {
-    "title": "Projects",
-    "subtitle": "A collection of my past projects and what I am currently working on.",
-    "homepage": "The current site you are on. Information about me and my projects.",
-    "polepick": "A platform where groups can compete to predict the outcome of upcoming Formula 1 races.",
-    "woodcutters": "A simulation game about deforestation (supply and demand) designed for civic education among young people.",
-    "tournament": "Provides a clear overview of upcoming esports tournaments using a wiki interface.",
-    "amronas": "Manage and share movie lists, play head-to-head Wordle, 'Deutsche Bahn' travel bingo, etc.",
-    "ilias": "Contribution to the ILIAS software, focusing on modernizing legacy code and interfaces.",
-    "partie": "A platform for board and card games featuring a modular architecture for easy extensibility."
-  },
-  "footer": {
-    "animation": "Animation",
-    "addColor": "Add color",
-    "accelerate": "Accelerate",
-    "impressum": "Impressum"
   },
   "impressum": {
     "title": "Impressum",
@@ -123,5 +144,9 @@
     "Github": "GitHub",
     "LinkedIn": "LinkedIn",
     "backHome": "Back to Home"
+  },
+  "errors": {
+    "title404": "Page not found",
+    "description404": "The page you are looking for does not exist or has been moved."
   }
 }
