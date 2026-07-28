@@ -1,7 +1,8 @@
 {
   "nav": {
     "about": "Über mich",
-    "projects": "Projekte"
+    "projects": "Projekte",
+    "experience": "Berufserfahrung"
   },
   "hero": {
     "tagline": "Softwareentwickler, Mathematik-Enthusiast und Hobbyastronom",
@@ -12,8 +13,7 @@
     "personality": "Fachübergreifende Kommunikation"
   },
   "skillsExp": {
-    "tabSkills": "Skills",
-    "tabExperience": "Berufserfahrung"
+    "tabSkills": "Skills"
   },
   "about": {
     "title": "Über mich",
@@ -23,24 +23,55 @@
     "downloadCV": "Lebenslauf",
     "work": "Berufserfahrung",
     "workPresent": "seit",
+
     "workPHP_Ilias": "Fullstack PHP-Entwickler",
     "workPHP_Ilias_1": "Anforderungsanalyse & Konzeption",
-    "workPHP_Ilias_2": "Qualitätssicherung, Code-Reviews",
+    "workPHP_Ilias_1_detail": "Eigenverantwortliche technische Konzeption von Plugins und Schnittstellen im Austausch mit internen und externen Stakeholdern",
+    "workPHP_Ilias_2": "Qualitätssicherung",
+    "workPHP_Ilias_2_detail": "Modernisierung von Legacy-Code durch aktuelle Design-Patterns sowie Bearbeitung von GitHub Issues, Pull-Requests und Bug-Reports",
     "workPHP_Ilias_3": "IT-Sicherheit & Fachliche Kommunikation",
+    "workPHP_Ilias_3_detail_pre": "Konzeption und Entwicklung einer Schnittstelle zur DSGVO-Datenauskunft, ",
+    "workPHP_Ilias_3_detail_link": "präsentiert auf der 45. ILIAS Development Conference",
+    "workPHP_Ilias_3_detail_post": " in Köln",
+
     "workPHP_Seminar": "Fullstack PHP-Entwickler",
     "workPHP_Seminar_1": "Release-Management",
+    "workPHP_Seminar_1_detail": "Planung, Koordination und Durchführung von Software-Releases inklusive direkter Kundenkommunikation und technischer Abnahme",
     "workPHP_Seminar_2": "Support & Incident-Management",
+    "workPHP_Seminar_2_detail": "Analyse und Behebung kritischer Fehler sowie Rollouts im Live-Betrieb",
     "workPHP_Seminar_3": "Projektplanung & Migration",
-    "workPHP_Seminar_4": "Standarisierung von Softwarearchitekturen",
+    "workPHP_Seminar_3_detail": "Konzeption, Migrationsplanung und Neuentwicklung eines umfangreichen Inhouse-E-Mail-Backends",
+    "workPHP_Seminar_4": "Standardisierung von Softwarearchitekturen",
+    "workPHP_Seminar_4_detail": "Entwicklung standardisierter Base-Templates zur Beschleunigung zukünftiger Feature-Anfragen",
     "workPHP_Seminar_5": "Team-Kommunikation & Moderation",
-    "workMATSE": "Auszubildender",
+    "workPHP_Seminar_5_detail": "Regelmäßige Leitung des Daily Meetings zur teaminternen Abstimmung",
+
+    "workMATSE": "Auszubildender – Mathematisch-technische Softwareentwicklung",
     "workMATSE_1": "Softwarepflege",
+    "workMATSE_1_detail": "Modernisierung von Legacy-Backend-Bereichen zur Steigerung der Systemstabilität",
     "workMATSE_2": "Kundenkommunikation & Support",
-    "workSHK": "Studentische Hilfskraft",
-    "workSHK_1": "Mitarbeit Pilotprojekt \"E-Learning an Hochschulen\"",
-    "workSHK_2": "Erstellung und Durchführung der ersten digitalen Modulprüfung",
-    "workEzgs": "Leitung Ganztagsangebote",
-    "workEzgs_1": "Organisation und Durchführung \"Mathefördern und -fordern\"",
+    "workMATSE_2_detail": "Bearbeitung von Bug-Reports, Fehleranalyse und Einspielen von Hotfixes",
+
+    "prework": "Sonstige Erfahrung",
+
+    "workEzgs": "Leitung des Ganztagsangebots \"Mathefördern und -fordern\"",
+    "workEzgs_1": "Organisation und Durchführung von Ganztagsangeboten",
+    "workEzgs_2": "Unterstützung von Schüler:innen mit Förderbedarf sowie Forderung leistungsstarker Schüler:innen",
+    "workEzgs_3": "Organisatorische Unterstützung im Schulbetrieb und Schülerbetreuung während der Corona-Pandemie",
+
+    "workNachhilfe": "Nachhilfeunterricht für Schüler:innen und Studierende",
+    "workNachhilfe_org": "Selbständig",
+    "workNachhilfe_1": "Akquise, Vorbereitung von Arbeitsmaterialien und individuelle Betreuung",
+    "workNachhilfe_2": "Wöchentlicher Einzelunterricht sowie Unterstützung bei Klausurvorbereitungen",
+
+    "workPromoter": "Promoter für Fahrgastaktionen der Abellio Rail GmbH",
+    "workPromoter_1": "Standbetreuung und Beratung auf diversen Veranstaltungen",
+    "workPromoter_2": "Logistische Planung und Koordination vor Ort",
+
+    "workSHK": "Studentische Hilfskraft – Pilotprojekt \"E-Learning an Hochschulen\"",
+    "workSHK_1": "Erstellung vollautomatisierter E-Learning-Aufgaben",
+    "workSHK_2": "Integration von E-Learning-Software in den Vorlesungsalltag",
+    "workSHK_3": "Erstellung und Durchführung der ersten digitalen Modulprüfung",
     "education": "Ausbildung",
     "educationBachelor": "Angewandte Mathematik und Informatik (B.Sc.)",
     "educationBachelor_1": "Schwerpunkte: Algorithmen & Datenstrukturen, Komponentenbasierte Softwareentwicklung, Web-Engineering",

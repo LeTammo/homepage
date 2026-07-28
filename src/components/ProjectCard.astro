@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 
-const { title, icon, image, tags, description, github, demo, delay = 0 } = Astro.props;
+const { title, icon, image, tags, description, github, demo, video, delay = 0 } = Astro.props;
 const primary = demo || github;
 ---
 <div class="relative isolate overflow-hidden group p-5 border border-zinc-800 bg-zinc-900/60 hover:bg-zinc-800/50 hover:border-green-500/30 rounded-md transition-all duration-300 animate-fade-up flex flex-col" style={`animation-delay: ${delay}ms`}>
@@ -38,6 +38,14 @@ const primary = demo || github;
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                         <polyline points="15 3 21 3 21 9"></polyline>
                         <line x1="10" x2="21" y1="14" y2="3"></line>
+                    </svg>
+                </a>
+            )}
+            {video && (
+                <a href={video} target="_blank" title="YouTube" class="p-2 rounded-lg text-zinc-500 bg-zinc-900 hover:bg-zinc-800 transition-colors shadow-md shadow-zinc-500/50 border border-zinc-500/20 hover:shadow-green-500 hover:text-green-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
+                        <path d="m10 15 5-3-5-3z"></path>
                     </svg>
                 </a>
             )}

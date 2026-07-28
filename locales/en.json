@@ -1,7 +1,8 @@
 {
   "nav": {
     "about": "About me",
-    "projects": "Projects"
+    "projects": "Projects",
+    "experience": "Work Experience"
   },
   "hero": {
     "tagline": "Software developer, math enthusiast and hobby astronomer",
@@ -12,8 +13,7 @@
     "personality": "Interdisciplinary Communication"
   },
   "skillsExp": {
-    "tabSkills": "Skills",
-    "tabExperience": "Work Experience"
+    "tabSkills": "Skills"
   },
   "about": {
     "title": "About Me",
@@ -23,24 +23,55 @@
     "downloadCV": "Download CV",
     "work": "Work Experience",
     "workPresent": "since",
+
     "workPHP_Ilias": "Fullstack PHP Developer",
     "workPHP_Ilias_1": "Requirements Analysis & Conceptual Design",
-    "workPHP_Ilias_2": "Quality Assurance, Code Reviews",
+    "workPHP_Ilias_1_detail": "Independently designed and conceptualized plugins and interfaces in close coordination with internal and external stakeholders",
+    "workPHP_Ilias_2": "Quality Assurance",
+    "workPHP_Ilias_2_detail": "Modernized legacy code using current design patterns; handled GitHub issues, pull requests and bug reports",
     "workPHP_Ilias_3": "IT Security & Technical Communication",
+    "workPHP_Ilias_3_detail_pre": "Designed and built a GDPR data-disclosure interface, ",
+    "workPHP_Ilias_3_detail_link": "presented at the 45th ILIAS Development Conference",
+    "workPHP_Ilias_3_detail_post": " in Cologne",
+
     "workPHP_Seminar": "Fullstack PHP Developer",
     "workPHP_Seminar_1": "Release Management",
+    "workPHP_Seminar_1_detail": "Planned, coordinated and carried out software releases, including direct client communication and technical sign-off",
     "workPHP_Seminar_2": "Support & Incident Management",
+    "workPHP_Seminar_2_detail": "Analyzed and resolved critical bugs and carried out live rollouts",
     "workPHP_Seminar_3": "Project Planning & Migration",
+    "workPHP_Seminar_3_detail": "Designed and planned the migration of, and rebuilt, an extensive in-house email backend",
     "workPHP_Seminar_4": "Standardization of Software Architectures",
+    "workPHP_Seminar_4_detail": "Developed standardized base templates to speed up future feature requests",
     "workPHP_Seminar_5": "Team Communication & Facilitation",
-    "workMATSE": "Apprentice",
+    "workPHP_Seminar_5_detail": "Regularly led the daily stand-up to keep the team aligned",
+
+    "workMATSE": "Apprentice – Mathematical-Technical Software Development",
     "workMATSE_1": "Software maintenance",
+    "workMATSE_1_detail": "Modernized legacy backend areas to improve system stability",
     "workMATSE_2": "Customer communication & support",
-    "workSHK": "Student Assistant",
-    "workSHK_1": "Pilot Project \"E-Learning in Higher Education\"",
-    "workSHK_2": "Development and administration of the first digital module examination",
-    "workEzgs": "Coordination of After-School Programs",
-    "workEzgs_1": "Organization and implementation of \"Mathefördern und -fordern\"",
+    "workMATSE_2_detail": "Handled bug reports, root-cause analysis and hotfix deployments",
+
+    "prework": "Additional Experience",
+
+    "workEzgs": "Coordinator of the After-School Program \"Mathefördern und -fordern\"",
+    "workEzgs_1": "Organized and ran after-school programs",
+    "workEzgs_2": "Supported students with additional needs and challenged high-performing students",
+    "workEzgs_3": "Provided organizational support and student supervision during the COVID-19 pandemic",
+
+    "workNachhilfe": "Private Tutoring for School and University Students",
+    "workNachhilfe_org": "Freelance",
+    "workNachhilfe_1": "Client acquisition, preparation of learning materials and individual support",
+    "workNachhilfe_2": "Weekly one-on-one tutoring and exam preparation support",
+
+    "workPromoter": "Promoter for Passenger Campaigns, Abellio Rail GmbH",
+    "workPromoter_1": "Managed information booths and advised attendees at various events",
+    "workPromoter_2": "Planned and coordinated on-site logistics",
+
+    "workSHK": "Student Assistant – \"E-Learning in Higher Education\" Pilot Project",
+    "workSHK_1": "Created fully automated e-learning exercises",
+    "workSHK_2": "Integrated e-learning software into everyday lectures",
+    "workSHK_3": "Developed and administered the first digital module examination",
     "education": "Education",
     "educationBachelor": "Applied Mathematics and Computer Science (B.Sc.)",
     "educationBachelor_1": "Focused on Algorithms, Web Engineering, and Component-Based Software Dev",

@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Education from '../../components/about/Education.astro';
+import Work from '../../components/about/Work.astro';
+import Prework from '../../components/about/Prework.astro';
+import { Image } from 'astro:assets';
+import en from '../../../locales/en.json';
+import de from '../../../locales/de.json';
+import meImg from '../../images/me.jpg';
+
+export function getStaticPaths() {
+    return [
+        {params: {lang: 'en'}},
+        {params: {lang: 'de'}},
+    ];
+}
+
+const {lang} = Astro.params;
+const locales = {en, de};
+const t = locales[lang] || en;
+---
+<Layout title={`${t.about.work} | mathia.xyz`} activePage="berufserfahrung" lang={lang}>
+    <div class="mb-10">
+        <div class="flex items-center gap-4 mb-4">
+            <a href={`/${lang}`} class="block shrink-0 rounded-full border border-zinc-800 overflow-hidden w-14 h-14 md:w-16 md:h-16" transition:name="profile-image" aria-label={t.about.title}>
+                <Image src={meImg} alt="Profile" width={128} loading="eager" class="w-full h-full object-cover" />
+            </a>
+            <h1 class="text-3xl md:text-4xl font-bold text-zinc-200">{t.about.work}</h1>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-[2fr_5fr_4fr] gap-16 lg:gap-8 xl:gap-16">
+        <div>
+            <Education t={t} />
+        </div>
+        <div>
+            <Work t={t} />
+        </div>
+        <div>
+            <Prework t={t} />
+        </div>
+    </div>
+</Layout>
