@@ -16,13 +16,13 @@ const t = locales[lang] || en;
 ---
 
 <Layout title={`${t.errors.title404} | mathia.xyz`} description={t.errors.description404} lang={lang}>
-    <div class="text-center py-10 space-y-6">
-        <p class="text-green-500 font-bold text-4xl">404</p>
-        <div class="space-y-2">
-            <h1 class="text-2xl md:text-3xl font-bold text-zinc-200">{t.errors.title404}</h1>
-            <p class="text-zinc-400/70">{t.errors.description404}</p>
+    <div class="error-page">
+        <p class="error-code">404</p>
+        <div class="error-block">
+            <h1 class="error-title">{t.errors.title404}</h1>
+            <p class="error-description">{t.errors.description404}</p>
         </div>
-        <a href={`/${lang}`} class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white font-medium rounded-lg transition-all duration-200">
+        <a href={`/${lang}`} class="error-cta">
             {t.impressum.backHome}
         </a>
     </div>

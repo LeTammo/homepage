@@ -4,62 +4,59 @@ import meImg from '../../images/me.jpg';
 
 const { lang, t } = Astro.props;
 ---
-<div class="flex flex-col lg:grid lg:grid-cols-12 gap-8 xl:gap-12 items-center w-full">
-    <div class="lg:col-span-4 flex justify-center items-center w-full">
-        <a href={`/${lang}/projects`} aria-label={t.hero.btnProjects} title={t.hero.btnProjects} class="block relative group w-40 sm:w-56 lg:w-full lg:max-w-88.5">
-            <div class="absolute -inset-1 bg-linear-to-r from-green-500 to-emerald-600 rounded-2xl opacity-10 blur-md group-hover:opacity-45 transition duration-500"></div>
-            <div class="relative aspect-square rounded-2xl border border-zinc-800 overflow-hidden bg-zinc-950 transition-all duration-300 transform group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:border-green-500/50 group-hover:shadow-green-950/20" transition:name="profile-image">
-                <Image src={meImg} alt="Felix Jonas Wiegleb" width={354} densities={[1, 2]} loading="eager" fetchpriority="high" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500" />
-            </div>
-        </a>
+<div class="hero">
+    <div class="hero__avatar-col">
+        <div class="hero__avatar-frame" transition:name="profile-image">
+            <Image src={meImg} alt="Felix Jonas Wiegleb" width={354} densities={[1, 2]} loading="eager" fetchpriority="high" class="hero__avatar-img" />
+        </div>
     </div>
 
-    <div class="lg:col-span-8 space-y-5 text-center lg:text-left">
-        <div class="space-y-3 xl:space-y-4">
-            <h1 class="font-black text-white/90 leading-tight tracking-tight xs:whitespace-nowrap" style="font-size: clamp(1.4rem, 5vw, 3.75rem);">
+    <div class="hero__content">
+        <div class="hero__intro">
+            <h1 class="hero__name" style="font-size: clamp(1.4rem, 5vw, 3.75rem);">
                 Felix Jonas Wiegleb
             </h1>
-            <p class="text-base xl:text-xl text-green-500 font-bold">{t.hero.tagline}</p>
-            <div class="flex flex-wrap gap-2 justify-center lg:justify-start">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-800/60 border border-zinc-700/60 text-xs text-zinc-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500">
+            <p class="hero__tagline">{t.hero.tagline}</p>
+            <div class="hero__badges">
+                <span class="hero__badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__badge-icon">
                         <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
                         <circle cx="12" cy="10" r="3"></circle>
                     </svg>
                     {t.hero.location}
                 </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-800/60 border border-zinc-700/60 text-xs text-zinc-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500">
+                <span class="hero__badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__badge-icon">
                         <rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect>
                         <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                     </svg>
                     {t.hero.role}
                 </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-800/60 border border-zinc-700/60 text-xs text-zinc-300">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500">
+                <span class="hero__badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__badge-icon">
                     <circle cx="12" cy="8" r="5"></circle>
                     <path d="M20 21a8 8 0 0 0-16 0"></path>
                 </svg>
                     {t.hero.personality}
                 </span>
             </div>
-            <div class="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 space-y-3">
+            <div class="hero__description">
                 <p>{t.hero.intro}</p>
             </div>
         </div>
 
-        <div class="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 justify-center lg:justify-start">
-            <div class="flex gap-3 justify-center lg:justify-start">
-                <a href={`/${lang}/projects`} class="group/proj inline-flex items-center justify-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white font-medium rounded-lg transition-all duration-200 shadow-lg shadow-green-950/20 flex-1 sm:flex-none">
-                    <span class="inline-block transition-transform duration-200 group-hover/proj:-translate-x-0.5">{t.hero.btnProjects}</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-hover/proj:translate-x-1 shrink-0">
+        <div class="hero__actions">
+            <div class="hero__button-group">
+                <a href={`/${lang}/projects`} class="hero__btn hero__btn--primary">
+                    <span class="hero__btn-label">{t.hero.btnProjects}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__btn-icon">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                         <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
                 </a>
 
-                <a href="/files/Lebenslauf-CV-Wiegleb.pdf" download class="inline-flex items-center justify-center gap-2 px-4 py-2 border border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-white font-medium rounded-lg transition-all duration-200 bg-zinc-900/40 hover:bg-zinc-800/40 flex-1 sm:flex-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
+                <a href="/files/Lebenslauf-CV-Wiegleb.pdf" download class="hero__btn hero__btn--secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__btn-icon">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                         <polyline points="7 10 12 15 17 10"></polyline>
                         <line x1="12" x2="12" y1="15" y2="3"></line>
@@ -68,21 +65,21 @@ const { lang, t } = Astro.props;
                 </a>
             </div>
 
-            <div class="flex gap-3 justify-center lg:justify-start sm:contents">
-                <a href="https://github.com/LeTammo/" target="_blank" class="flex items-center justify-center rounded-lg bg-zinc-900/40 hover:bg-zinc-800/40 text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 transition-all duration-200 w-10 h-10" title="GitHub" aria-label="GitHub">
+            <div class="hero__socials">
+                <a href="https://github.com/LeTammo/" target="_blank" class="hero__social-link" title="GitHub" aria-label="GitHub">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
                         <path d="M9 18c-4.51 2-5-2-7-2"></path>
                     </svg>
                 </a>
-                <a href="https://linkedin.com/in/jwiegleb/" target="_blank" class="flex items-center justify-center rounded-lg bg-zinc-900/40 hover:bg-zinc-800/40 text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 transition-all duration-200 w-10 h-10" title="LinkedIn" aria-label="LinkedIn">
+                <a href="https://linkedin.com/in/jwiegleb/" target="_blank" class="hero__social-link" title="LinkedIn" aria-label="LinkedIn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                         <rect width="4" height="12" x="2" y="9"></rect>
                         <circle cx="4" cy="4" r="2"></circle>
                     </svg>
                 </a>
-                <a href="https://blog.mathia.xyz/" target="_blank" class="flex items-center justify-center rounded-lg bg-zinc-900/40 hover:bg-zinc-800/40 text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 transition-all duration-200 w-10 h-10" title="Blog" aria-label="Blog">
+                <a href="https://blog.mathia.xyz/" target="_blank" class="hero__social-link" title="Blog" aria-label="Blog">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 11a9 9 0 0 1 9 9"></path>
                         <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -93,3 +90,309 @@ const { lang, t } = Astro.props;
         </div>
     </div>
 </div>
+
+<style>
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 2rem;
+    }
+
+    @media (min-width: 1024px) {
+        .hero {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .hero {
+            gap: 3rem;
+        }
+    }
+
+    .hero__avatar-col {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    @media (min-width: 1024px) {
+        .hero__avatar-col {
+            grid-column: span 4 / span 4;
+        }
+    }
+
+    .hero__avatar-link {
+        display: block;
+        position: relative;
+        width: 10rem;
+    }
+
+    @media (min-width: 640px) {
+        .hero__avatar-link {
+            width: 14rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .hero__avatar-link {
+            width: 100%;
+            max-width: 22.125rem;
+        }
+    }
+
+    .hero__avatar-frame {
+        position: relative;
+        aspect-ratio: 1 / 1;
+        border-radius: var(--radius-xl);
+        border: 1px solid var(--border-default);
+        overflow: hidden;
+        background: var(--bg-surface-sunken);
+    }
+
+    .hero__avatar-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hero__content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        text-align: center;
+    }
+
+    @media (min-width: 1024px) {
+        .hero__content {
+            grid-column: span 8 / span 8;
+            text-align: left;
+        }
+    }
+
+    .hero__intro {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    @media (min-width: 1280px) {
+        .hero__intro {
+            gap: 1rem;
+        }
+    }
+
+    .hero__name {
+        margin: 0;
+        font-weight: 900;
+        color: color-mix(in srgb, white 90%, transparent);
+        line-height: 1.1;
+        letter-spacing: -0.025em;
+    }
+
+    @media (min-width: 400px) {
+        .hero__name {
+            white-space: nowrap;
+        }
+    }
+
+    .hero__tagline {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text-accent);
+    }
+
+    @media (min-width: 1280px) {
+        .hero__tagline {
+            font-size: 1.25rem;
+        }
+    }
+
+    .hero__badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+
+    @media (min-width: 1024px) {
+        .hero__badges {
+            justify-content: flex-start;
+        }
+    }
+
+    .hero__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--radius-full);
+        background: var(--bg-surface-hover-translucent);
+        border: 1px solid color-mix(in srgb, var(--border-hover) 60%, transparent);
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+    }
+
+    .hero__badge-icon {
+        color: var(--text-accent);
+    }
+
+    .hero__description {
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+        line-height: 1.625;
+        max-width: 42rem;
+        margin-inline: auto;
+    }
+
+    @media (min-width: 768px) {
+        .hero__description {
+            font-size: 1rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .hero__description {
+            margin-inline: 0;
+            font-size: 1.125rem;
+        }
+    }
+
+    .hero__description p {
+        margin: 0;
+    }
+
+    .hero__actions {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+        justify-content: center;
+    }
+
+    @media (min-width: 640px) {
+        .hero__actions {
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .hero__actions {
+            justify-content: flex-start;
+        }
+    }
+
+    .hero__button-group {
+        display: flex;
+        gap: 0.75rem;
+        justify-content: center;
+    }
+
+    @media (min-width: 1024px) {
+        .hero__button-group {
+            justify-content: flex-start;
+        }
+    }
+
+    .hero__btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        border-radius: var(--radius-lg);
+        transition: all var(--transition-base);
+        flex: 1 1 0%;
+    }
+
+    @media (min-width: 640px) {
+        .hero__btn {
+            flex: none;
+        }
+    }
+
+    .hero__btn--primary {
+        background: var(--green-600);
+        color: white;
+        box-shadow: var(--shadow-accent);
+    }
+
+    .hero__btn--primary:hover {
+        background: var(--green-500);
+    }
+
+    .hero__btn--primary:hover .hero__btn-label {
+        transform: translateX(-0.125rem);
+    }
+
+    .hero__btn--primary:hover .hero__btn-icon {
+        transform: translateX(0.25rem);
+    }
+
+    .hero__btn-label {
+        display: inline-block;
+        transition: transform var(--transition-base);
+    }
+
+    .hero__btn-icon {
+        flex-shrink: 0;
+        transition: transform var(--transition-base);
+    }
+
+    .hero__btn--secondary {
+        border: 1px solid var(--border-hover);
+        color: var(--text-secondary);
+        background: color-mix(in srgb, var(--bg-surface) 40%, transparent);
+    }
+
+    .hero__btn--secondary:hover {
+        border-color: var(--border-strong-hover);
+        color: white;
+        background: var(--bg-surface-hover-translucent);
+    }
+
+    .hero__socials {
+        display: flex;
+        gap: 0.75rem;
+        justify-content: center;
+    }
+
+    @media (min-width: 640px) {
+        .hero__socials {
+            display: contents;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .hero__socials {
+            justify-content: flex-start;
+        }
+    }
+
+    .hero__social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: var(--radius-lg);
+        background: color-mix(in srgb, var(--bg-surface) 40%, transparent);
+        color: var(--text-tertiary);
+        border: 1px solid var(--border-hover);
+        transition: all var(--transition-base);
+    }
+
+    .hero__social-link:hover {
+        background: var(--bg-surface-hover-translucent);
+        color: white;
+        border-color: var(--border-strong-hover);
+    }
+</style>

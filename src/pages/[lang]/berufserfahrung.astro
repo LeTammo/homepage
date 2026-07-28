@@ -21,16 +21,16 @@ const t = locales[lang] || en;
 ---
 
 <Layout title={t.meta.titleExperience} description={t.meta.descriptionExperience} activePage="berufserfahrung" lang={lang}>
-    <div class="mb-10">
-        <div class="flex items-center gap-4 mb-4">
-            <a href={`/${lang}`} class="block shrink-0 rounded-full border border-zinc-800 overflow-hidden w-14 h-14 md:w-16 md:h-16" transition:name="profile-image" aria-label={t.about.title}>
-                <Image src={meImg} alt="Felix Jonas Wiegleb" width={128} loading="eager" class="w-full h-full object-cover" />
+    <div class="experience-intro">
+        <div class="page-header">
+            <a href={`/${lang}`} class="page-header__avatar" transition:name="profile-image" aria-label={t.about.title}>
+                <Image src={meImg} alt="Felix Jonas Wiegleb" width={128} loading="eager" />
             </a>
-            <h1 class="text-3xl md:text-4xl font-bold text-zinc-200">{t.about.work}</h1>
+            <h1 class="page-title">{t.about.work}</h1>
         </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-[2fr_5fr_4fr] gap-16 lg:gap-8 xl:gap-16">
+    <div class="experience-grid">
         <div>
             <Education t={t} />
         </div>
@@ -42,3 +42,28 @@ const t = locales[lang] || en;
         </div>
     </div>
 </Layout>
+
+<style>
+    .experience-intro {
+        margin-bottom: 2.5rem;
+    }
+
+    .experience-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    @media (min-width: 1024px) {
+        .experience-grid {
+            grid-template-columns: 2fr 5fr 4fr;
+            gap: 2rem;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .experience-grid {
+            gap: 4rem;
+        }
+    }
+</style>

@@ -4,7 +4,7 @@ import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import en from '../../locales/en.json';
 import de from '../../locales/de.json';
-import '../styles/tailwind.css';
+import '../styles/global.css';
 
 const { title, description, activePage, lang, trackLang = true } = Astro.props;
 const locales = { en, de };
@@ -37,7 +37,7 @@ const personSchema = {
 ---
 
 <!doctype html>
-<html lang={lang} class="h-full m-0 p-0">
+<html lang={lang}>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -79,22 +79,143 @@ const personSchema = {
         <ClientRouter />
         <script is:inline src="/js/sketch.js" defer></script>
     </head>
-    <body class="h-full flex flex-col m-0 p-0 bg-linear-to-r from-zinc-950 to-zinc-800 text-zinc-400">
+    <body class="page-body">
         <div id="p5-bg" transition:persist="p5-bg"></div>
-        <div class="md:container grow md:mx-auto pb-[calc(4rem+env(safe-area-inset-bottom))] sm:p-6 md:p-10 xl:p-20">
-            <div class="flex flex-col">
-                <aside class="sticky xl:-top-1 z-10 pb-3 sm:pb-4 w-full sm:px-0">
-                    <div class="p-2 xl:p-3 bg-zinc-900 sm:rounded-xl w-full border-b sm:border border-zinc-800 shadow-bottom">
+        <div class="page-container">
+            <div class="page-inner">
+                <aside class="page-aside">
+                    <div class="nav-panel shadow-bottom">
                         <Navigation activePage={activePage} lang={lang} t={t} />
                     </div>
                 </aside>
-                <main role="main" class="bg-zinc-900 p-5 sm:p-8 md:p-10 sm:rounded-xl border-0 sm:border border-zinc-800 w-full">
+                <main role="main" class="main-panel">
                     <slot />
                 </main>
             </div>
         </div>
-        <footer class="fixed bottom-0 w-full shadow-top">
+        <footer class="page-footer shadow-top">
             <Footer lang={lang} t={t} />
         </footer>
     </body>
 </html>
+
+<style>
+    .page-body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, var(--bg-canvas-from), var(--bg-canvas-to));
+        color: var(--text-tertiary);
+    }
+
+    .page-container {
+        flex-grow: 1;
+        padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+    }
+
+    @media (min-width: 640px) {
+        .page-container {
+            padding: 1.5rem 1.5rem calc(4rem + env(safe-area-inset-bottom));
+        }
+    }
+
+    @media (min-width: 768px) {
+        .page-container {
+            max-width: 768px;
+            margin-inline: auto;
+            padding: 2.5rem 2.5rem calc(4rem + env(safe-area-inset-bottom));
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .page-container {
+            max-width: 1024px;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .page-container {
+            max-width: 1280px;
+            padding: 5rem 5rem calc(4rem + env(safe-area-inset-bottom));
+        }
+    }
+
+    @media (min-width: 1540px) {
+        .page-container {
+            max-width: 1540px;
+        }
+    }
+
+    .page-inner {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .page-aside {
+        position: sticky;
+        z-index: 10;
+        width: 100%;
+        padding-bottom: 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+        .page-aside {
+            padding-bottom: 1rem;
+            padding-inline: 0;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .page-aside {
+            top: -0.25rem;
+        }
+    }
+
+    .nav-panel {
+        width: 100%;
+        padding: 0.5rem;
+        background: var(--bg-surface);
+        border-bottom: 1px solid var(--border-default);
+    }
+
+    @media (min-width: 640px) {
+        .nav-panel {
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-xl);
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .nav-panel {
+            padding: 0.75rem;
+        }
+    }
+
+    .main-panel {
+        width: 100%;
+        background: var(--bg-surface);
+        padding: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+        .main-panel {
+            padding: 2rem;
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-xl);
+        }
+    }
+
+    @media (min-width: 768px) {
+        .main-panel {
+            padding: 2.5rem;
+        }
+    }
+
+    .page-footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+</style>

@@ -4,9 +4,8 @@ This is my personal website.
 A small static site showcasing me and my projects.
 
 Stack:
- - Express
- - Pug
- - Tailwind
+ - Astro
+ - Custom CSS
 
 # Usage
 

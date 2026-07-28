@@ -36,7 +36,7 @@ const projects = [
         title: 'Personal Homepage',
         image: mathiaImg,
         icon: mathiaIcon,
-        tags: ['Astro', 'Tailwind CSS', 'Canvas'],
+        tags: ['Astro', 'Custom CSS', 'Canvas'],
         description: t.projects.homepage,
         github: 'https://github.com/LeTammo/homepage',
     },
@@ -99,19 +99,43 @@ const projects = [
 ---
 
 <Layout title={t.meta.titleProjects} description={t.meta.descriptionProjects} activePage="projects" lang={lang}>
-    <div class="mb-10">
-        <div class="flex items-center gap-4 mb-4">
-            <a href={`/${lang}`} class="block shrink-0 rounded-full border border-zinc-800 overflow-hidden w-14 h-14 md:w-16 md:h-16" transition:name="profile-image" aria-label={t.about.title}>
-                <Image src={meImg} alt="Felix Jonas Wiegleb" width={128} loading="eager" class="w-full h-full object-cover" />
+    <div class="projects-intro">
+        <div class="page-header">
+            <a href={`/${lang}`} class="page-header__avatar" transition:name="profile-image" aria-label={t.about.title}>
+                <Image src={meImg} alt="Felix Jonas Wiegleb" width={128} loading="eager" />
             </a>
-            <h1 class="text-3xl md:text-4xl font-bold text-zinc-200">{t.projects.title}</h1>
+            <h1 class="page-title">{t.projects.title}</h1>
         </div>
-        <p class="text-zinc-400/70 text-base">{t.projects.subtitle}</p>
+        <p class="page-subtitle">{t.projects.subtitle}</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+    <div class="projects-grid">
         {projects.map((project, i) => (
                 <ProjectCard delay={i * 90} {...project}/>
         ))}
     </div>
 </Layout>
+
+<style>
+    .projects-intro {
+        margin-bottom: 2.5rem;
+    }
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+        .projects-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .projects-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+</style>

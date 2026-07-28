@@ -1,0 +1,59 @@
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-faint {
+  color: var(--text-faint);
+}
+
+.text-accent {
+  color: var(--text-accent);
+}
+
+.text-accent-strong {
+  color: var(--text-accent-strong);
+}
+
+.text-accent-muted {
+  color: var(--text-accent-muted);
+}
+
+.bg-surface {
+  background-color: var(--bg-surface);
+}
+
+.shadow-top {
+  box-shadow: var(--shadow-top);
+}
+
+.shadow-bottom {
+  box-shadow: var(--shadow-bottom);
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s ease-out backwards;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

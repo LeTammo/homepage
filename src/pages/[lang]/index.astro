@@ -21,7 +21,15 @@ const t = locales[lang] || en;
     <div>
         <Hero lang={lang} t={t} />
     </div>
-    <div class="mt-10 pt-4 border-t border-zinc-800">
+    <div class="home-skills">
         <SkillsExperience lang={lang} t={t} />
     </div>
 </Layout>
+
+<style>
+    .home-skills {
+        margin-top: 2.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-default);
+    }
+</style>

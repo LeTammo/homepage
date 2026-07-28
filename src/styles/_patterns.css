@@ -1,0 +1,214 @@
+.timeline-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.timeline-heading-icon {
+    color: var(--green-600);
+}
+
+.timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--border-default);
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -1.4rem;
+    margin-top: 0.25rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--bg-surface);
+    background: var(--zinc-650);
+}
+
+.timeline-dot--accent {
+    background: var(--green-600);
+}
+
+.timeline-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.timeline-date {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+.timeline-date--accent {
+    color: var(--green-600);
+}
+
+.timeline-title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-tertiary);
+}
+
+.timeline-subtitle {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+}
+
+.timeline-notes {
+    margin: 0;
+    padding-left: 1rem;
+    padding-top: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    list-style: disc;
+}
+
+.timeline-notes__label {
+    color: var(--text-tertiary);
+    font-weight: 500;
+}
+
+.timeline-link {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color var(--transition-fast);
+}
+
+.timeline-link:hover {
+    color: color-mix(in srgb, var(--green-500) 70%, transparent);
+}
+
+/* Page header — avatar + title row used by the projects & experience pages */
+
+.page-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.page-header__avatar {
+    display: block;
+    flex-shrink: 0;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-default);
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .page-header__avatar {
+        width: 4rem;
+        height: 4rem;
+    }
+}
+
+.page-header__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.page-title {
+    margin: 0;
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+    .page-title {
+        font-size: 2.25rem;
+    }
+}
+
+.page-subtitle {
+    color: var(--text-faint);
+    font-size: 1rem;
+}
+
+/* Error pages — shared between /[lang]/404 and the root redirect-fallback 404 */
+
+.error-page {
+    text-align: center;
+    padding-block: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.error-code {
+    margin: 0;
+    color: var(--text-accent);
+    font-weight: 700;
+    font-size: 2.25rem;
+}
+
+.error-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.error-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+    .error-title {
+        font-size: 1.875rem;
+    }
+}
+
+.error-subtitle {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.error-description {
+    margin: 0;
+    color: var(--text-faint);
+}
+
+.error-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--green-600);
+    color: white;
+    font-weight: 500;
+    border-radius: var(--radius-lg);
+    transition: background-color var(--transition-base);
+}
+
+.error-cta:hover {
+    background: var(--green-500);
+}

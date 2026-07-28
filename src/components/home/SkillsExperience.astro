@@ -8,57 +8,57 @@ const categories = [
     {
         title: {de: 'Softwareentwicklung (Backend)', en: 'Software Development (Backend)'},
         skills: [
-            {abbr: 'PHP', name: 'PHP', detail: '7.4 - 8.x · Symfony', gradient: 'from-cyan-500 to-blue-500'},
-            {abbr: 'J', name: 'Java', detail: 'Spring Boot', gradient: 'from-emerald-500 to-green-600'},
-            {abbr: 'PY', name: 'Python', detail: 'Flask', gradient: 'from-cyan-400 to-cyan-600'},
-            {abbr: 'N', name: 'Node.js', detail: 'Express, REST APIs', gradient: 'from-green-600 to-emerald-700'},
-            {abbr: 'DB', name: {de: 'Datenbanken', en: 'Databases'}, detail: 'MySQL, MariaDB, SQLite', gradient: 'from-indigo-600 to-purple-600'},
-            {abbr: 'API', name: {de: 'Architektur', en: 'Architecture'}, detail: 'REST APIs, OOP', gradient: 'from-slate-500 to-slate-600'},
+            {abbr: 'PHP', name: 'PHP', detail: '7.4 - 8.x · Symfony', from: '#06b6d4', to: '#3b82f6'},
+            {abbr: 'J', name: 'Java', detail: 'Spring Boot', from: '#10b981', to: '#16a34a'},
+            {abbr: 'PY', name: 'Python', detail: 'Flask', from: '#22d3ee', to: '#0891b2'},
+            {abbr: 'N', name: 'Node.js', detail: 'Express, REST APIs', from: '#16a34a', to: '#047857'},
+            {abbr: 'DB', name: {de: 'Datenbanken', en: 'Databases'}, detail: 'MySQL, MariaDB, SQLite', from: '#4f46e5', to: '#9333ea'},
+            {abbr: 'API', name: {de: 'Architektur', en: 'Architecture'}, detail: 'REST APIs, OOP', from: '#64748b', to: '#475569'},
         ],
     },
     {
         title: {de: 'Arbeitsmethodik & KI', en: 'Work methodology & AI'},
         skills: [
             {
-                abbr: 'PM', gradient: 'from-green-600 to-emerald-700',
+                abbr: 'PM', from: '#16a34a', to: '#047857',
                 name: {de: 'Projektmanagement', en: 'Project Management'},
                 detail: {de: 'Kommunikation', en: 'Communication'}
             },
             {
-                abbr: 'AG', gradient: 'from-teal-500 to-cyan-600',
+                abbr: 'AG', from: '#14b8a6', to: '#0891b2',
                 name: {de: 'Agile Methoden', en: 'Agile Methods'},
                 detail: {de: 'Moderation', en: 'Moderation'}
             },
             {
-                abbr: 'M', gradient: 'from-indigo-500 to-blue-600',
+                abbr: 'M', from: '#6366f1', to: '#2563eb',
                 name: {de: 'Mathematik', en: 'Mathematics'},
                 detail: {de: 'Optimierung', en: 'Optimization'}
             },
             {
-                abbr: 'AI', gradient: 'from-pink-500 to-rose-500', name: 'LLM APIs',
+                abbr: 'AI', from: '#ec4899', to: '#f43f5e', name: 'LLM APIs',
                 detail: {de: 'Claude, GPT-Modelle', en: 'Claude, GPT models'}
             },
-            {abbr: 'PE', gradient: 'from-amber-500 to-orange-500', name: 'Prompt Engineering', detail: 'LLM Optimization'},
-            {abbr: 'LLM', gradient: 'from-violet-600 to-fuchsia-600', name: 'On-Premise AI', detail: 'Local LLMs'},
+            {abbr: 'PE', from: '#f59e0b', to: '#f97316', name: 'Prompt Engineering', detail: 'LLM Optimization'},
+            {abbr: 'LLM', from: '#7c3aed', to: '#c026d3', name: 'On-Premise AI', detail: 'Local LLMs'},
         ],
     },
     {
         title: {de: 'Softwareentwicklung (Frontend)', en: 'Software Development (Frontend)'},
         skills: [
-            {abbr: 'JS', gradient: 'from-blue-500 to-blue-600', name: 'JavaScript', detail: 'TypeScript'},
-            {abbr: 'CSS', gradient: 'from-sky-400 to-blue-500', name: 'HTML & CSS', detail: 'Tailwind CSS'},
-            {abbr: 'R', gradient: 'from-violet-500 to-purple-600', name: 'React.js', detail: 'Component-Based'},
-            {abbr: '{ }', gradient: 'from-slate-500 to-slate-600', name: 'Templating', detail: 'Twig, Pug, Handlebars'},
+            {abbr: 'JS', from: '#3b82f6', to: '#2563eb', name: 'JavaScript', detail: 'TypeScript'},
+            {abbr: 'CSS', from: '#38bdf8', to: '#3b82f6', name: 'HTML & CSS', detail: 'Custom CSS'},
+            {abbr: 'R', from: '#8b5cf6', to: '#9333ea', name: 'React.js', detail: 'Component-Based'},
+            {abbr: '{ }', from: '#64748b', to: '#475569', name: 'Templating', detail: 'Twig, Pug, Handlebars'},
         ],
     },
     {
         title: {de: 'DevOps, Hosting & Systeme', en: 'DevOps, Hosting & Systems'},
         skills: [
-            {abbr: 'DC', gradient: 'from-blue-600 to-sky-500', name: 'Docker', detail: 'Containerization'},
-            {abbr: 'NX', gradient: 'from-emerald-500 to-teal-500', name: 'NGINX & DNS', detail: 'Self-Hosting'},
-            {abbr: 'G', gradient: 'from-orange-500 to-red-600', name: 'Git', detail: 'CI/CD, GitHub'},
+            {abbr: 'DC', from: '#2563eb', to: '#0ea5e9', name: 'Docker', detail: 'Containerization'},
+            {abbr: 'NX', from: '#10b981', to: '#14b8a6', name: 'NGINX & DNS', detail: 'Self-Hosting'},
+            {abbr: 'G', from: '#f97316', to: '#dc2626', name: 'Git', detail: 'CI/CD, GitHub'},
             {
-                abbr: 'OS', gradient: 'from-slate-500 to-slate-600',
+                abbr: 'OS', from: '#64748b', to: '#475569',
                 name: {de: 'Betriebssysteme', en: 'Operating Systems'},
                 detail: 'Linux, Windows, macOS'
             },
@@ -66,34 +66,34 @@ const categories = [
     },
 ];
 ---
-<div class="space-y-10">
-    <div class="flex flex-col justify-center sm:flex-row sm:flex-wrap lg:px-[10%] xl:px-0 gap-2 pt-2 animate-fade-up">
+<div class="skills">
+    <div class="skills__soft animate-fade-up">
         {softSkills.map((item) => (
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-zinc-700/50 text-xs text-zinc-400 w-full sm:w-auto min-w-0">
-                <svg class="w-3 h-3 text-green-500 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <span class="soft-skill">
+                <svg class="soft-skill__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                <span class="break-words">{item}</span>
+                <span class="soft-skill__label">{item}</span>
             </span>
         ))}
     </div>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-10">
+    <div class="skills__categories">
         {categories.map((category, i) => (
             <div class="animate-fade-up" style={`animation-delay: ${90 + i * 90}ms`}>
-                <h3 class="text-base font-semibold text-zinc-400 tracking-widest flex items-baseline gap-2 mb-4 pb-2 lg:border-b lg:border-zinc-800">
-                    <span class="text-zinc-600">{String(i + 1).padStart(2, '0')}</span>
+                <h3 class="category-title">
+                    <span class="category-title__index">{String(i + 1).padStart(2, '0')}</span>
                     {L(category.title)}
                 </h3>
-                <div class="grid grid-cols-1 xs:grid-cols-2 gap-2 md:gap-3">
+                <div class="category-grid">
                     {category.skills.map((skill) => (
-                        <div class="group p-2 md:p-3 bg-zinc-800 hover:bg-zinc-700 rounded-lg transition-all hover:shadow-lg">
-                            <div class="flex items-center gap-3 h-full">
-                                <div class={`w-8 h-8 xl:w-10 xl:h-10 bg-linear-to-br ${skill.gradient} rounded-lg flex items-center justify-center text-white font-bold text-sm shrink-0`}>
+                        <div class="skill-card">
+                            <div class="skill-card__inner">
+                                <div class="skill-card__badge" style={`background: linear-gradient(to bottom right, ${skill.from}, ${skill.to})`}>
                                     {skill.abbr}
                                 </div>
-                                <div class="min-w-0">
-                                    <div class="font-semibold text-zinc-200 text-xs xl:text-base">{L(skill.name)}</div>
-                                    {skill.detail && <div class="text-xxs text-zinc-400">{L(skill.detail)}</div>}
+                                <div class="skill-card__text">
+                                    <div class="skill-card__name">{L(skill.name)}</div>
+                                    {skill.detail && <div class="skill-card__detail">{L(skill.detail)}</div>}
                                 </div>
                             </div>
                         </div>
@@ -103,3 +103,188 @@ const categories = [
         ))}
     </div>
 </div>
+
+<style>
+    .skills {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .skills__soft {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
+        padding-top: 0.5rem;
+    }
+
+    @media (min-width: 640px) {
+        .skills__soft {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .skills__soft {
+            padding-inline: 10%;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .skills__soft {
+            padding-inline: 0;
+        }
+    }
+
+    .soft-skill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        width: 100%;
+        min-width: 0;
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--radius-full);
+        border: 1px solid color-mix(in srgb, var(--border-hover) 50%, transparent);
+        font-size: 0.75rem;
+        color: var(--text-tertiary);
+    }
+
+    @media (min-width: 640px) {
+        .soft-skill {
+            width: auto;
+        }
+    }
+
+    .soft-skill__icon {
+        width: 0.75rem;
+        height: 0.75rem;
+        color: var(--text-accent);
+        flex-shrink: 0;
+    }
+
+    .soft-skill__label {
+        overflow-wrap: break-word;
+    }
+
+    .skills__categories {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 2rem;
+        row-gap: 2.5rem;
+    }
+
+    @media (min-width: 1024px) {
+        .skills__categories {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .category-title {
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+        margin: 0 0 1rem;
+        padding-bottom: 0.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        color: var(--text-tertiary);
+    }
+
+    @media (min-width: 1024px) {
+        .category-title {
+            border-bottom: 1px solid var(--border-default);
+        }
+    }
+
+    .category-title__index {
+        color: var(--zinc-650);
+    }
+
+    .category-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    @media (min-width: 400px) {
+        .category-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 768px) {
+        .category-grid {
+            gap: 0.75rem;
+        }
+    }
+
+    .skill-card {
+        padding: 0.5rem;
+        background: var(--bg-surface-hover);
+        border-radius: var(--radius-lg);
+        transition: all var(--transition-base);
+    }
+
+    @media (min-width: 768px) {
+        .skill-card {
+            padding: 0.75rem;
+        }
+    }
+
+    .skill-card:hover {
+        background: var(--border-hover);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .skill-card__inner {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        height: 100%;
+    }
+
+    .skill-card__badge {
+        width: 2rem;
+        height: 2rem;
+        border-radius: var(--radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+        font-size: 0.875rem;
+        flex-shrink: 0;
+    }
+
+    @media (min-width: 1280px) {
+        .skill-card__badge {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+    }
+
+    .skill-card__text {
+        min-width: 0;
+    }
+
+    .skill-card__name {
+        font-weight: 600;
+        color: var(--text-primary);
+        font-size: 0.75rem;
+    }
+
+    @media (min-width: 1280px) {
+        .skill-card__name {
+            font-size: 1rem;
+        }
+    }
+
+    .skill-card__detail {
+        font-size: 0.7rem;
+        line-height: 1rem;
+        color: var(--text-tertiary);
+    }
+</style>
