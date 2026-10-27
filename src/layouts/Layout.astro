@@ -88,22 +88,19 @@ const personSchema = {
                         <Navigation activePage={activePage} lang={lang} t={t} />
                     </div>
                 </aside>
-                <main role="main" class="main-panel">
+                <main class="main-panel">
                     <slot />
                 </main>
             </div>
+            <footer class="page-footer">
+                <Footer lang={lang} t={t} />
+            </footer>
         </div>
-        <footer class="page-footer shadow-top">
-            <Footer lang={lang} t={t} />
-        </footer>
     </body>
 </html>
 
 <style>
     .page-body {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
         margin: 0;
         padding: 0;
         background: linear-gradient(to right, var(--bg-canvas-from), var(--bg-canvas-to));
@@ -111,13 +108,16 @@ const personSchema = {
     }
 
     .page-container {
-        flex-grow: 1;
-        padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+        display: flex;
+        flex-direction: column;
+        min-height: 100dvh;
+        padding-bottom: env(safe-area-inset-bottom);
     }
 
     @media (min-width: 640px) {
         .page-container {
-            padding: 1.5rem 1.5rem calc(4rem + env(safe-area-inset-bottom));
+            gap: 1rem;
+            padding: 1.5rem 1.5rem calc(1.5rem + env(safe-area-inset-bottom));
         }
     }
 
@@ -125,7 +125,7 @@ const personSchema = {
         .page-container {
             max-width: 768px;
             margin-inline: auto;
-            padding: 2.5rem 2.5rem calc(4rem + env(safe-area-inset-bottom));
+            padding: 2.5rem 2.5rem calc(2.5rem + env(safe-area-inset-bottom));
         }
     }
 
@@ -138,23 +138,25 @@ const personSchema = {
     @media (min-width: 1280px) {
         .page-container {
             max-width: 1280px;
-            padding: 5rem 5rem calc(4rem + env(safe-area-inset-bottom));
+            padding: 5rem 5rem calc(2.5rem + env(safe-area-inset-bottom));
         }
     }
 
     @media (min-width: 1540px) {
         .page-container {
-            max-width: 1540px;
+            max-width: 1400px;
         }
     }
 
     .page-inner {
         display: flex;
         flex-direction: column;
+        flex-grow: 1;
     }
 
     .page-aside {
         position: sticky;
+        top: 0;
         z-index: 10;
         width: 100%;
         padding-bottom: 0.75rem;
@@ -163,13 +165,6 @@ const personSchema = {
     @media (min-width: 640px) {
         .page-aside {
             padding-bottom: 1rem;
-            padding-inline: 0;
-        }
-    }
-
-    @media (min-width: 1280px) {
-        .page-aside {
-            top: -0.25rem;
         }
     }
 
@@ -194,6 +189,7 @@ const personSchema = {
     }
 
     .main-panel {
+        flex-grow: 1;
         width: 100%;
         background: var(--bg-surface);
         padding: 1.25rem;
@@ -211,11 +207,5 @@ const personSchema = {
         .main-panel {
             padding: 2.5rem;
         }
-    }
-
-    .page-footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
     }
 </style>

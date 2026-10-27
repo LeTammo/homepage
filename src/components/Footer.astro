@@ -24,15 +24,15 @@ const currentYear = new Date().getFullYear();
         </div>
 
         <div class="footer-anim-group">
-            <button class="footer-anim-btn" title="canvas animation">✦ {t.footer.animation} ✦</button>
-            <div class="footer-anim-popup">
-                <a href="https://github.com/LeTammo/homepage/blob/main/public/js/sketch.js" target="_blank" class="footer-anim-btn">
+            <button type="button" class="footer-anim-btn footer-anim-toggle" title="canvas animation" aria-expanded="false" aria-controls="footer-anim-popup">✦ {t.footer.animation} ✦</button>
+            <div class="footer-anim-popup" id="footer-anim-popup">
+                <a href="https://github.com/LeTammo/homepage/blob/main/public/js/sketch.js" target="_blank" rel="noopener" class="footer-anim-btn">
                     🔗 source
                 </a>
                 <span class="footer-anim-sep">•</span>
-                <button class="footer-anim-btn" onclick="toggleColor()">✨ {t.footer.addColor}</button>
+                <button type="button" class="footer-anim-btn" onclick="toggleColor()">✨ {t.footer.addColor}</button>
                 <span class="footer-anim-sep">•</span>
-                <button class="footer-anim-btn" onclick="toggleSpeed()">🔥 {t.footer.accelerate}</button>
+                <button type="button" class="footer-anim-btn" onclick="toggleSpeed()">🔥 {t.footer.accelerate}</button>
             </div>
         </div>
 
@@ -49,16 +49,32 @@ const currentYear = new Date().getFullYear();
     </div>
 </div>
 
+<script>
+    document.addEventListener('click', (event) => {
+        const toggle = document.querySelector('.footer-anim-toggle');
+        if (!toggle) return;
+        const open = toggle.contains(event.target)
+            ? toggle.getAttribute('aria-expanded') !== 'true'
+            : toggle.parentElement.contains(event.target) && toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(open));
+    });
+</script>
+
 <style>
     .footer-bar {
         background: var(--bg-surface);
         border-top: 1px solid var(--border-default);
     }
 
+    @media (min-width: 640px) {
+        .footer-bar {
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-xl);
+        }
+    }
+
     .footer-inner {
-        width: 100%;
-        margin-inline: auto;
-        padding: 0.75rem 1rem;
+        padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -67,26 +83,7 @@ const currentYear = new Date().getFullYear();
 
     @media (min-width: 640px) {
         .footer-inner {
-            max-width: 640px;
             padding: 0.75rem 1.5rem;
-        }
-    }
-
-    @media (min-width: 768px) {
-        .footer-inner {
-            max-width: 768px;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .footer-inner {
-            max-width: 1024px;
-        }
-    }
-
-    @media (min-width: 1280px) {
-        .footer-inner {
-            max-width: 1280px;
         }
     }
 
@@ -132,14 +129,8 @@ const currentYear = new Date().getFullYear();
 
     .footer-anim-group {
         position: relative;
-        display: none;
+        display: flex;
         align-items: center;
-    }
-
-    @media (min-width: 640px) {
-        .footer-anim-group {
-            display: flex;
-        }
     }
 
     .footer-anim-btn {
@@ -192,8 +183,15 @@ const currentYear = new Date().getFullYear();
         border-top-color: var(--border-hover);
     }
 
-    .footer-anim-group:hover .footer-anim-popup,
-    .footer-anim-group:focus-within .footer-anim-popup {
+    @media (hover: hover) {
+        .footer-anim-group:hover .footer-anim-popup,
+        .footer-anim-group:focus-within .footer-anim-popup {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    .footer-anim-toggle[aria-expanded="true"] + .footer-anim-popup {
         opacity: 1;
         visibility: visible;
     }

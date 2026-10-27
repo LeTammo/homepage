@@ -128,11 +128,25 @@ const { lang, t } = Astro.props;
 
     .hero__avatar-frame {
         position: relative;
+        width: 8rem;
         aspect-ratio: 1 / 1;
         border-radius: var(--radius-xl);
         border: 1px solid var(--border-default);
         overflow: hidden;
         background: var(--bg-surface-sunken);
+    }
+
+    @media (min-width: 640px) {
+        .hero__avatar-frame {
+            width: 12rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .hero__avatar-frame {
+            width: 100%;
+            max-width: 22.125rem;
+        }
     }
 
     .hero__avatar-img {
