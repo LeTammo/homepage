@@ -9,21 +9,19 @@ Stack:
 
 # Usage
 
-**Env variables**
-
-- `PORT` (default: `8080`)
-- `HOST` (default: `0.0.0.0`)
+Requires Node.js 22.12 or newer.
 
 **For development**
 
 ```bash
-npm run watch
-node server.js
+npm install
+npm run dev
 ```
 
 **For production**
 
 ```bash
 npm run build
-node server.js
 ```
+
+The static output in `dist/` is served by nginx, see `deploy/nginx.conf`.
