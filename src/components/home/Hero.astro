@@ -17,29 +17,29 @@ const { lang, t } = Astro.props;
                 Felix Jonas Wiegleb
             </h1>
             <p class="hero__tagline">{t.hero.tagline}</p>
-            <div class="hero__badges">
-                <span class="hero__badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__badge-icon">
+            <ul class="hero__info">
+                <li class="hero__info-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__info-icon">
                         <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
                         <circle cx="12" cy="10" r="3"></circle>
                     </svg>
                     {t.hero.location}
-                </span>
-                <span class="hero__badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__badge-icon">
+                </li>
+                <li class="hero__info-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__info-icon">
                         <rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect>
                         <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                     </svg>
                     {t.hero.role}
-                </span>
-                <span class="hero__badge">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__badge-icon">
-                    <circle cx="12" cy="8" r="5"></circle>
-                    <path d="M20 21a8 8 0 0 0-16 0"></path>
-                </svg>
-                    {t.hero.personality}
-                </span>
-            </div>
+                </li>
+                <li class="hero__info-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__info-icon">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    {t.hero.degree}
+                </li>
+            </ul>
             <div class="hero__description">
                 <p>{t.hero.intro}</p>
             </div>
@@ -126,25 +126,6 @@ const { lang, t } = Astro.props;
         }
     }
 
-    .hero__avatar-link {
-        display: block;
-        position: relative;
-        width: 10rem;
-    }
-
-    @media (min-width: 640px) {
-        .hero__avatar-link {
-            width: 14rem;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .hero__avatar-link {
-            width: 100%;
-            max-width: 22.125rem;
-        }
-    }
-
     .hero__avatar-frame {
         position: relative;
         aspect-ratio: 1 / 1;
@@ -213,32 +194,32 @@ const { lang, t } = Astro.props;
         }
     }
 
-    .hero__badges {
+    .hero__info {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem;
         justify-content: center;
+        gap: 0.375rem 1.25rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 0.875rem;
+        color: var(--text-tertiary);
     }
 
     @media (min-width: 1024px) {
-        .hero__badges {
+        .hero__info {
             justify-content: flex-start;
         }
     }
 
-    .hero__badge {
+    .hero__info-item {
         display: inline-flex;
         align-items: center;
         gap: 0.375rem;
-        padding: 0.25rem 0.75rem;
-        border-radius: var(--radius-full);
-        background: var(--bg-surface-hover-translucent);
-        border: 1px solid color-mix(in srgb, var(--border-hover) 60%, transparent);
-        font-size: 0.75rem;
-        color: var(--text-secondary);
     }
 
-    .hero__badge-icon {
+    .hero__info-icon {
+        flex-shrink: 0;
         color: var(--text-accent);
     }
 

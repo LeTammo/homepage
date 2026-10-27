@@ -24,7 +24,7 @@
     "tagline": "Softwareentwickler, Mathematik-Enthusiast und Hobbyastronom",
     "location": "Leipzig",
     "role": "Fullstack-Entwicklung",
-    "personality": "Fachübergreifende Kommunikation",
+    "degree": "B.Sc. Angewandte Mathematik & Informatik",
     "intro": "Ich habe eine Leidenschaft für neue Technologien und Wissenschaften und möchte Tools erstellen, die einen echten Nutzen haben. Ich lege Fokus auf Clean Code, nachhaltige Dokumentation und eine klare und lösungsorientierte Kommunikation.",
     "btnProjects": "Projekte"
   },
@@ -127,7 +127,7 @@
     "noDegree": "Kein Abschluss",
     "educationSchool": "Fachoberschule Technik",
 
-    "soft1": "Interdisziplinäre Kollaboration",
+    "soft1": "Fachübergreifende Kollaboration",
     "soft2": "Stakeholder-Kommunikation",
     "soft3": "Agiles Mindset",
     "soft4": "Lösungsorientierung",
