@@ -20,7 +20,7 @@ const t = useTranslations(lang);
     <div class="experience-intro">
         <div class="page-header">
             <a href={getRelativeLocaleUrl(lang)} class="page-header__avatar" transition:name="profile-image" aria-label={t.about.title}>
-                <Image src={meImg} alt="Felix Jonas Wiegleb" width={128} loading="eager" />
+                <Image src={meImg} alt="Felix Jonas Wiegleb" width={64} height={64} layout="fixed" loading="eager" />
             </a>
             <h1 class="page-title">{t.about.work}</h1>
         </div>

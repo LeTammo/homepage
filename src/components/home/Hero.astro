@@ -10,7 +10,7 @@ const t = useTranslations(lang);
 <div class="hero">
     <div class="hero__avatar-col">
         <div class="hero__avatar-frame" transition:name="profile-image">
-            <Image src={meImg} alt="Felix Jonas Wiegleb" width={354} densities={[1, 2]} loading="eager" fetchpriority="high" class="hero__avatar-img" />
+            <Image src={meImg} alt="Felix Jonas Wiegleb" width={354} layout="constrained" widths={[256, 384, 576, 708]} sizes="(min-width: 1024px) 354px, (min-width: 640px) 192px, 128px" priority class="hero__avatar-img" />
         </div>
     </div>
 

@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 
 const { title, icon, image, tags, description, github, demo, video, delay = 0 } = Astro.props;
 const primary = demo || github;
+const imageWidths = image && [...new Set([400, 640, 800, 960, 1280].map((w) => Math.min(w, image.width)))];
 ---
 <div class="project-card animate-fade-up" style={`animation-delay: ${delay}ms`}>
     <a href={primary} target="_blank" class="project-card__link" aria-label={title}></a>
@@ -13,7 +14,7 @@ const primary = demo || github;
 
     {image && (
         <div class="project-card__media">
-            <Image src={image} alt="" width={640} loading="lazy" class="project-card__media-img" />
+            <Image src={image} alt="" width={640} layout="constrained" widths={imageWidths} sizes="(min-width: 1280px) 375px, (min-width: 768px) 50vw, calc(100vw - 42px)" class="project-card__media-img" />
         </div>
     )}
 
