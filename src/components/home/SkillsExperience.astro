@@ -1,7 +1,8 @@
 ---
+import { useTranslations } from '../../i18n.js';
 import { categories } from '../../data/skills.js';
 
-const {t} = Astro.props;
+const t = useTranslations(Astro.currentLocale);
 
 const softSkills = [t.about.soft1, t.about.soft2, t.about.soft3, t.about.soft4, t.about.soft5];
 ---

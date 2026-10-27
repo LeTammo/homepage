@@ -1,8 +1,11 @@
 ---
 import { Image } from 'astro:assets';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import meImg from '../../images/me.jpg';
+import { useTranslations } from '../../i18n.js';
 
-const { lang, t } = Astro.props;
+const lang = Astro.currentLocale;
+const t = useTranslations(lang);
 ---
 <div class="hero">
     <div class="hero__avatar-col">
@@ -47,7 +50,7 @@ const { lang, t } = Astro.props;
 
         <div class="hero__actions">
             <div class="hero__button-group">
-                <a href={`/${lang}/projects`} class="hero__btn hero__btn--primary">
+                <a href={getRelativeLocaleUrl(lang, 'projects')} class="hero__btn hero__btn--primary">
                     <span class="hero__btn-label">{t.hero.btnProjects}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__btn-icon">
                         <line x1="5" y1="12" x2="19" y2="12"></line>

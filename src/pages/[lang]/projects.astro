@@ -2,27 +2,23 @@
 import Layout from '../../layouts/Layout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import { Image } from 'astro:assets';
-import en from '../../../locales/en.json';
-import de from '../../../locales/de.json';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLocalePaths, useTranslations } from '../../i18n.js';
 import meImg from '../../images/me.jpg';
 import { projects } from '../../data/projects.js';
 
 export function getStaticPaths() {
-    return [
-        {params: {lang: 'en'}},
-        {params: {lang: 'de'}},
-    ];
+    return getLocalePaths();
 }
 
-const {lang} = Astro.params;
-const locales = {en, de};
-const t = locales[lang] || en;
+const lang = Astro.currentLocale;
+const t = useTranslations(lang);
 ---
 
-<Layout title={t.meta.titleProjects} description={t.meta.descriptionProjects} activePage="projects" lang={lang}>
+<Layout title={t.meta.titleProjects} description={t.meta.descriptionProjects} activePage="projects">
     <div class="projects-intro">
         <div class="page-header">
-            <a href={`/${lang}`} class="page-header__avatar" transition:name="profile-image" aria-label={t.about.title}>
+            <a href={getRelativeLocaleUrl(lang)} class="page-header__avatar" transition:name="profile-image" aria-label={t.about.title}>
                 <Image src={meImg} alt="Felix Jonas Wiegleb" width={128} loading="eager" />
             </a>
             <h1 class="page-title">{t.projects.title}</h1>

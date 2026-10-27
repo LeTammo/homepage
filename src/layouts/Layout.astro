@@ -2,16 +2,13 @@
 import { ClientRouter } from 'astro:transitions';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
-import en from '../../locales/en.json';
-import de from '../../locales/de.json';
+import { getLocalizedPath } from '../i18n.js';
 import '../styles/global.css';
 
-const { title, description, activePage, lang, trackLang = true } = Astro.props;
-const locales = { en, de };
-const t = locales[lang] || en;
+const { title, description, activePage, trackLang = true } = Astro.props;
+const lang = Astro.currentLocale;
 
 const path = Astro.url.pathname;
-const altPath = (targetLang) => path.replace(/^\/(en|de)(?=\/|$)/, `/${targetLang}`);
 const canonicalURL = new URL(path, Astro.site);
 const ogImageURL = new URL('/og-image.jpg', Astro.site);
 const ogLocale = lang === 'de' ? 'de_DE' : 'en_US';
@@ -48,9 +45,9 @@ const personSchema = {
         {description && <meta name="description" content={description} />}
 
         <link rel="canonical" href={canonicalURL} />
-        <link rel="alternate" hreflang="en" href={new URL(altPath('en'), Astro.site)} />
-        <link rel="alternate" hreflang="de" href={new URL(altPath('de'), Astro.site)} />
-        <link rel="alternate" hreflang="x-default" href={new URL(altPath('en'), Astro.site)} />
+        <link rel="alternate" hreflang="en" href={new URL(getLocalizedPath(path, 'en'), Astro.site)} />
+        <link rel="alternate" hreflang="de" href={new URL(getLocalizedPath(path, 'de'), Astro.site)} />
+        <link rel="alternate" hreflang="x-default" href={new URL(getLocalizedPath(path, 'en'), Astro.site)} />
 
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="mathia.xyz" />
@@ -85,7 +82,7 @@ const personSchema = {
             <div class="page-inner">
                 <aside class="page-aside">
                     <div class="nav-panel shadow-bottom">
-                        <Navigation activePage={activePage} lang={lang} t={t} />
+                        <Navigation activePage={activePage} />
                     </div>
                 </aside>
                 <main class="main-panel">
@@ -93,7 +90,7 @@ const personSchema = {
                 </main>
             </div>
             <footer class="page-footer">
-                <Footer lang={lang} t={t} />
+                <Footer />
             </footer>
         </div>
     </body>

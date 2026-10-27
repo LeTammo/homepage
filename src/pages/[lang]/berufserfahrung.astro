@@ -4,26 +4,22 @@ import Education from '../../components/about/Education.astro';
 import Work from '../../components/about/Work.astro';
 import Prework from '../../components/about/Prework.astro';
 import { Image } from 'astro:assets';
-import en from '../../../locales/en.json';
-import de from '../../../locales/de.json';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLocalePaths, useTranslations } from '../../i18n.js';
 import meImg from '../../images/me.jpg';
 
 export function getStaticPaths() {
-    return [
-        {params: {lang: 'en'}},
-        {params: {lang: 'de'}},
-    ];
+    return getLocalePaths();
 }
 
-const {lang} = Astro.params;
-const locales = {en, de};
-const t = locales[lang] || en;
+const lang = Astro.currentLocale;
+const t = useTranslations(lang);
 ---
 
-<Layout title={t.meta.titleExperience} description={t.meta.descriptionExperience} activePage="berufserfahrung" lang={lang}>
+<Layout title={t.meta.titleExperience} description={t.meta.descriptionExperience} activePage="berufserfahrung">
     <div class="experience-intro">
         <div class="page-header">
-            <a href={`/${lang}`} class="page-header__avatar" transition:name="profile-image" aria-label={t.about.title}>
+            <a href={getRelativeLocaleUrl(lang)} class="page-header__avatar" transition:name="profile-image" aria-label={t.about.title}>
                 <Image src={meImg} alt="Felix Jonas Wiegleb" width={128} loading="eager" />
             </a>
             <h1 class="page-title">{t.about.work}</h1>
@@ -32,13 +28,13 @@ const t = locales[lang] || en;
 
     <div class="experience-grid">
         <div>
-            <Education t={t} />
+            <Education />
         </div>
         <div>
-            <Work t={t} />
+            <Work />
         </div>
         <div>
-            <Prework t={t} />
+            <Prework />
         </div>
     </div>
 </Layout>

@@ -1,15 +1,10 @@
 ---
-const { lang, t } = Astro.props;
-const currentPath = Astro.url.pathname;
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLocalizedPath, useTranslations } from '../i18n.js';
 
-const getLangPath = (targetLang) => {
-  const match = currentPath.match(/^\/(en|de)(\/.*)?$/);
-  if (match) {
-    const subpath = match[2] || '';
-    return `/${targetLang}${subpath}`;
-  }
-  return `/${targetLang}${currentPath}`;
-};
+const lang = Astro.currentLocale;
+const t = useTranslations(lang);
+const currentPath = Astro.url.pathname;
 
 const currentYear = new Date().getFullYear();
 ---
@@ -18,7 +13,7 @@ const currentYear = new Date().getFullYear();
         <div class="footer-left">
             <span class="footer-year">© {currentYear}</span>
             <span class="footer-sep">•</span>
-            <a href={`/${lang}/impressum`} class="footer-link">
+            <a href={getRelativeLocaleUrl(lang, 'impressum')} class="footer-link">
                 {t.footer.impressum}
             </a>
         </div>
@@ -42,9 +37,9 @@ const currentYear = new Date().getFullYear();
                 <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
                 <path d="M2 12h20"></path>
             </svg>
-            <a href={getLangPath('de')} hreflang="de" aria-label="Deutsch" aria-current={lang === 'de' ? 'page' : undefined} class={`footer-lang ${lang === 'de' ? 'is-active' : ''}`}>DE</a>
+            <a href={getLocalizedPath(currentPath, 'de')} hreflang="de" aria-label="Deutsch" aria-current={lang === 'de' ? 'page' : undefined} class={`footer-lang ${lang === 'de' ? 'is-active' : ''}`}>DE</a>
             <span class="footer-slash">/</span>
-            <a href={getLangPath('en')} hreflang="en" aria-label="English" aria-current={lang === 'en' ? 'page' : undefined} class={`footer-lang ${lang === 'en' ? 'is-active' : ''}`}>EN</a>
+            <a href={getLocalizedPath(currentPath, 'en')} hreflang="en" aria-label="English" aria-current={lang === 'en' ? 'page' : undefined} class={`footer-lang ${lang === 'en' ? 'is-active' : ''}`}>EN</a>
         </div>
     </div>
 </div>
@@ -52,10 +47,11 @@ const currentYear = new Date().getFullYear();
 <script>
     document.addEventListener('click', (event) => {
         const toggle = document.querySelector('.footer-anim-toggle');
-        if (!toggle) return;
-        const open = toggle.contains(event.target)
+        const target = event.target;
+        if (!toggle || !(target instanceof Node)) return;
+        const open = toggle.contains(target)
             ? toggle.getAttribute('aria-expanded') !== 'true'
-            : toggle.parentElement.contains(event.target) && toggle.getAttribute('aria-expanded') === 'true';
+            : !!toggle.parentElement?.contains(target) && toggle.getAttribute('aria-expanded') === 'true';
         toggle.setAttribute('aria-expanded', String(open));
     });
 </script>

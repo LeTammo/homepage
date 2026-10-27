@@ -1,28 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import en from '../../../locales/en.json';
-import de from '../../../locales/de.json';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLocalePaths, useTranslations } from '../../i18n.js';
 
 export function getStaticPaths() {
-    return [
-        {params: {lang: 'en'}},
-        {params: {lang: 'de'}},
-    ];
+    return getLocalePaths();
 }
 
-const {lang} = Astro.params;
-const locales = {en, de};
-const t = locales[lang] || en;
+const lang = Astro.currentLocale;
+const t = useTranslations(lang);
 ---
 
-<Layout title={`${t.errors.title404} | mathia.xyz`} description={t.errors.description404} lang={lang}>
+<Layout title={`${t.errors.title404} | mathia.xyz`} description={t.errors.description404}>
     <div class="error-page">
         <p class="error-code">404</p>
         <div class="error-block">
             <h1 class="error-title">{t.errors.title404}</h1>
             <p class="error-description">{t.errors.description404}</p>
         </div>
-        <a href={`/${lang}`} class="error-cta">
+        <a href={getRelativeLocaleUrl(lang)} class="error-cta">
             {t.impressum.backHome}
         </a>
     </div>

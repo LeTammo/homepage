@@ -2,27 +2,21 @@
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/home/Hero.astro';
 import SkillsExperience from '../../components/home/SkillsExperience.astro';
-import en from '../../../locales/en.json';
-import de from '../../../locales/de.json';
+import { getLocalePaths, useTranslations } from '../../i18n.js';
 
 export function getStaticPaths() {
-  return [
-    { params: { lang: 'en' } },
-    { params: { lang: 'de' } },
-  ];
+    return getLocalePaths();
 }
 
-const { lang } = Astro.params;
-const locales = { en, de };
-const t = locales[lang] || en;
+const t = useTranslations(Astro.currentLocale);
 ---
 
-<Layout title={t.meta.titleHome} description={t.meta.descriptionHome} activePage="home" lang={lang}>
+<Layout title={t.meta.titleHome} description={t.meta.descriptionHome} activePage="home">
     <div>
-        <Hero lang={lang} t={t} />
+        <Hero />
     </div>
     <div class="home-skills">
-        <SkillsExperience lang={lang} t={t} />
+        <SkillsExperience />
     </div>
 </Layout>
 
